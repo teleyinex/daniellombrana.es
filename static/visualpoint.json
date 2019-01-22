@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Born",
+    "text": "León, Spain",
+    "cover": "baby"
+  },
+  {
+    "title": "Educated",
+    "text": "PhD. Computer Engineer",
+    "cover": "catedral"
+  },
+  {
+    "title": "Based",
+    "text": "Madrid, Spain",
+    "cover": "sol"
+  },
+  {
+    "title": "Career",
+    "text": "CEO & Founder of Scifabric",
+    "cover": "computer"
+  },
+  {
+    "title": "Other Occupations",
+    "text": "Senior researcher at Citizen Cyberlab",
+    "cover": "geneva"
+  },
+  {
+    "title": "Favorite Invention",
+    "text": "The web",
+    "cover": "web"
+  },
+  {
+    "title": "Favorite item of clothing",
+    "text": "Jeans",
+    "cover": "jeans"
+  },
+  {
+    "title": "Favorite song",
+    "text": "Yo soy el desheredado, El Meswy",
+    "cover": "hiphop"
+  },
+  {
+    "title": "Favorite film",
+    "text": "Matrix",
+    "cover": "matrix"
+  },
+  {
+    "title": "Greatest influence",
+    "text": "Richard P. Feynman",
+    "cover": "feynman"
+  },
+  {
+    "title": "Sport",
+    "text": "Running & Pilates",
+    "cover": "running"
+  },
+  {
+    "title": "Greatest Ambition",
+    "text": "Be happy",
+    "cover": "happy"
+  }
+]
