@@ -22,6 +22,7 @@ export default {
   layout: 'page',
   async asyncData({ store, app }) {
     store.commit('setColor', '#27ae60')
+    store.commit('setActive', 'photography')
     store.commit('setCoverImg', '/assets/img/photography/photographyheader.jpg')
     store.commit('setPage', {
       title: 'Photography',

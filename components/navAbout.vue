@@ -10,7 +10,8 @@ export default {
   components: {
     about: () => import(`~/components/nav/about.vue`),
     blog: () => import(`~/components/nav/blog.vue`),
-    projects: () => import(`~/components/nav/projects.vue`)
+    projects: () => import(`~/components/nav/projects.vue`),
+    photography: () => import(`~/components/nav/photography.vue`)
   },
   data() {
     return {
