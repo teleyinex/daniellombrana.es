@@ -269,29 +269,29 @@ export default {
     }
   },
   mounted() {
-    const animDone = localStorage.getItem('anim')
-    let duration = 30
-    let durationAbout = 0
-    let durationBlog = 1000
-    let durationProjects = 2000
-    let durationPhotography = 3000
-    let durationDeco1 = 1000
-    let durationDeco2 = 1000
-    let durationIngeniare = 3000
-    let durationIngenium = 5000
-    let durationEst = 7000
-    if (animDone) {
-      duration = 10
-      durationAbout = 0
-      durationBlog = 0
-      durationProjects = 0
-      durationPhotography = 0
-      durationDeco1 = 0
-      durationDeco2 = 0
-      durationIngeniare = 0
-      durationIngenium = 0
-      durationEst = 0
-    }
+    // const animDone = localStorage.getItem('anim')
+    const duration = 10
+    const durationAbout = 0
+    const durationBlog = 0
+    const durationProjects = 0
+    const durationPhotography = 0
+    const durationDeco1 = 1500
+    const durationDeco2 = 1500
+    const durationIngeniare = 1500
+    const durationIngenium = 1500
+    const durationEst = 1500
+    // if (animDone) {
+    //   duration = 10
+    //   durationAbout = 0
+    //   durationBlog = 0
+    //   durationProjects = 0
+    //   durationPhotography = 0
+    //   durationDeco1 = 0
+    //   durationDeco2 = 0
+    //   durationIngeniare = 0
+    //   durationIngenium = 0
+    //   durationEst = 0
+    // }
     this.menu.about.line = new Vivus('llr', { duration, start: 'manual' })
     this.menu.blog.line = new Vivus('ltb', { duration, start: 'manual' })
     this.menu.projects.line = new Vivus('lrl', {

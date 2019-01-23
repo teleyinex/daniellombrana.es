@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app style="width:100vw; height:100vh; overflow: hidden;">
     <nuxt />
   </v-app>
 </template>
