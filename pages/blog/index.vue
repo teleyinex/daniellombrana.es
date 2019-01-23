@@ -1,7 +1,7 @@
 <template lang="pug">
 v-container(fluid grid-list-xl)
   v-layout(row wrap)
-      template(v-for='(blogpost, idx) in blogposts')
+      template(v-for='(blogpost, idx) in active')
         v-flex(xs12, md6)
           v-card(:key='idx')
             v-img(:src='blogpost.photo', :aspect-ratio='4/3', :srcset="blogpost.photoSrcSet" sizes="(max-width:412px) 400px,  (max-width:768px) 768px, 1040px")
@@ -12,11 +12,43 @@ v-container(fluid grid-list-xl)
             v-card-actions
               v-btn.pa-0(flat, :color="$store.state.color", :href="blogpost.href") Read more
           v-spacer(:key='`space-${idx}`')
+      v-flex(xs12, md6)
+        InfiniteLoading(
+          ref="infiniteLoading" 
+          @infinite="onInfinite")
+            p(slot='no-more') No more blogposts.
+            p(slot='no-results') No more blogposts.
+
 
 </template>
 <script>
+import InfiniteLoading from 'vue-infinite-loading'
 export default {
   layout: 'page',
+  components: {
+    InfiniteLoading
+  },
+  methods: {
+    getRndInteger(min, max) {
+      return Math.floor(Math.random() * (max - min)) + min
+    },
+    onInfinite($state) {
+      const t = this.getRndInteger(900, 1000)
+      setTimeout(() => {
+        this.offset = this.offset + this.limit
+        const slice = this.blogposts.slice(
+          this.offset,
+          this.offset + this.limit - 1
+        )
+        if (slice.length > 0) {
+          this.active = this.active.concat(slice)
+          $state.loaded()
+        } else {
+          $state.complete()
+        }
+      }, t)
+    }
+  },
   async asyncData({ app, store }) {
     store.commit('setActive', 'blog')
     store.commit('setColor', '#2980b9')
@@ -35,7 +67,7 @@ export default {
       phtoSrcSet: coverSrcSet
     })
     const data = await app.$axios.$get('/blogposts.json')
-    const blogposts = []
+    let blogposts = []
     for (const key of Object.keys(data)) {
       const blog = data[key]
       const photo = `/assets/img/blog/${blog.icon}.jpg`
@@ -54,8 +86,12 @@ export default {
       blog.href = href
       blogposts.push(blog)
     }
+    blogposts = blogposts.reverse()
     return {
-      blogposts: blogposts.reverse()
+      blogposts,
+      active: blogposts.slice(0, 4),
+      offset: 0,
+      limit: 5
     }
   }
 }
