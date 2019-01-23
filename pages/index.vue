@@ -269,14 +269,37 @@ export default {
     }
   },
   mounted() {
-    this.menu.about.line = new Vivus('llr', { duration: 30, start: 'manual' })
-    this.menu.blog.line = new Vivus('ltb', { duration: 30, start: 'manual' })
+    const animDone = localStorage.getItem('anim')
+    let duration = 30
+    let durationAbout = 0
+    let durationBlog = 1000
+    let durationProjects = 2000
+    let durationPhotography = 3000
+    let durationDeco1 = 1000
+    let durationDeco2 = 1000
+    let durationIngeniare = 3000
+    let durationIngenium = 5000
+    let durationEst = 7000
+    if (animDone) {
+      duration = 10
+      durationAbout = 0
+      durationBlog = 0
+      durationProjects = 0
+      durationPhotography = 0
+      durationDeco1 = 0
+      durationDeco2 = 0
+      durationIngeniare = 0
+      durationIngenium = 0
+      durationEst = 0
+    }
+    this.menu.about.line = new Vivus('llr', { duration, start: 'manual' })
+    this.menu.blog.line = new Vivus('ltb', { duration, start: 'manual' })
     this.menu.projects.line = new Vivus('lrl', {
-      duration: 30,
+      duration,
       start: 'manual'
     })
     this.menu.photography.line = new Vivus('lbt', {
-      duration: 30,
+      duration,
       start: 'manual'
     })
 
@@ -294,40 +317,40 @@ export default {
 
     this.menu.about.timeoutId = setTimeout(
       this.animate.bind(null, 'about', 'fadeIn'),
-      0
+      durationAbout
     )
     this.menu.blog.timeoutId = setTimeout(
       this.animate.bind(null, 'blog', 'fadeIn'),
-      2000
+      durationBlog
     )
     this.menu.projects.timeoutId = setTimeout(
       this.animate.bind(null, 'projects', 'fadeIn'),
-      4000
+      durationProjects
     )
     this.menu.photography.timeoutId = setTimeout(
       this.animate.bind(null, 'photography', 'fadeIn'),
-      6000
+      durationPhotography
     )
 
     this.menu.deco1.timeoutId = setTimeout(
       this.animate.bind(null, 'deco1', 'snap'),
-      1000
+      durationDeco1
     )
     this.menu.deco2.timeoutId = setTimeout(
       this.animate.bind(null, 'deco2', 'snap'),
-      1000
+      durationDeco2
     )
     this.menu.ingeniare.timeoutId = setTimeout(
       this.animate.bind(null, 'ingeniare', 'snap'),
-      3000
+      durationIngeniare
     )
     this.menu.ingenium.timeoutId = setTimeout(
       this.animate.bind(null, 'ingenium', 'snap'),
-      5000
+      durationIngenium
     )
     this.menu.est.timeoutId = setTimeout(
       this.animate.bind(null, 'est', 'snap'),
-      7000
+      durationEst
     )
   },
   beforeDestroy() {
@@ -346,9 +369,9 @@ export default {
         this.$refs[id].style.visibility = 'visible'
         this.$refs[id].style.position = 'relative'
         this.menu[id].animate = true
-        // $('#' + id).on('animationend', function() {
-        //   menu[id].line.play()
-        // })
+        if (id === 'about') {
+          localStorage.setItem('anim', 'true')
+        }
       } else {
         const tmp = window.Snap.select('#' + id)
         tmp.animate({ opacity: 1 }, 500, window.mina.easeIn)
