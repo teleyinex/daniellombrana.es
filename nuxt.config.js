@@ -85,7 +85,7 @@ module.exports = {
     'short_name': 'Teleyinex',
     'lang': 'en',
     'description': 'My personal website',
-    'theme-color': '#ffffff',
+    'theme_color': '#000000',
     'ogImage': 'https://daniellombrana.es/',
     'ogHost': 'https://daniellombrana.es',
     'ogDescription': 'My personal website'
