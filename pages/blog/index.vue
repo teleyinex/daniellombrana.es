@@ -21,16 +21,23 @@ export default {
     store.commit('setActive', 'blog')
     store.commit('setColor', '#2980b9')
     store.commit('setCoverImg', '/assets/img/blog/blogheader.jpg')
+    const coverSrcSet = `/assets/img/blog/blogheader-phone.jpg 400w,
+       /assets/img/blog/blogheader-tablet.jpg 768w,
+       /assets/img/blog/blogheader.jpg 1040w
+      `
+
     store.commit('setPage', {
       title: 'Blog',
       subTitle:
         'My personal view on crowdsourcing, citizen science and web development.',
-      gradient: 'rgba(0,0,0,0.45), rgba(0,0,0,0.45)'
+      gradient: 'rgba(0,0,0,0.45), rgba(0,0,0,0.45)',
+      sizes: '(max-width:412px) 400px,  (max-width:768px) 768px, 1040px',
+      phtoSrcSet: coverSrcSet
     })
-    const blogposts = await app.$axios.$get('/blogposts.json')
-    console.log(blogposts)
-    for (const key of Object.keys(blogposts)) {
-      const blog = blogposts[key]
+    const data = await app.$axios.$get('/blogposts.json')
+    const blogposts = []
+    for (const key of Object.keys(data)) {
+      const blog = data[key]
       const photo = `/assets/img/blog/${blog.icon}.jpg`
       const photoSrcSet = `/assets/img/blog/${blog.icon}-phone.jpg 400w,
          /assets/img/blog/${blog.icon}-tablet.jpg 768w,
@@ -45,9 +52,10 @@ export default {
       blog.photoSrcSet = photoSrcSet
       blog.photo = photo
       blog.href = href
+      blogposts.push(blog)
     }
     return {
-      blogposts
+      blogposts: blogposts.reverse()
     }
   }
 }

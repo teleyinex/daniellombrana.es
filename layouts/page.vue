@@ -13,6 +13,7 @@
         :aspect-ratio="4/3"
         position="top"
         :srcset="$store.state.page.photoSrcSet"
+        :sizes="$store.state.page.sizes"
         :gradient="$store.state.page.gradient"
         max-height="500px"
       >

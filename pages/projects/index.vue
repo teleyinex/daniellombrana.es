@@ -20,14 +20,22 @@ export default {
     store.commit('setActive', 'projects')
     store.commit('setColor', '#f39c12')
     store.commit('setCoverImg', '/assets/img/project/projectheader.jpg')
+    const coverSrcSet = `/assets/img/project/projectheader-phone.jpg 400w,
+       /assets/img/project/projectheader-tablet.jpg 768w,
+       /assets/img/project/projectheader.jpg 1040w
+      `
+
     store.commit('setPage', {
       title: 'Projects',
       subTitle: 'My crowdsourcing, citizen science and open source projects.',
-      gradient: 'rgba(0,0,0,0.45), rgba(0,0,0,0.45)'
+      gradient: 'rgba(0,0,0,0.45), rgba(0,0,0,0.45)',
+      sizes: '(max-width:412px) 400px,  (max-width:768px) 768px, 1040px',
+      phtoSrcSet: coverSrcSet
     })
-    const projects = await app.$axios.$get('/projects.json')
-    for (const key of Object.keys(projects)) {
-      const project = projects[key]
+    const data = await app.$axios.$get('/projects.json')
+    const projects = []
+    for (const key of Object.keys(data)) {
+      const project = data[key]
       const photo = `/assets/img/project/${project.icon}.jpg`
       const photoSrcSet = `/assets/img/project/${project.icon}-phone.jpg 400w,
          /assets/img/project/${project.icon}-tablet.jpg 768w,
@@ -42,9 +50,10 @@ export default {
       project.photoSrcSet = photoSrcSet
       project.photo = photo
       project.href = href
+      projects.push(project)
     }
     return {
-      projects: projects
+      projects: projects.reverse()
     }
   }
 }

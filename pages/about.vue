@@ -4,7 +4,7 @@
       <div itemscope itemtype="http://schema.org/Person" class="col-sm-12 col-md-8 col-md-offset-2">
         <section class="about">
           <h1>Let's work together</h1>
-          <p>My name is Daniel Lombraña González, and I am a fullstack developer and consultant with experience on crowsourcing projects, frontend and backend development using modern technologies.</p>
+          <p>My name is Daniel Lombraña González, and I am a fullstack developer and consultant with experience on crowsourcing blogs, frontend and backend development using modern technologies.</p>
 
           <p>I design open systems while considering the limitations imposed by practicality, security, and cost. Since 2011, I have been hired by international institutions like CERN, British Museum, British Library, Cancer Research UK, United Nations, Greenpeace Spain, etc.</p>
 
@@ -13,9 +13,9 @@
           <p>My work has helped on assisting in the aftermath of humanitarian disasters (like Typhoon Pablo in the Philippines) by geolocalizing social network datasets in real time. I have supported studying cancer using your web browser, analyzed oil contracts between governments and major companies, or recovered a massive set of archaeological findings of the Bronze Age.</p>
 
           <p>
-            I'm available for hiring for your project. If you are interested, please, <a href="https://calendly.com/scifabric/">
+            I'm available for hiring for your blog. If you are interested, please, <a href="https://calendly.com/scifabric/">
               book an online meeting with me
-            </a> so we can meet online and discuss about your project.
+            </a> so we can meet online and discuss about your blog.
           </p>
 
 
@@ -51,7 +51,7 @@
                 Co-Founder
               </span> and
               <span itemprop="jobTitle">
-                Project Lead
+                blog Lead
               </span>
             </strong> of <span
               itemprop="affiliation"
@@ -106,21 +106,23 @@
     </div>
     <v-layout>
       <v-flex xs12 md6>
-        <template v-for="(point, idx) in visualPoints">
-          <v-card :key="idx" style="margin-bottom: 60px;">
-            <v-img :src="getCover(point.cover)" :aspect-ratio="4/3" />
-            <v-card-title primary-title>
-              <div>
-                <h2 class="mb-0">
-                  {{ point.title }}
-                </h2>
-                <p>{{ point.text }}</p>
-              </div>
-              </v-card-title-primary>
-            </v-card-title>
-          </v-card>
-          <v-spacer :key="`space-${idx}`" />
-        </template> 
+        <v-fade-transition group appear>
+          <template v-for="(point, idx) in visualPoints">
+            <v-card :key="idx" style="margin-bottom: 60px;">
+              <v-img :src="getCover(point.cover)" :aspect-ratio="4/3" />
+              <v-card-title primary-title>
+                <div>
+                  <h2 class="mb-0">
+                    {{ point.title }}
+                  </h2>
+                  <p>{{ point.text }}</p>
+                </div>
+                </v-card-title-primary>
+              </v-card-title>
+            </v-card>
+            <v-spacer :key="`space-${idx}`" />
+          </template>
+        </v-fade-transition>
       </v-flex>
     </v-layout>
   </div>
@@ -138,7 +140,17 @@ export default {
     store.commit('setActive', 'about')
     store.commit('setColor', '#8e44ad')
     store.commit('setCoverImg', '/assets/img/blog/avatar.jpg')
-    store.commit('setPage', { title: null, subTitle: null })
+    const coverSrcSet = `/assets/img/blog/avatar-phone.jpg 400w,
+       /assets/img/blog/avatar-tablet.jpg 768w,
+       /assets/img/blog/avatar.jpg 1040w
+      `
+
+    store.commit('setPage', {
+      title: null,
+      subTitle: null,
+      sizes: '(max-width:412px) 400px,  (max-width:768px) 768px, 1040px',
+      phtoSrcSet: coverSrcSet
+    })
   },
   methods: {
     getCover(url) {
