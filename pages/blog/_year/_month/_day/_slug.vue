@@ -1,32 +1,32 @@
 <template lang="pug">
-  .blogContent(v-html="html")
+  .blogContent(v-html="$md.render(blog.content)")
 </template>
 <script>
 export default {
   layout: 'page',
-  async asyncData({ app, params, store }) {
-    const slug = `${params.year}-${params.month}-${
-      params.day
-    }-${params.slug.replace('.html', '.md')}`
-    const fm = await import(`~/static/blogposts/${slug}`)
-    const photo = `/assets/img/blog/${fm.attributes.icon}.jpg`
-    const photoSrcSet = `/assets/img/blog/${fm.attributes.icon}-phone.jpg 400w,
-       /assets/img/blog/${fm.attributes.icon}-tablet.jpg 768w,
-       /assets/img/blog/${fm.attributes.icon}.jpg 1040w
+  async asyncData({ app, params, store, payload }) {
+    const slug = `${params.year}-${params.month}-${params.day}-${params.slug}`
+    const blogposts = await app.$axios.$get('/blogposts.json')
+    const blog = blogposts[slug]
+    const photo = `/assets/img/blog/${blog.icon}.jpg`
+    const photoSrcSet = `/assets/img/blog/${blog.icon}-phone.jpg 400w,
+       /assets/img/blog/${blog.icon}-tablet.jpg 768w,
+       /assets/img/blog/${blog.icon}.jpg 1040w
       `
     store.commit('setColor', '#2980b9')
     store.commit('setCoverImg', photo)
     store.commit('setPage', {
-      title: fm.attributes.title,
-      photoAuthor: fm.attributes.icon_author,
-      photoUrl: fm.attributes.icon_url,
+      title: blog.title,
+      photoAuthor: blog.icon_author,
+      photoUrl: blog.icon_url,
       photoSrcSet
     })
 
+    blog.content = blog.content.replace('<!--more-->', '')
+    blog.content = blog.content.replace('{: .img-responsive}', '\n')
+
     return {
-      attributes: fm.attributes,
-      body: fm.body,
-      html: fm.html
+      blog
     }
   }
 }

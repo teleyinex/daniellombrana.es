@@ -1,56 +1,29 @@
 const pkg = require('./package')
-const { join } = require('path')
-const dir = require('node-dir')
-const routesArray = []
-const fs = require('fs')
-
+const axios = require('axios')
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 
+let blogposts = require('./static/blogposts.json')
+blogposts = Object.keys(blogposts)
 
-var blogposts = fs.readdirSync('./static/blogposts');
-var projects = fs.readdirSync('./static/projects');
-
-function createRoutesArray() {
-  blogposts.forEach(function (file) {
-      var name = file.substr(0, file.lastIndexOf('.'));
-      var route = '/blog/' + name
-      routesArray.push(route)
-  });
+function blogpostURL(key) {
+  const tmp = key.split('-')
+  const date = tmp.slice(0, 3)
+  const rest = tmp.slice(3)
+  const href = `/blog/${date[0]}/${date[1]}/${date[2]}/${rest.join('-')}`
+  return href
 }
 
-function returnRoutes() {
-  dir.readblogposts('./static/blogposts', {
-        match: /.md$/,
-        shortName: true,
-        exclude: /^\./
-        }, function(err, content, next) {
-            if (err) throw err;
-            // console.log('content:', content);
-            next();
-        },
-        function(err, blogposts){
-            if (err) throw err;
-            // fileNamesArray = [];
-            blogposts.forEach(function (file) {
-                var name = file.substr(0, file.lastIndexOf('.'));
-                var path = '/post/' + name
-                console.log(path)
-                return path
-            });
-        });
-}
+let projects = require('./static/projects.json')
+projects = Object.keys(projects)
 
-function getSlugs(post, index) {
-  let slug = post.substr(0, post.lastIndexOf('.'));
-  return `/blog/${slug}`
+function projectURL(key) {
+  const tmp = key.split('-')
+  const rest = tmp.slice(3)
+  return `/projects/${rest}`
 }
 
 module.exports = {
   mode: 'spa',
-  env: {
-    blogposts,
-    projects
-  },
 
   /*
   ** Headers of the page
@@ -73,9 +46,8 @@ module.exports = {
         rel: 'stylesheet',
         href:
           'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css'
-      },
-      
-    ],
+      }
+    ]
     /* script: [
       {
         src: 'https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js'
@@ -109,13 +81,23 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    // '@nuxtjs/pwa',
+    '@nuxtjs/markdownit'
   ],
+  markdownit: {
+    injected: true,
+    preset: 'default',
+    linkify: true,
+    breaks: true,
+    html: true
+  },
   /*
   ** Axios module configuration
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+    baseURL: '/',
+    browserBaseURL: '/'
   },
 
   /*
@@ -146,11 +128,14 @@ module.exports = {
           test: require.resolve('snapsvg'),
           use: 'imports-loader?this=>window,fix=>module.exports=0'
         })
-        config.module.rules.push({
-          test: /\.md$/,
-          loader: 'frontmatter-markdown-loader'
-        })
       }
     }
+  },
+  generate: {
+    fallback: true,
+    subFolders: true,
+    routes: []
+      .concat(blogposts.map(b => blogpostURL(b)))
+      .concat(projects.map(p => projectURL(p)))
   }
 }

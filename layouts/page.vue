@@ -29,19 +29,18 @@
         </div>
       </v-img>
     </v-fade-transition>
-    <div class="container">
-      <div class="row top50">
-        <div class="col-md-12">
+    <v-container>
+      <v-layout align-center justify-center row fill-height>
+        <v-flex xs12 md7>
           <v-fade-transition>
             <nuxt v-if="show" />
           </v-fade-transition>
-        </div>
-      </div>
-    </div>
-    </div>
-    <v-fade-transition>
-      <v-footer v-if="show" :style="footer" />
-    </v-fade-transition>
+        </v-flex>
+        <v-fade-transition>
+          <v-footer v-if="show" :style="footer" />
+        </v-fade-transition>
+      </v-layout>
+    </v-container>
   </v-app>
 </template>
 <script>

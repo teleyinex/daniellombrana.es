@@ -17,7 +17,7 @@ v-container(fluid grid-list-xl)
 <script>
 export default {
   layout: 'page',
-  async asyncData({ store }) {
+  async asyncData({ app, store }) {
     store.commit('setColor', '#2980b9')
     store.commit('setCoverImg', '/assets/img/blog/blogheader.jpg')
     store.commit('setPage', {
@@ -25,32 +25,24 @@ export default {
       subTitle:
         'My personal view on crowdsourcing, citizen science and web development.'
     })
-    const blogpostsFiles = process.env.blogposts
-    const blogposts = []
-    for (const slug of blogpostsFiles.reverse()) {
-      const fm = await import(`~/static/blogposts/${slug}`)
-      const photo = `/assets/img/blog/${fm.attributes.icon}.jpg`
-      const photoSrcSet = `/assets/img/blog/${
-        fm.attributes.icon
-      }-phone.jpg 400w,
-         /assets/img/blog/${fm.attributes.icon}-tablet.jpg 768w,
-         /assets/img/blog/${fm.attributes.icon}.jpg 1040w
+    const blogposts = await app.$axios.$get('/blogposts.json')
+    console.log(blogposts)
+    for (const key of Object.keys(blogposts)) {
+      const blog = blogposts[key]
+      const photo = `/assets/img/blog/${blog.icon}.jpg`
+      const photoSrcSet = `/assets/img/blog/${blog.icon}-phone.jpg 400w,
+         /assets/img/blog/${blog.icon}-tablet.jpg 768w,
+         /assets/img/blog/${blog.icon}.jpg 1040w
         `
-      const tmp = slug.split('-')
+      const tmp = key.split('-')
       const date = tmp.slice(0, 3)
       const rest = tmp.slice(3)
       let href = `${date[0]}/${date[1]}/${date[2]}/${rest.join('-')}`
       href = href.replace('.md', '.html')
 
-      blogposts.push({
-        title: fm.attributes.title,
-        photoAuthor: fm.attributes.icon_author,
-        photoUrl: fm.attributes.icon_url,
-        photoSrcSet,
-        photo,
-        description: fm.attributes.description,
-        href
-      })
+      blog.photoSrcSet = photoSrcSet
+      blog.photo = photo
+      blog.href = href
     }
     return {
       blogposts

@@ -14,7 +14,13 @@
             <a href="/about/" class="menulink pull-left" @click.prevent="showCurtain('about')">
               About
             </a>
-            <object id="llr" ref="llr" type="image/svg+xml" data="assets/svg/line-left-right.svg" class="line-left-right" />
+            <object
+              id="llr"
+              ref="llr"
+              type="image/svg+xml"
+              data="assets/svg/line-left-right.svg"
+              class="line-left-right"
+            />
           </div>
           <div
             id="blog"
@@ -205,40 +211,42 @@ export default {
           state: 1,
           drawn: false,
           showCurtain: false,
-          animate: false
+          animate: false,
+          timeoutId: null
         },
         blog: {
           line: null,
           state: 1,
           drawn: false,
           showCurtain: false,
-          animate: false
+          animate: false,
+          timeoutId: null
         },
         projects: {
           line: null,
           state: 1,
           drawn: false,
           showCurtain: false,
-          animate: false
+          animate: false,
+          timeoutId: null
         },
         photography: {
           line: null,
           state: 1,
           drawn: false,
           showCurtain: false,
-          animate: false
+          animate: false,
+          timeoutId: null
         },
-        ingeniare: { line: null, state: 1, drawn: false },
-        ingenium: { line: null, state: 1, drawn: false },
-        est: { line: null, state: 1, drawn: false },
-        deco1: { line: null, state: 1, drawn: false },
-        deco2: { line: null, state: 1, drawn: false }
+        ingeniare: { line: null, state: 1, drawn: false, timeoutId: null },
+        ingenium: { line: null, state: 1, drawn: false, timeoutId: null },
+        est: { line: null, state: 1, drawn: false, timeoutId: null },
+        deco1: { line: null, state: 1, drawn: false, timeoutId: null },
+        deco2: { line: null, state: 1, drawn: false, timeoutId: null }
       }
     }
   },
   mounted() {
-    console.log('Menu ready!')
-    // $('.background-home').css('background', 'black')
     this.menu.about.line = new Vivus('llr', { duration: 30, start: 'manual' })
     this.menu.blog.line = new Vivus('ltb', { duration: 30, start: 'manual' })
     this.menu.projects.line = new Vivus('lrl', {
@@ -260,40 +268,54 @@ export default {
           this.menu[id].state = 1
         }
       }
-      // new $('#' + key).on('click', function(evt) {
-      //   const id = $(this).attr('id')
-      //   const link = $(this).data('link')
-      //   showCurtain(id)
-      //   if (menu[id].state === 1) {
-      //     menu[id].line.play(-3)
-      //     menu[id].state = 0
-      //   } else {
-      //     menu[id].line.play()
-      //     menu[id].state = 1
-      //   }
-      //   setTimeout(delayLinkClick.bind(null, id, link), 1000)
-      // })
     }
 
-    // $('.menulink').click(function(evt) {
-    //   evt.preventDefault()
-    // })
+    this.menu.about.timeoutId = setTimeout(
+      this.animate.bind(null, 'about', 'fadeIn'),
+      0
+    )
+    this.menu.blog.timeoutId = setTimeout(
+      this.animate.bind(null, 'blog', 'fadeIn'),
+      2000
+    )
+    this.menu.projects.timeoutId = setTimeout(
+      this.animate.bind(null, 'projects', 'fadeIn'),
+      4000
+    )
+    this.menu.photography.timeoutId = setTimeout(
+      this.animate.bind(null, 'photography', 'fadeIn'),
+      6000
+    )
 
-    setTimeout(this.animate.bind(null, 'about', 'fadeIn'), 0)
-    setTimeout(this.animate.bind(null, 'blog', 'fadeIn'), 2000)
-    setTimeout(this.animate.bind(null, 'projects', 'fadeIn'), 4000)
-    setTimeout(this.animate.bind(null, 'photography', 'fadeIn'), 6000)
-
-    setTimeout(this.animate.bind(null, 'deco1', 'snap'), 1000)
-    setTimeout(this.animate.bind(null, 'deco2', 'snap'), 1000)
-    setTimeout(this.animate.bind(null, 'ingeniare', 'snap'), 3000)
-    setTimeout(this.animate.bind(null, 'ingenium', 'snap'), 5000)
-    setTimeout(this.animate.bind(null, 'est', 'snap'), 7000)
+    this.menu.deco1.timeoutId = setTimeout(
+      this.animate.bind(null, 'deco1', 'snap'),
+      1000
+    )
+    this.menu.deco2.timeoutId = setTimeout(
+      this.animate.bind(null, 'deco2', 'snap'),
+      1000
+    )
+    this.menu.ingeniare.timeoutId = setTimeout(
+      this.animate.bind(null, 'ingeniare', 'snap'),
+      3000
+    )
+    this.menu.ingenium.timeoutId = setTimeout(
+      this.animate.bind(null, 'ingenium', 'snap'),
+      5000
+    )
+    this.menu.est.timeoutId = setTimeout(
+      this.animate.bind(null, 'est', 'snap'),
+      7000
+    )
+  },
+  beforeDestroy() {
+    for (const key of Object.keys(this.menu)) {
+      clearTimeout(this.menu[key].timeoutId)
+    }
   },
   methods: {
     playLine(menu) {
       if (menu.line) {
-        console.log('play line')
         menu.line.play()
       }
     },

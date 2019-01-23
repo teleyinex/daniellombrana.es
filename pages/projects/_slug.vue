@@ -1,32 +1,37 @@
 <template lang="pug">
-  .projectContent(v-html="html")
+  .projectContent(v-html="$md.render(project.content)")
 </template>
 <script>
 export default {
   layout: 'page',
-  async asyncData({ app, params, query, store }) {
-    const slug = `${query.d}-${params.slug.replace('.html', '.md')}`
-    const fm = await import(`~/static/projects/${slug}`)
-    const photo = `/assets/img/project/${fm.attributes.icon}.jpg`
-    const photoSrcSet = `/assets/img/project/${
-      fm.attributes.icon
-    }-phone.jpg 400w,
-       /assets/img/project/${fm.attributes.icon}-tablet.jpg 768w,
-       /assets/img/project/${fm.attributes.icon}.jpg 1040w
+  async asyncData({ app, params, query, store, payload }) {
+    if (payload) {
+      console.log(payload)
+    }
+    const projects = await app.$axios.$get(`/projects.json`)
+    let project = null
+    for (const k of Object.keys(projects)) {
+      if (k.indexOf(params.slug) >= 0) {
+        project = projects[k]
+        break
+      }
+    }
+    const photo = `/assets/img/project/${project.icon}.jpg`
+    const photoSrcSet = `/assets/img/project/${project.icon}-phone.jpg 400w,
+       /assets/img/project/${project.icon}-tablet.jpg 768w,
+       /assets/img/project/${project.icon}.jpg 1040w
       `
-    store.commit('setColor', '#2980b9')
+    store.commit('setColor', '#f39c12')
     store.commit('setCoverImg', photo)
     store.commit('setPage', {
-      title: fm.attributes.title,
-      photoAuthor: fm.attributes.icon_author,
-      photoUrl: fm.attributes.icon_url,
+      title: project.title,
+      photoAuthor: project.icon_author,
+      photoUrl: project.icon_url,
       photoSrcSet
     })
 
     return {
-      attributes: fm.attributes,
-      body: fm.body,
-      html: fm.html
+      project
     }
   }
 }
