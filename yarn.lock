@@ -7106,6 +7106,10 @@ snapsvg@^0.5.1:
   dependencies:
     eve "~0.5.1"
 
+social-media-links@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/social-media-links/-/social-media-links-1.0.2.tgz#20702e4b0387c397bb29659d95b0ebd8ce18fb4c"
+
 source-list-map@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/source-list-map/-/source-list-map-2.0.1.tgz#3993bd873bfc48479cca9ea3a547835c7c154b34"
@@ -8028,7 +8032,7 @@ vue@^2.5.17:
   version "2.5.22"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.22.tgz#3bf88041af08b8539c37b268b70ca79245e9cc30"
 
-vuetify-loader@^1.0.8:
+vuetify-loader@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/vuetify-loader/-/vuetify-loader-1.1.1.tgz#3e3a553c9be038d642092cd87715b5bc10602c6d"
   dependencies:
