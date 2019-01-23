@@ -13,6 +13,7 @@ export default {
        /assets/img/blog/${blog.icon}-tablet.jpg 768w,
        /assets/img/blog/${blog.icon}.jpg 1040w
       `
+    store.commit('setActive', 'blog')
     store.commit('setColor', '#2980b9')
     store.commit('setCoverImg', photo)
     store.commit('setPage', {

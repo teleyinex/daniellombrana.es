@@ -21,6 +21,7 @@ export default {
        /assets/img/project/${project.icon}-tablet.jpg 768w,
        /assets/img/project/${project.icon}.jpg 1040w
       `
+    store.commit('setActive', 'projects')
     store.commit('setColor', '#f39c12')
     store.commit('setCoverImg', photo)
     store.commit('setPage', {

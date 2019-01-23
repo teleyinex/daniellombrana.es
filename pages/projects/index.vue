@@ -17,6 +17,7 @@ v-container(fluid grid-list-xl)
 export default {
   layout: 'page',
   async asyncData({ app, store }) {
+    store.commit('setActive', 'projects')
     store.commit('setColor', '#f39c12')
     store.commit('setCoverImg', '/assets/img/project/projectheader.jpg')
     store.commit('setPage', {

@@ -9,7 +9,8 @@ nav.navbar.navbar-fixed-top(
 export default {
   components: {
     about: () => import(`~/components/nav/about.vue`),
-    blog: () => import(`~/components/nav/blog.vue`)
+    blog: () => import(`~/components/nav/blog.vue`),
+    projects: () => import(`~/components/nav/projects.vue`)
   },
   data() {
     return {
