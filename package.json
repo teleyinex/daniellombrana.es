@@ -5,8 +5,8 @@
   "author": "Daniel Lombraña González",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
+    "dev": "yarn md2json && nuxt",
+    "build": "yarn md2json && nuxt build",
     "md2json": "m2j -c content/blogposts/*.md -o static/blogposts.json && m2j -c content/projects/*.md -o static/projects.json",
     "now-build": "nuxt build --spa",
     "start": "nuxt start",
