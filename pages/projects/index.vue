@@ -1,7 +1,7 @@
 <template lang="pug">
 v-container(fluid grid-list-xl)
   v-layout(row wrap)
-      template(v-for='(project, idx) in projects')
+      template(v-for='(project, idx) in active')
         v-flex(xs12, md6)
           v-card(:key='idx')
             v-img(:src='project.photo', :aspect-ratio='4/3', :srcset="project.photoSrcSet" sizes="(max-width:412px) 400px,  (max-width:768px) 768px, 1040px")
@@ -12,10 +12,46 @@ v-container(fluid grid-list-xl)
             v-card-actions
               v-btn.pa-0(flat, :color="$store.state.color", :href="project.href") Read more
           v-spacer(:key='`space-${idx}`')
+      v-flex(xs12, md6)
+        InfiniteLoading(
+          ref="infiniteLoading" 
+          @infinite="onInfinite")
+            p(slot='no-more') No more projects.
+            p(slot='no-results') No more projects.
+
 </template>
 <script>
+import InfiniteLoading from 'vue-infinite-loading'
 export default {
   layout: 'page',
+  components: {
+    InfiniteLoading
+  },
+  methods: {
+    goTo(link) {
+      this.$store.commit('setShow', false)
+      this.$router.push(link)
+    },
+    getRndInteger(min, max) {
+      return Math.floor(Math.random() * (max - min)) + min
+    },
+    onInfinite($state) {
+      const t = this.getRndInteger(900, 1000)
+      setTimeout(() => {
+        this.offset = this.offset + this.limit
+        const slice = this.projects.slice(
+          this.offset,
+          this.offset + this.limit - 1
+        )
+        if (slice.length > 0) {
+          this.active = this.active.concat(slice)
+          $state.loaded()
+        } else {
+          $state.complete()
+        }
+      }, t)
+    }
+  },
   async asyncData({ app, store }) {
     store.commit('setActive', 'projects')
     store.commit('setColor', '#f39c12')
@@ -33,7 +69,7 @@ export default {
       phtoSrcSet: coverSrcSet
     })
     const data = await app.$axios.$get('/projects.json')
-    const projects = []
+    let projects = []
     for (const key of Object.keys(data)) {
       const project = data[key]
       const photo = `/assets/img/project/${project.icon}.jpg`
@@ -52,8 +88,12 @@ export default {
       project.href = href
       projects.push(project)
     }
+    projects = projects.reverse()
     return {
-      projects: projects.reverse()
+      projects,
+      active: projects.slice(0, 4),
+      offset: 0,
+      limit: 5
     }
   }
 }
