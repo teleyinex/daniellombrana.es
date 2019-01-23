@@ -53,7 +53,6 @@ export default {
       this.$store.commit('setShow', false)
     },
     async showRest(anim) {
-      console.log('hola fin', anim)
       if (anim.animationName.indexOf('grow') >= 0) {
         this.$store.commit('setShow', true)
       } else {

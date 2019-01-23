@@ -185,7 +185,7 @@ export default {
 
         this.quick.animate({ height: 48 }, 500)
 
-        this.internvalId = setInterval(this.loadHeart, 1500)
+        this.internvalId = setInterval(this.loadHeart, 500)
       })
     },
     finish() {
@@ -193,6 +193,7 @@ export default {
       const self = this
       this.quick.animate({ height: 0 }, 500, window.mina.easein, () => {
         self.loading = false
+        self.$store.commit('setShow', true)
       })
     }
   }
@@ -200,13 +201,15 @@ export default {
 </script>
 <style scoped>
 .wrapper {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
   background: white;
-  z-index: 9999;
+  z-index: 10000;
 }
 </style>

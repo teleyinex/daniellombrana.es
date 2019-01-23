@@ -10,7 +10,7 @@ v-container(fluid grid-list-xl)
                 h2.mb-0
                   | {{ blogpost.title }}
             v-card-actions
-              v-btn.pa-0(flat, :color="$store.state.color", :to="blogpost.href", :nuxt="true") Read more
+              v-btn.pa-0(flat, :color="$store.state.color", @click="goTo(blogpost.href)") Read more
           v-spacer(:key='`space-${idx}`')
       v-flex(xs12, md6)
         InfiniteLoading(
@@ -29,6 +29,10 @@ export default {
     InfiniteLoading
   },
   methods: {
+    goTo(link) {
+      this.$store.commit('setShow', false)
+      this.$router.push(link)
+    },
     getRndInteger(min, max) {
       return Math.floor(Math.random() * (max - min)) + min
     },

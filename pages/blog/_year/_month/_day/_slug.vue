@@ -38,6 +38,7 @@ code {
   display: flex;
   padding: 15px;
   margin-bottom: 64px;
+  overflow: scroll;
 }
 .blogContent > p > img {
   display: block;

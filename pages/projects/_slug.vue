@@ -4,10 +4,7 @@
 <script>
 export default {
   layout: 'page',
-  async asyncData({ app, params, query, store, payload }) {
-    if (payload) {
-      console.log(payload)
-    }
+  async asyncData({ app, params, query, store }) {
     const projects = await app.$axios.$get(`/projects.json`)
     let project = null
     for (const k of Object.keys(projects)) {
@@ -43,6 +40,7 @@ code {
   display: flex;
   padding: 15px;
   margin-bottom: 64px;
+  overflow: scroll;
 }
 .projectContent > p > img {
   display: block;
