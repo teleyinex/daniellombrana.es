@@ -386,6 +386,9 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+@import '~animate.css';
+</style>
 <style lang="scss" scoped>
 .background-home {
   background: black;
