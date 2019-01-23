@@ -8,7 +8,7 @@
     "dev": "yarn md2json && nuxt",
     "build": "yarn md2json && nuxt build",
     "md2json": "m2j -c content/blogposts/*.md -o static/blogposts.json && m2j -c content/projects/*.md -o static/projects.json",
-    "now-build": "nuxt build --spa",
+    "now-build": "yarn build",
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
