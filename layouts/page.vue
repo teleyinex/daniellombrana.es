@@ -2,7 +2,7 @@
   <v-app>
     <div id="page" class="hideonload">
       <div class="navbarContainer">
-        <navAbout />
+        <navGen />
       </div>
     </div>
     <v-fade-transition>
@@ -46,7 +46,7 @@
 <script>
 export default {
   components: {
-    navAbout: () => import('~/components/navAbout.vue')
+    navGen: () => import('~/components/nav.vue')
   },
   computed: {
     footer() {
