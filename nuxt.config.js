@@ -36,12 +36,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      {
-        rel: 'stylesheet',
-        href:
-          'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css'
-      }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
 
@@ -90,7 +85,7 @@ module.exports = {
     'short_name': 'Teleyinex',
     'lang': 'en',
     'description': 'My personal website',
-    'theme_color': '#ffffff',
+    'theme-color': '#ffffff',
     'ogImage': 'https://daniellombrana.es/',
     'ogHost': 'https://daniellombrana.es',
     'ogDescription': 'My personal website'
