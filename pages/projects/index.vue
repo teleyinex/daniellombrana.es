@@ -21,7 +21,8 @@ export default {
     store.commit('setCoverImg', '/assets/img/project/projectheader.jpg')
     store.commit('setPage', {
       title: 'Projects',
-      subTitle: 'My crowdsourcing, citizen science and open source projects.'
+      subTitle: 'My crowdsourcing, citizen science and open source projects.',
+      gradient: 'rgba(0,0,0,0.45), rgba(0,0,0,0.45)'
     })
     const projects = await app.$axios.$get('/projects.json')
     for (const key of Object.keys(projects)) {

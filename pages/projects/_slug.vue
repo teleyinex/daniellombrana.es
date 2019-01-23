@@ -27,7 +27,8 @@ export default {
       title: project.title,
       photoAuthor: project.icon_author,
       photoUrl: project.icon_url,
-      photoSrcSet
+      photoSrcSet,
+      gradient: 'rgba(0,0,0,0.45), rgba(0,0,0,0.45)'
     })
 
     return {

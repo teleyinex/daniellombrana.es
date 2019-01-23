@@ -1,20 +1,20 @@
 <template lang="pug">
-nav.navbar.navbar-fixed-top(:class="navbarClass", @animationend="showRest", :style="currentStyle")
-  v-btn#closebtn(flat='', icon='', @click="goBack")
-    v-icon(color='white')
-        | mdi-arrow-left
-  component(v-bind:is="currentIcons")
+nav.navbar.navbar-fixed-top(
+  :class="navbarClass", 
+  @animationend="showRest",
+  :style="currentStyle")
+  component(v-bind:is="$store.state.active", :close.sync="close" @hideContent="hideContent")
 </template>
 <script>
 export default {
   components: {
-    about: () => import(`~/components/nav/about.vue`)
+    about: () => import(`~/components/nav/about.vue`),
+    blog: () => import(`~/components/nav/blog.vue`)
   },
   data() {
     return {
       close: false,
-      open: false,
-      showContent: false
+      open: false
     }
   },
   computed: {
@@ -42,18 +42,16 @@ export default {
     }, 250)
   },
   methods: {
-    showRest() {
-      if (!this.showContent) {
-        this.$emit('navbarLoaded')
-        this.showContent = true
-      }
+    hideContent() {
+      this.$store.commit('setShow', false)
     },
-    goBack() {
-      this.close = true
-      this.$emit('navbarHidden')
-      setTimeout(() => {
+    showRest(anim) {
+      if (anim.animationName.indexOf('grow') >= 0) {
+        this.$store.commit('setShow', true)
+      } else {
+        this.$store.commit('setShow', false)
         this.$router.go(-1)
-      }, 800)
+      }
     }
   }
 }
@@ -94,18 +92,22 @@ export default {
 @keyframes grow {
   0% {
     width: 0%;
+    padding: 0 0px;
   }
   100% {
     width: 100%;
+    padding: 0 15px;
   }
 }
 
 @keyframes shrink {
   0% {
     width: 100%;
+    padding: 0 15px;
   }
   100% {
     width: 0%;
+    padding: 0 0px;
   }
 }
 </style>

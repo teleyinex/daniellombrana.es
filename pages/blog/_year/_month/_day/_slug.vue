@@ -19,7 +19,8 @@ export default {
       title: blog.title,
       photoAuthor: blog.icon_author,
       photoUrl: blog.icon_url,
-      photoSrcSet
+      photoSrcSet,
+      gradient: 'rgba(0,0,0,0.45), rgba(0,0,0,0.45)'
     })
 
     blog.content = blog.content.replace('<!--more-->', '')

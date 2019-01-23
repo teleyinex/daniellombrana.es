@@ -1,5 +1,8 @@
 <template lang="pug">
   .icons
+    v-btn#closebtn(flat='', icon='', @click="goBack")
+      v-icon(color='white')
+          | mdi-arrow-left
     v-btn(icon='', flat='', href='https://www.linkedin.com/in/teleyinex')
       v-icon(color='white')
         | mdi-linkedin
@@ -14,7 +17,10 @@
         | mdi-instagram
 </template>
 <script>
-export default {}
+import nav from '~/mixins/nav.js'
+export default {
+  mixins: [nav]
+}
 </script>
 <style lang="scss" scoped>
 .icons {

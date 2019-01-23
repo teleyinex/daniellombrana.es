@@ -18,12 +18,14 @@ v-container(fluid grid-list-xl)
 export default {
   layout: 'page',
   async asyncData({ app, store }) {
+    store.commit('setActive', 'blog')
     store.commit('setColor', '#2980b9')
     store.commit('setCoverImg', '/assets/img/blog/blogheader.jpg')
     store.commit('setPage', {
       title: 'Blog',
       subTitle:
-        'My personal view on crowdsourcing, citizen science and web development.'
+        'My personal view on crowdsourcing, citizen science and web development.',
+      gradient: 'rgba(0,0,0,0.45), rgba(0,0,0,0.45)'
     })
     const blogposts = await app.$axios.$get('/blogposts.json')
     console.log(blogposts)

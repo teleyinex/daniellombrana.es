@@ -2,18 +2,18 @@
   <v-app>
     <div id="page" class="hideonload">
       <div class="navbarContainer">
-        <navAbout v-if="$store.state.active === 'about'" @navbarLoaded="showContent" @navbarHidden="hideContent" />
+        <navAbout />
       </div>
     </div>
     <v-fade-transition>
       <v-img
-        v-if="show"
+        v-if="$store.state.show"
         cover
         :src="$store.state.heroImg"
         :aspect-ratio="4/3"
         position="top"
         :srcset="$store.state.page.photoSrcSet"
-        gradient="rgba(0,0,0,0.45), rgba(0,0,0,0.45)"
+        :gradient="$store.state.page.gradient"
         max-height="500px"
       >
         <div class="headlines">
@@ -33,11 +33,11 @@
       <v-layout align-center justify-center row fill-height>
         <v-flex xs12 md7>
           <v-fade-transition>
-            <nuxt v-if="show" />
+            <nuxt v-if="$store.state.show" />
           </v-fade-transition>
         </v-flex>
         <v-fade-transition>
-          <v-footer v-if="show" :style="footer" />
+          <v-footer v-if="$store.state.show" :style="footer" />
         </v-fade-transition>
       </v-layout>
     </v-container>
@@ -48,15 +48,6 @@ export default {
   components: {
     navAbout: () => import('~/components/navAbout.vue')
   },
-  data() {
-    return {
-      show: false,
-      page: {
-        title: 'hola',
-        meta_description: 'adios'
-      }
-    }
-  },
   computed: {
     footer() {
       return {
@@ -64,14 +55,6 @@ export default {
         'min-height': '4px',
         height: '4px'
       }
-    }
-  },
-  methods: {
-    showContent() {
-      this.show = true
-    },
-    hideContent() {
-      this.show = false
     }
   }
 }

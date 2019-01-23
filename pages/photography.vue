@@ -25,7 +25,8 @@ export default {
     store.commit('setCoverImg', '/assets/img/photography/photographyheader.jpg')
     store.commit('setPage', {
       title: 'Photography',
-      subTitle: 'My collection of photos'
+      subTitle: 'My collection of photos',
+      gradient: 'rgba(0,0,0,0.45), rgba(0,0,0,0.45)'
     })
     const url = 'https://api.unsplash.com/users/teleyinex/photos'
     const payload = {
