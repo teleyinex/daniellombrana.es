@@ -3,14 +3,14 @@ v-container(fluid grid-list-xl)
   v-layout(row wrap)
       template(v-for='(blogpost, idx) in active')
         v-flex(xs12, md6)
-          v-card(:key='idx')
+          v-card(:key='idx', :hover="true")
             v-img(:src='blogpost.photo', :aspect-ratio='4/3', :srcset="blogpost.photoSrcSet" sizes="(max-width:412px) 400px,  (max-width:768px) 768px, 1040px")
             v-card-title(primary-title)
               .contentCard
                 h2.mb-0
                   | {{ blogpost.title }}
             v-card-actions
-              v-btn.pa-0(flat, :color="$store.state.color", :href="blogpost.href") Read more
+              v-btn.pa-0(flat, :color="$store.state.color", :to="blogpost.href", :nuxt="true") Read more
           v-spacer(:key='`space-${idx}`')
       v-flex(xs12, md6)
         InfiniteLoading(

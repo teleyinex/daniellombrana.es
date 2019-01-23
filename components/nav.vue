@@ -39,20 +39,27 @@ export default {
     }
   },
   mounted() {
-    setTimeout(() => {
-      this.open = true
-    }, 250)
+    this.openNav()
   },
   methods: {
+    openNav() {
+      this.close = false
+      this.open = false
+      setTimeout(() => {
+        this.open = true
+      }, 250)
+    },
     hideContent() {
       this.$store.commit('setShow', false)
     },
-    showRest(anim) {
+    async showRest(anim) {
+      console.log('hola fin', anim)
       if (anim.animationName.indexOf('grow') >= 0) {
         this.$store.commit('setShow', true)
       } else {
         this.$store.commit('setShow', false)
-        this.$router.go(-1)
+        this.openNav()
+        await this.$router.go(-1)
       }
     }
   }

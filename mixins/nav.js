@@ -9,7 +9,7 @@ export default {
   methods: {
     goBack() {
       this.$emit('update:close', true)
-      this.$store.commit('setShow', false)
+      // this.$store.commit('setShow', false)
     }
   }
 }
