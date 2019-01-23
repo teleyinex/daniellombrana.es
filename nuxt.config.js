@@ -82,8 +82,12 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxtjs/markdownit'
+    '@nuxtjs/markdownit',
+    '@nuxtjs/google-analytics'
   ],
+  'google-analytics': {
+    id: 'UA-36769710-1'
+  },
   markdownit: {
     injected: true,
     preset: 'default',
