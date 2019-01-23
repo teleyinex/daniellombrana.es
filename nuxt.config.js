@@ -81,7 +81,7 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    // '@nuxtjs/pwa',
+    '@nuxtjs/pwa',
     '@nuxtjs/markdownit'
   ],
   markdownit: {
@@ -90,6 +90,16 @@ module.exports = {
     linkify: true,
     breaks: true,
     html: true
+  },
+  manifest: {
+    'name': 'Daniel Lombraña',
+    'short_name': 'Teleyinex',
+    'lang': 'en',
+    'description': 'My personal website',
+    'theme_color': '#ffffff',
+    'ogImage': 'https://daniellombrana.es/',
+    'ogHost': 'https://daniellombrana.es',
+    'ogDescription': 'My personal website'
   },
   /*
   ** Axios module configuration

@@ -17,6 +17,7 @@
             <object
               id="llr"
               ref="llr"
+              alt="Line from left to right"
               type="image/svg+xml"
               data="assets/svg/line-left-right.svg"
               class="line-left-right"
@@ -32,7 +33,14 @@
             <a href="/blog/" class="menulink pull-right" @click.prevent="showCurtain('blog')">
               Blog
             </a>
-            <object id="ltb" ref="ltb" type="image/svg+xml" data="assets/svg/line-top-bottom.svg" class="line-top-bottom" />
+            <object
+              id="ltb"
+              ref="ltb"
+              alt="Line from top to bottom"
+              type="image/svg+xml"
+              data="assets/svg/line-top-bottom.svg"
+              class="line-top-bottom"
+            />
           </div>
         </div>
       </div>
@@ -175,7 +183,14 @@
             <a href="/photography/" class="menulink pull-left" @click.prevent="showCurtain('photography')">
               Photos
             </a>
-            <object id="lbt" ref="lbt" type="image/svg+xml" data="assets/svg/line-bottom-top.svg" class="line-bottom-top" />
+            <object
+              id="lbt"
+              ref="lbt"
+              alt="Line from bottom to top"
+              type="image/svg+xml"
+              data="assets/svg/line-bottom-top.svg"
+              class="line-bottom-top"
+            />
           </div>
           <div
             id="projects"
@@ -187,7 +202,14 @@
             <a href="/projects/" class="menulink pull-right" @click.prevent="showCurtain('projects')">
               Projects
             </a>
-            <object id="lrl" ref="lrl" type="image/svg+xml" data="assets/svg/line-right-left.svg" class="line-right-left" />
+            <object
+              id="lrl"
+              ref="lrl"
+              line="Line from right to left"
+              type="image/svg+xml"
+              data="assets/svg/line-right-left.svg"
+              class="line-right-left"
+            />
           </div>
         </div>
       </div>
@@ -345,6 +367,7 @@ export default {
 .background-home {
   background: black;
   height: 100vh;
+  overflow: hidden;
   color: white;
   font-family: 'Text Me One', sans-serif;
   font-weight: bold;
