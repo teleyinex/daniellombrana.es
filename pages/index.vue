@@ -375,7 +375,7 @@ export default {
   },
   methods: {
     getWindowWidth() {
-      if (window.innerWidth >= 1200) {
+      if (window.innerWidth > 1280) {
         this.desktop = true
       } else {
         this.desktop = false
