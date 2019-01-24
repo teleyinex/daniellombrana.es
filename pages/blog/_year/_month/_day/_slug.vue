@@ -45,4 +45,21 @@ code {
   max-width: 100%;
   height: auto;
 }
+
+$color: #2980b9;
+
+.blogContent a,
+.blogContent > a,
+.blogContent > p > a {
+  text-decoration: none;
+  border-bottom: 1px solid $color;
+  box-shadow: inset 0 -4px 0 $color;
+  transition: background 0.15s cubic-bezier(0.33, 0.66, 0.66, 1);
+}
+
+.blogContent a:hover,
+.blogContent > a:hover,
+.blogContent > p > a:hover {
+  background: $color;
+}
 </style>

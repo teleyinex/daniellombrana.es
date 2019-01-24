@@ -199,17 +199,21 @@ $about-color: #8e44ad;
   }
 }
 
-.about a {
-  color: $about-color;
-  text-decoration: underline;
+$color: $about-color;
+
+.about a,
+.about > a,
+.about > p > a {
+  text-decoration: none;
+  border-bottom: 1px solid $color;
+  box-shadow: inset 0 -4px 0 $color;
+  transition: background 0.15s cubic-bezier(0.33, 0.66, 0.66, 1);
 }
 
-.about li:before {
-  color: $about-color;
-}
-
-.about strong {
-  color: $about-color;
+.about a:hover,
+.about > a:hover,
+.about > p > a:hover {
+  background: $color;
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {

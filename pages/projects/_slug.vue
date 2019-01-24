@@ -47,4 +47,21 @@ code {
   max-width: 100%;
   height: auto;
 }
+
+$color: #f39c12;
+
+.projectContent a,
+.projectContent > a,
+.projectContent > p > a {
+  text-decoration: none;
+  border-bottom: 1px solid $color;
+  box-shadow: inset 0 -4px 0 $color;
+  transition: background 0.15s cubic-bezier(0.33, 0.66, 0.66, 1);
+}
+
+.projectContent a:hover,
+.projectContent > a:hover,
+.projectContent > p > a:hover {
+  background: $color;
+}
 </style>
