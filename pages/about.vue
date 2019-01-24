@@ -1,118 +1,117 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div itemscope itemtype="http://schema.org/Person" class="col-sm-12 col-md-8 col-md-offset-2">
-        <section class="about">
-          <h1>Let's work together</h1>
-          <p>My name is Daniel Lombraña González, and I am a fullstack developer and consultant with experience on crowsourcing blogs, frontend and backend development using modern technologies.</p>
+  <v-container fluid grid-list-xl>
+    <v-layout align-center justify-center row fill-heigh>
+      <v-flex xs12 md10>
+        <div itemscope itemtype="http://schema.org/Person">
+          <section class="about">
+            <h1>Let's work together</h1>
+            <p>My name is Daniel Lombraña González, and I am a fullstack developer and consultant with experience on crowsourcing projects, frontend and backend development using modern technologies.</p>
 
-          <p>I design open systems while considering the limitations imposed by practicality, security, and cost. Since 2011, I have been hired by international institutions like CERN, British Museum, British Library, Cancer Research UK, United Nations, Greenpeace Spain, etc.</p>
+            <p>I design open systems while considering the limitations imposed by practicality, security, and cost. Since 2011, I have been hired by international institutions like CERN, British Museum, British Library, Cancer Research UK, United Nations, Greenpeace Spain, etc.</p>
 
-          <p>I'm a senior developer with more than 10 years working with modern technologies like Python, PostgreSQL, Redis, Vue.js, Nuxt, Sass, Stylus, etc.</p>
+            <p>I'm a senior developer with more than 10 years working with modern technologies like Python, PostgreSQL, Redis, Vue.js, Nuxt, Sass, Stylus, etc.</p>
 
-          <p>My work has helped on assisting in the aftermath of humanitarian disasters (like Typhoon Pablo in the Philippines) by geolocalizing social network datasets in real time. I have supported studying cancer using your web browser, analyzed oil contracts between governments and major companies, or recovered a massive set of archaeological findings of the Bronze Age.</p>
+            <p>My work has helped on assisting in the aftermath of humanitarian disasters (like Typhoon Pablo in the Philippines) by geolocalizing social network datasets in real time. I have supported studying cancer using your web browser, analyzed oil contracts between governments and major companies, or recovered a massive set of archaeological findings of the Bronze Age.</p>
 
-          <p>
-            I'm available for hiring for your blog. If you are interested, please, <a href="https://calendly.com/scifabric/">
-              book an online meeting with me
-            </a> so we can meet online and discuss about your blog.
-          </p>
+            <p>
+              I'm available for hiring for your project. If you are interested, please, <a href="https://calendly.com/scifabric/">
+                book an online meeting with me
+              </a> so we can meet online and discuss about your project.
+            </p>
 
 
-          <h2>In summary</h2>
-          <h3>From a boring point of view</h3>
-          <p>
-            I'm a <span itemprop="jobTitle">
-              computer engineer
-            </span> by training and I have a <span itemprop="honorificSuffix">
-              PhD
-            </span> on Parallel Genetic Programming on Volunteer Desktop Grids.
-          </p> 
-          <h3>From an interesting point of view</h3>
-          <p>
-            I'm the <strong>
-              <span itemprop="jobTitle">
-                Founder
-              </span>
-            </strong> and <strong>
-              <span itemprop="jobTitle">
-                CEO
-              </span>
-            </strong> of 
-            <span itemprop="affiliation" itemscope itemtype="http://schema.org/Organization">
-              <a href="http://scifabric.com" itemprop="url">
-                <strong>Scifabric</strong>
-              </a>
-            </span>.
-          </p>
-          <p>
-            I'm the <strong>
-              <span itemprop="jobTitle">
-                Co-Founder
-              </span> and
-              <span itemprop="jobTitle">
-                tech Lead
-              </span>
-            </strong> of <span
-              itemprop="affiliation"
-              itemscope
-              itemtype="http://schema.org/Organization"
-            >
-              <a
-                itemprop="url"
-                href="http://pybossa.com"
-              >
-                PYBOSSA
-              </a>
-            </span> and <span itemprop="affiliation" itemscope itemtype="http://schema.org/Organization">
-              <a itemprop="url" href="http://crowdcrafting.org">
-                Crowdcrafting
-              </a>
-            </span>.
-          </p>
-
-          <p>
-            I'm an <strong>
-              <span itemprop="jobTitle">
-                alumni
-              </span>
-            </strong> of the 
-            <span itemprop="affiliation" itemscope itemtype="http://schema.org/Organization">
-              <a itemprop="url" href="http://www.shuttleworthfoundation.org/">
-                <span itemprop="name">
-                  Shuttleworth Foundation
+            <h2>In summary</h2>
+            <h3>From a boring point of view</h3>
+            <p>
+              I'm a <span itemprop="jobTitle">
+                computer engineer
+              </span> by training and I have a <span itemprop="honorificSuffix">
+                PhD
+              </span> on Parallel Genetic Programming on Volunteer Desktop Grids.
+            </p> 
+            <h3>From an interesting point of view</h3>
+            <p>
+              I'm the <strong>
+                <span itemprop="jobTitle">
+                  Founder
                 </span>
-              </a>.
-            </span>
-          </p>
+              </strong> and <strong>
+                <span itemprop="jobTitle">
+                  CEO
+                </span>
+              </strong> of 
+              <span itemprop="affiliation" itemscope itemtype="http://schema.org/Organization">
+                <a href="http://scifabric.com" itemprop="url">
+                  <strong>Scifabric</strong>
+                </a>
+              </span>.
+            </p>
+            <p>
+              I'm the <strong>
+                <span itemprop="jobTitle">
+                  Co-Founder
+                </span> and
+                <span itemprop="jobTitle">
+                  Project Lead
+                </span>
+              </strong> of <span
+                itemprop="affiliation"
+                itemscope
+                itemtype="http://schema.org/Organization"
+              >
+                <a
+                  itemprop="url"
+                  href="http://pybossa.com"
+                >
+                  PYBOSSA
+                </a>
+              </span> and <span itemprop="affiliation" itemscope itemtype="http://schema.org/Organization">
+                <a itemprop="url" href="http://crowdcrafting.org">
+                  Crowdcrafting
+                </a>
+              </span>.
+            </p>
 
-          <h2>From a visual point of view</h2>
-        </section>
-      </div>
-      </section>
-    </div>
-    <v-layout>
-      <v-flex xs12 md6>
-        <v-fade-transition group appear>
-          <template v-for="(point, idx) in visualPoints">
-            <v-card :key="idx" style="margin-bottom: 60px;">
-              <v-img :src="getCover(point.cover)" :aspect-ratio="4/3" />
-              <v-card-title primary-title>
-                <div>
-                  <h2 class="mb-0">
-                    {{ point.title }}
-                  </h2>
-                  <p>{{ point.text }}</p>
-                </div>
-                </v-card-title-primary>
-              </v-card-title>
-            </v-card>
-            <v-spacer :key="`space-${idx}`" />
-          </template>
-        </v-fade-transition>
+            <p>
+              I'm an <strong>
+                <span itemprop="jobTitle">
+                  alumni
+                </span>
+              </strong> of the 
+              <span itemprop="affiliation" itemscope itemtype="http://schema.org/Organization">
+                <a itemprop="url" href="http://www.shuttleworthfoundation.org/">
+                  <span itemprop="name">
+                    Shuttleworth Foundation
+                  </span>
+                </a>.
+              </span>
+            </p>
+            <h2>From a visual point of view</h2>
+          </section>
+        </div>
       </v-flex>
     </v-layout>
-  </div>
+    <v-layout row wrap>
+      <template v-for="(point, idx) in visualPoints">
+        <v-flex :key="idx" xs12, md6>
+          <v-card>
+            <v-img
+              :src="getCover(point.cover)"
+              :aspect-ratio="4/3"
+            />
+            <v-card-title primary-title>
+              <div class="contentCard">
+                <h2 class="mb-0">
+                  {{ point.title }}
+                </h2>
+                <p>{{ point.text }}</p>
+              </div>
+            </v-card-title>
+          </v-card>
+        </v-flex>
+      </template>
+    </v-layout>
+  </v-container>
 </template>
 <script>
 import visualPoints from '~/static/visualpoint.json'
@@ -223,5 +222,8 @@ $about-color: #8e44ad;
   .jumbotron-full {
     height: 475px;
   }
+}
+.contentCard {
+  min-height: 122px;
 }
 </style>
