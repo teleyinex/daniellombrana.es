@@ -51,7 +51,7 @@
                 Co-Founder
               </span> and
               <span itemprop="jobTitle">
-                blog Lead
+                tech Lead
               </span>
             </strong> of <span
               itemprop="affiliation"
@@ -86,20 +86,7 @@
             </span>
           </p>
 
-          <p>
-            Additionally, I'm working for the 
-            <span itemprop="affiliation" itemscope itemtype="http://schema.org/Organization">
-              <a itemprop="url" href="http://www.citizencyberlab.org/">
-                <span itemprop="name">
-                  Citizen Cyberlab
-                </span>
-              </a>
-            </span> 
-            as a 
-            <span itemprop="jobTitle">
-              Senior Researcher and Developer
-            </span>.
-          </p><h3>From a visual point of view</h3>
+          <h2>From a visual point of view</h2>
         </section>
       </div>
       </section>

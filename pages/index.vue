@@ -1,5 +1,5 @@
 <template>
-  <div id="homepage" class="background-home hideonload">
+  <div id="homepage" class="background-home hideonload" :class="{homeDesktop: desktop}">
     <nav class="navbar navbar-fixed-top">
       <div class="">
         <div class="top">
@@ -49,7 +49,7 @@
     </nav>
 
     <main>
-      <div class="logo">
+      <div class="logo" :class="{logoDesktop: desktop}">
         <div id="badge" ref="badge">
           <svg
             id="svg21028"
@@ -233,6 +233,7 @@ export default {
   components: {},
   data() {
     return {
+      desktop: false,
       menu: {
         about: {
           line: null,
@@ -275,6 +276,12 @@ export default {
     }
   },
   mounted() {
+    this.$nextTick(function() {
+      window.addEventListener('resize', this.getWindowWidth)
+
+      // Init
+      this.getWindowWidth()
+    })
     // const animDone = localStorage.getItem('anim')
     const duration = 10
     const durationAbout = 0
@@ -363,8 +370,17 @@ export default {
     for (const key of Object.keys(this.menu)) {
       clearTimeout(this.menu[key].timeoutId)
     }
+
+    window.removeEventListener('resize', this.getWindowWidth)
   },
   methods: {
+    getWindowWidth() {
+      if (window.innerWidth >= 1200) {
+        this.desktop = true
+      } else {
+        this.desktop = false
+      }
+    },
     playLine(menu) {
       if (menu.line) {
         menu.line.play()
@@ -544,5 +560,13 @@ export default {
 .curtain-top.center,
 .curtain-down.center {
   transform: translate(0vw, 0vh) !important;
+}
+
+.homeDesktop {
+  padding: 150px;
+}
+.logoDesktop {
+  width: auto;
+  height: calc(100vh - 420px);
 }
 </style>

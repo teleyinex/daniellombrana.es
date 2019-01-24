@@ -15,7 +15,7 @@
         :srcset="$store.state.page.photoSrcSet"
         :sizes="$store.state.page.sizes"
         :gradient="$store.state.page.gradient"
-        max-height="500px"
+        :max-height="maxHeight"
       >
         <div class="headlines">
           <h1>{{ $store.state.page.title }}</h1>
@@ -49,6 +49,12 @@ export default {
   components: {
     navGen: () => import('~/components/nav.vue')
   },
+  data() {
+    return {
+      maxHeight: 500
+    }
+  },
+
   computed: {
     footer() {
       return {
@@ -56,6 +62,14 @@ export default {
         'min-height': '4px',
         height: '4px'
       }
+    }
+  },
+  mounted() {
+    if (window.innerWidth >= 1200 && this.$route.name === 'about') {
+      this.maxHeight = 520
+    }
+    if (window.innerWidth >= 1400 && this.$route.name === 'about') {
+      this.maxHeight = 720
     }
   }
 }
