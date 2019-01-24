@@ -127,6 +127,17 @@ module.exports = {
           test: require.resolve('snapsvg'),
           use: 'imports-loader?this=>window,fix=>module.exports=0'
         })
+        config.module.rules.push({
+          test: /\.(png|jpe?g|gif)$/,
+          resourceQuery: /vuetify-preload/,
+          use: [
+            'vuetify-loader/progressive-loader',
+            {
+              loader: 'url-loader',
+              options: { limit: 8000 }
+            }
+          ]
+        })
       }
     }
   },

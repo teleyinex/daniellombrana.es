@@ -1,6 +1,7 @@
 <template>
   <v-app style="width:100vw; height:100vh; overflow: hidden;">
     <nuxt />
+    <noscript>You need JavaScript to see this page.</noscript>
   </v-app>
 </template>
 

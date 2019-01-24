@@ -22,6 +22,7 @@
     "animate.css": "^3.7.0",
     "cross-env": "^5.2.0",
     "front-matter": "^3.0.1",
+    "gm": "^1.23.1",
     "imports-loader": "^0.8.0",
     "markdown-it": "^8.4.2",
     "markdown-it-classy": "^0.2.0",
