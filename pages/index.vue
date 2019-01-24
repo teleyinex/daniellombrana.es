@@ -503,6 +503,12 @@ export default {
 .menulink {
   color: white;
   text-decoration: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .menulink:hover,
