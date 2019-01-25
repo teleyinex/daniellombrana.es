@@ -1,9 +1,4 @@
-import about from '~/components/about.vue'
 export default {
-  components: {
-    about
-  },
-  layout: 'page',
   asyncData({ store }) {
     store.commit('setActive', 'about')
     store.commit('setColor', '#8e44ad')
