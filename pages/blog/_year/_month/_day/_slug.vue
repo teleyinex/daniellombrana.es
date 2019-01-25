@@ -5,6 +5,9 @@
 export default {
   layout: 'page',
   async asyncData({ app, params, store, payload }) {
+    if (params.slug.indexOf('.html') >= 0) {
+      params.slug = params.slug.replace('.html', '')
+    }
     const slug = `${params.year}-${params.month}-${params.day}-${params.slug}`
     const blogposts = await app.$axios.$get('/blogposts.json')
     const blog = blogposts[slug]

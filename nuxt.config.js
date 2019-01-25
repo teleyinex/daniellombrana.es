@@ -149,6 +149,7 @@ module.exports = {
     subFolders: true,
     routes: []
       .concat(blogposts.map(b => blogpostURL(b)))
+      .concat(blogposts.map(b => `${blogpostURL(b)}.html`))
       .concat(projects.map(p => projectURL(p)))
   }
 }
