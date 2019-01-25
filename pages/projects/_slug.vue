@@ -44,6 +44,27 @@ code {
   overflow: scroll;
   color: primary-project-600
 }
+
+code::-webkit-scrollbar,
+code::-webkit-scrollbar:horizontal, {
+    width: 4px;
+    height: 4px
+}
+ 
+code::-webkit-scrollbar-track {
+    background: gray-100
+}
+ 
+code::-webkit-scrollbar-thumb {
+    background: primary-project-700
+}
+code::-webkit-scrollbar-thumb:window-inactive {
+	background: gray-400
+}
+
+code::-webit-scrollbar-corner {
+  display: none;
+}
 .projectContent > p > img {
   display: block;
   max-width: 100%;

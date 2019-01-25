@@ -39,10 +39,37 @@ code {
   display: flex;
   padding: 15px;
   margin-bottom: 64px;
-  overflow: scroll;
+  overflow: auto;
   color: primary-blog-700;
   border-radius: 0;
+  min-width: 300px;
 }
+
+/* Let's get this party started */
+code::-webkit-scrollbar,
+code::-webkit-scrollbar:horizontal, {
+    width: 4px;
+    height: 4px
+}
+ 
+/* Track */
+code::-webkit-scrollbar-track {
+    background: gray-100
+}
+ 
+/* Handle */
+code::-webkit-scrollbar-thumb {
+    background: primary-blog-700
+}
+code::-webkit-scrollbar-thumb:window-inactive {
+	background: gray-400
+}
+
+code::-webit-scrollbar-corner {
+  display: none;
+}
+
+
 .blogContent > p > img {
   display: block;
   max-width: 100%;
