@@ -1,5 +1,6 @@
 // Import Vuetify styling
 @require '~vuetify/src/stylus/app.styl'
+@require '~assets/style/colors.styl'
 
 @font-face {
     font-family: Bebas;
@@ -65,31 +66,37 @@
 }
 
 
-base-font-family = 'Raleway', sans-serif;
-base-font-size =   18px;
+// base-font-family = 'Raleway', sans-serif;
+// head-font-family = 'Text Me One', sans-serif;
 
-head-font-family = 'Text Me One', sans-serif;
+base-font-family = 'Open Sans', sans-serif;
+head-font-family = 'Josefin Sans', sans-serif;
+
+// base-font-family = 'Open Sans', sans-serif;
+// head-font-family = 'Alegreya Sans SC', sans-serif;
+
+
+base-font-size =   18px;
 
 body {
     font-family: base-font-family;
     font-size: base-font-size;
 }
-p {
+p, a, li {
     font-family: base-font-family;
     font-size: base-font-size;
-    line-height: 1.5em;
+    line-height: 1.75;
+	color: gray-900;
 }
 
 h1,h2,h3,h4,h5,h6 {
     font-family: head-font-family;
-    font-weight: 300;
+	color: gray-900
 }
+
 
 .post-caption {
     font-size: 12px;
     padding-bottom: 10px;
 }
 
-h1 {
-    font-size: 36px;
-}

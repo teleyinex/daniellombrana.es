@@ -411,15 +411,17 @@ export default {
 <style lang="scss">
 @import '~animate.css';
 </style>
-<style lang="scss" scoped>
+<style lang="styl" scoped>
+a {
+  font-size: 15px;
+}
 .background-home {
   background: black;
   height: 100vh;
   overflow: hidden;
   color: white;
-  font-family: 'Text Me One', sans-serif;
+  font-family: 'Josefin Sans', sans-serif !important;
   font-weight: bold;
-  text-transform: uppercase;
   font-size: 15px;
   padding-left: 0px;
   padding-right: 0px;

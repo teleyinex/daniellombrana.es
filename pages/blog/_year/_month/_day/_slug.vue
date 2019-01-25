@@ -33,12 +33,15 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style lang="styl">
+@require '~assets/style/colors.styl'
 code {
   display: flex;
   padding: 15px;
   margin-bottom: 64px;
   overflow: scroll;
+  color: primary-blog-700;
+  border-radius: 0;
 }
 .blogContent > p > img {
   display: block;
@@ -46,20 +49,35 @@ code {
   height: auto;
 }
 
-$color: #2980b9;
-
 .blogContent a,
 .blogContent > a,
 .blogContent > p > a {
   text-decoration: none;
-  border-bottom: 1px solid $color;
-  box-shadow: inset 0 -4px 0 $color;
+  border-bottom: 1px solid primary-blog-100
+  box-shadow: inset 0 -4px 0 primary-blog-100
   transition: background 0.15s cubic-bezier(0.33, 0.66, 0.66, 1);
 }
 
 .blogContent a:hover,
 .blogContent > a:hover,
 .blogContent > p > a:hover {
-  background: $color;
+  background: primary-blog-100
+  color: primary-blog-800
 }
+
+.projectContent h1, h2, h3, h4, h5, h6
+  color: primary-blog-900
+.projectContent ul
+  list-style: none
+
+.projectContent ul li::before {
+  content: "\2022";
+  color: primary-blog-600;
+  font-size: 20px;
+  font-weight: bold;
+  display: inline-block; 
+  width: 1em;
+  margin-left: -1em;
+}
+
 </style>

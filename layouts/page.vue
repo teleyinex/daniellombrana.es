@@ -74,38 +74,31 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-@import '~/assets/style/colors.scss';
+<style lang="styl" scoped>
+@require '~assets/style/colors.styl';
 
-.navbar-blog {
-  background: $blog-color;
-}
+.navbar-blog 
+  background: primary-blog-500
 
-.navbar-blogpost {
-  background: $blogpost-color;
-}
 
-.navbar-photography {
-  background: $photography-color;
-}
+.navbar-blogpost
+  background: primary-blog-500
 
-.navbar-project {
-  background: $project-color;
-}
+.navbar-photography
+  background: primary-photography-500
 
-.navbar-project-info {
-  background: $project-info-color;
-}
-.navbarContainer {
+.navbar-project
+  background: primary-project-500
+
+.navbarContainer
   height: 60px;
   justify-content: space-around;
   align-items: center;
   flex-direction: row;
   height: 60px;
   transition: 0.5s opacity;
-}
 
-.headlines {
+.headlines
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -115,5 +108,6 @@ export default {
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
   padding: 15px;
   text-align: center;
-}
+  h1, h2, h3, h4, h5, h6
+    color: white
 </style>

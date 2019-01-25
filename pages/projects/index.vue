@@ -3,14 +3,14 @@ v-container(fluid grid-list-xl)
   v-layout(row wrap)
       template(v-for='(project, idx) in active')
         v-flex(xs12, md6)
-          v-card(:key='idx')
+          v-card(:key='idx', :hover="true", :nuxt="true", @click="goTo(project.href)")
             v-img(:src='project.photo', :aspect-ratio='4/3', :srcset="project.photoSrcSet" sizes="(max-width:412px) 400px,  (max-width:768px) 768px, 1040px")
             v-card-title(primary-title)
               .contentCard
                 h2.mb-0
                   | {{ project.title }}
             v-card-actions
-              v-btn.pa-0(flat, :color="$store.state.color", :href="project.href") Read more
+              v-btn.pa-0(flat, color="hsla(37, 90%, 21%, 1)", @click="goTo(project.href)") Read more
           v-spacer(:key='`space-${idx}`')
       v-flex(xs12, md6)
         InfiniteLoading(
@@ -98,3 +98,10 @@ export default {
   }
 }
 </script>
+<style lang="styl" scoped>
+@require '~assets/style/colors.styl'
+.contentCard
+  min-height: 122px
+  h2 
+    color: primary-project-900
+</style>

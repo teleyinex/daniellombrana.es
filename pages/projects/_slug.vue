@@ -35,12 +35,14 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style lang="styl">
+@require '~assets/style/colors.styl'
 code {
   display: flex;
   padding: 15px;
   margin-bottom: 64px;
   overflow: scroll;
+  color: primary-project-600
 }
 .projectContent > p > img {
   display: block;
@@ -48,20 +50,34 @@ code {
   height: auto;
 }
 
-$color: #f39c12;
-
 .projectContent a,
 .projectContent > a,
 .projectContent > p > a {
   text-decoration: none;
-  border-bottom: 1px solid $color;
-  box-shadow: inset 0 -4px 0 $color;
+  border-bottom: 1px solid primary-project-200;
+  box-shadow: inset 0 -4px 0 primary-project-200;
   transition: background 0.15s cubic-bezier(0.33, 0.66, 0.66, 1);
 }
 
 .projectContent a:hover,
 .projectContent > a:hover,
 .projectContent > p > a:hover {
-  background: $color;
+  background: primary-project-200;
+  color: primary-project-900
+}
+
+.projectContent h1, h2, h3, h4, h5, h6
+  color: primary-project-900
+.projectContent ul
+  list-style: none
+
+.projectContent ul li::before {
+  content: "\2022";
+  color: primary-project-600;
+  font-size: 20px;
+  font-weight: bold;
+  display: inline-block; 
+  width: 1em;
+  margin-left: -1em;
 }
 </style>

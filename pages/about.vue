@@ -4,7 +4,9 @@
       <v-flex xs12 md10>
         <div itemscope itemtype="http://schema.org/Person">
           <section class="about">
-            <h1>Let's work together</h1>
+            <h1>
+              Let's work together
+            </h1>
             <p>My name is Daniel Lombraña González, and I am a fullstack developer and consultant with experience on crowsourcing projects, frontend and backend development using modern technologies.</p>
 
             <p>I design open systems while considering the limitations imposed by practicality, security, and cost. Since 2011, I have been hired by international institutions like CERN, British Museum, British Library, Cancer Research UK, United Nations, Greenpeace Spain, etc.</p>
@@ -86,7 +88,7 @@
                 </a>.
               </span>
             </p>
-            <h2>From a visual point of view</h2>
+            <h3>From a visual point of view</h3>
           </section>
         </div>
       </v-flex>
@@ -145,8 +147,8 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-$about-color: #8e44ad;
+<style lang="styl" scoped>
+@require '~assets/style/colors.styl'
 
 .jumbotron-full {
   margin-top: 60px;
@@ -187,46 +189,27 @@ $about-color: #8e44ad;
   justify-content: center;
 }
 
-.jumbotron-full.about {
-  /* background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0,0,0,0.45)), url(/assets/img/blog/avatar.jpeg);*/
-  background: $about-color url(/assets/img/blog/avatar.jpg) no-repeat center
-    top/ cover;
+.about h1, h2, h3, h4, h5, h6, strong {
+	color: primary-about-800
 }
-
-@media (min-width: 1024px) {
-  .jumbotron-full.about {
-    height: 650px;
-  }
-}
-
-$color: $about-color;
 
 .about a,
 .about > a,
 .about > p > a {
   text-decoration: none;
-  border-bottom: 1px solid $color;
-  box-shadow: inset 0 -4px 0 $color;
+  border-bottom: 1px solid primary-about-200;
+  box-shadow: inset 0 -4px 0 primary-about-200;
+  color: gray-900;
   transition: background 0.15s cubic-bezier(0.33, 0.66, 0.66, 1);
 }
 
 .about a:hover,
 .about > a:hover,
 .about > p > a:hover {
-  background: $color;
+  background: primary-about-200;
+  color: primary-about-900;
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
-  .jumbotron-full {
-    height: 475px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .jumbotron-full {
-    height: 475px;
-  }
-}
 .contentCard {
   min-height: 122px;
 }
