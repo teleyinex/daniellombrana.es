@@ -1,0 +1,57 @@
+[
+  {
+    "title": "Nacido",
+    "text": "León, España",
+    "cover": "baby"
+  },
+  {
+    "title": "Estudios",
+    "text": "PhD. Ingeniero Informático",
+    "cover": "catedral"
+  },
+  {
+    "title": "Vive",
+    "text": "Madrid, España",
+    "cover": "sol"
+  },
+  {
+    "title": "Profesión",
+    "text": "Director y fundador de Scifabric",
+    "cover": "computer"
+  },
+  {
+    "title": "Invención favorita",
+    "text": "La web",
+    "cover": "web"
+  },
+  {
+    "title": "Prenda preferida",
+    "text": "Vaqueros",
+    "cover": "jeans"
+  },
+  {
+    "title": "Canción favorita",
+    "text": "Yo soy el desheredado, El Meswy",
+    "cover": "hiphop"
+  },
+  {
+    "title": "Película favorita",
+    "text": "Matrix",
+    "cover": "matrix"
+  },
+  {
+    "title": "Mayor influencia",
+    "text": "Richard P. Feynman",
+    "cover": "feynman"
+  },
+  {
+    "title": "Deporte",
+    "text": "Running y MTB",
+    "cover": "running"
+  },
+  {
+    "title": "Ambición",
+    "text": "Ser feliz",
+    "cover": "happy"
+  }
+]

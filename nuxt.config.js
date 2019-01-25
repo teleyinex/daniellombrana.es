@@ -53,14 +53,18 @@ module.exports = {
   css: [
     '~/assets/style/app.styl'
   ],
-
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
     '@/plugins/vuetify',
-    '@/plugins/snap.js'
+    '@/plugins/snap.js',
+    '~/plugins/i18n.js'
   ],
+
+  router: {
+    middleware:  'i18n'
+  },
 
   /*
   ** Nuxt.js modules
@@ -148,6 +152,7 @@ module.exports = {
     fallback: true,
     subFolders: true,
     routes: []
+      .concat(['/es', '/es/about'])
       .concat(blogposts.map(b => blogpostURL(b)))
       .concat(blogposts.map(b => `${blogpostURL(b)}.html`))
       .concat(projects.map(p => projectURL(p)))

@@ -3,6 +3,8 @@ export const state = () => ({
   heroImg: '/assets/img/blog/avatar.jpg',
   color: 'black',
   show: false,
+  locale: 'en',
+  locales: ['en', 'es'],
   page: {
     title: null,
     subTitle: null,
@@ -13,6 +15,9 @@ export const state = () => ({
 })
 
 export const mutations = {
+  setLang(state, locale) {
+    state.locale = locale
+  },
   setShow(state, show) {
     state.show = show
   },
