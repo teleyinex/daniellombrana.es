@@ -402,7 +402,7 @@ export default {
     showCurtain(id) {
       this.menu[id].showCurtain = true
       setTimeout(() => {
-        this.$router.push(`/${id}/`)
+        this.$router.push(`/es/${id}/`)
       }, 950)
     }
   }

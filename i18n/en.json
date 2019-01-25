@@ -2,5 +2,20 @@
     "about": "About",
     "photo": "Photography",
     "projects": "Projects",
-    "blog": "Blog"
+    "blog": "Blog",
+    "llr": "Line from left to right",
+    "ltb": "line from top to bottom",
+    "lbt": "line from bottom to top",
+    "lrl": "line from right to left",
+    "photographyTitle": "Photography",
+    "photographySubtitle": "My passion for photos",
+    "blogTitle": "Blog",
+    "blogSubtitle": "My personal view on crowdsourcing, citizen science and web development.",
+    "projectsTitle": "Projects",
+    "projectsSubtitle": "My crowdsourcing, citizen science and open source projects.",
+    "download": "Download",
+    "readmore": "Read more",
+    "noBlogposts": "No more blogposts",
+    "noProjects": "No more projects"
+
 }
