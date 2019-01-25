@@ -5,7 +5,7 @@
           | mdi-arrow-left
     v-btn(icon='', flat='', href='https://unsplash.com/@teleyinex', aria-label="Daniel's Unsplash page")
       v-avatar(tile, :size="20")
-        img(src='/assets/img/unsplash.png')
+        img(src='/assets/img/unsplash.png' alt="Unsplash icon")
     v-btn(icon='', flat='', href='https://instagram.com/teleyinex', aria-label="Daniel's Instagram page")
       v-icon(color='white')
         | mdi-instagram
