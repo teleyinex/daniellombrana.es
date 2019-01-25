@@ -1,12 +1,12 @@
 <template lang="pug">
   .icons
-    v-btn#closebtn(flat='', icon='', @click="goBack")
+    v-btn#closebtn(flat='', icon='', @click="goBack", aria-label="go back")
       v-icon(color='white')
           | mdi-arrow-left
-    v-btn(icon='', flat='', href='https://unsplash.com/@teleyinex')
+    v-btn(icon='', flat='', href='https://unsplash.com/@teleyinex', aria-label="Daniel's Unsplash page")
       v-avatar(tile, :size="20")
         img(src='/assets/img/unsplash.png')
-    v-btn(icon='', flat='', href='https://instagram.com/teleyinex')
+    v-btn(icon='', flat='', href='https://instagram.com/teleyinex', aria-label="Daniel's Instagram page")
       v-icon(color='white')
         | mdi-instagram
 </template>

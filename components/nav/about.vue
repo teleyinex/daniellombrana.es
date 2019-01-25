@@ -1,18 +1,18 @@
 <template lang="pug">
   .icons
-    v-btn#closebtn(flat='', icon='', @click="goBack")
+    v-btn#closebtn(flat='', icon='', @click="goBack", aria-label="go back")
       v-icon(color='white')
           | mdi-arrow-left
-    v-btn(icon='', flat='', href='https://www.linkedin.com/in/teleyinex')
+    v-btn(icon='', flat='', href='https://www.linkedin.com/in/teleyinex', aria-label="Daniel's linkedin page")
       v-icon(color='white')
         | mdi-linkedin
-    v-btn(icon='', flat='', href='https://github.com/teleyinex')
+    v-btn(icon='', flat='', href='https://github.com/teleyinex', aria-label="Daniel's Github page")
       v-icon(color='white')
         | mdi-github-circle
-    v-btn(icon='', flat='', href='https://twitter.com/teleyinex')
+    v-btn(icon='', flat='', href='https://twitter.com/teleyinex' aria-label="Daniel's twitter page")
       v-icon(color='white')
         | mdi-twitter
-    v-btn(icon='', flat='', href='https://instagram.com/teleyinex')
+    v-btn(icon='', flat='', href='https://instagram.com/teleyinex' aria-label="Daniel's instagram page")
       v-icon(color='white')
         | mdi-instagram
 </template>

@@ -1,12 +1,12 @@
 <template lang="pug">
   .icons
-    v-btn#closebtn(flat='', icon='', @click="goBack")
+    v-btn#closebtn(flat='', icon='', @click="goBack", aria-label="Go back")
       v-icon(color='white')
           | mdi-arrow-left
-    v-btn(icon='', flat='', :href="linkedin" target="blank")
+    v-btn(icon='', flat='', :href="linkedin" target="blank" aria-label="Share this page on LinkedIn")
       v-icon(color='white')
         | mdi-linkedin
-    v-btn(icon='', flat='', :href="twitter", target="blank")
+    v-btn(icon='', flat='', :href="twitter", target="blank", aria-label="Share this page on Twitter")
       v-icon(color='white')
         | mdi-twitter
 </template>
