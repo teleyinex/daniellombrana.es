@@ -80,7 +80,8 @@ module.exports = {
     preset: 'default',
     linkify: true,
     breaks: true,
-    html: true
+    html: true,
+    use: ['markdown-it-emoji']
   },
   manifest: {
     'name': 'Daniel Lombraña',
