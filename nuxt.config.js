@@ -18,7 +18,7 @@ projects = Object.keys(projects)
 
 function projectURL(key) {
   const tmp = key.split('-')
-  const rest = tmp.slice(3)
+  const rest = tmp.slice(3).join('-')
   return `/projects/${rest}`
 }
 
@@ -151,5 +151,6 @@ module.exports = {
       .concat(blogposts.map(b => blogpostURL(b)))
       .concat(blogposts.map(b => `${blogpostURL(b)}.html`))
       .concat(projects.map(p => projectURL(p)))
+      .concat(projects.map(p => `${projectURL(p)}.html`))
   }
 }

@@ -5,6 +5,9 @@
 export default {
   layout: 'page',
   async asyncData({ app, params, query, store }) {
+    if (params.slug.indexOf('.html') >= 0) {
+      params.slug = params.slug.replace('.html', '')
+    }
     const projects = await app.$axios.$get(`/projects.json`)
     let project = null
     for (const k of Object.keys(projects)) {
