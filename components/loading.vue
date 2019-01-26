@@ -180,6 +180,7 @@ export default {
     },
     start() {
       this.loading = true
+      this.$store.commit('setShow', false)
       this.$nextTick(() => {
         this.quick = this.$snap.select('#whiteblood')
 
