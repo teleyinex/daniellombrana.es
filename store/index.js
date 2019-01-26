@@ -3,7 +3,7 @@ export const state = () => ({
   heroImg: '/assets/img/blog/avatar.jpg',
   color: 'black',
   show: false,
-  locale: 'en',
+  locale: 'es',
   locales: ['en', 'es'],
   page: {
     title: null,
