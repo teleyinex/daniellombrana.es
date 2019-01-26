@@ -71,7 +71,10 @@ module.exports = {
   ],
 
   router: {
-    middleware:  'i18n'
+    middleware: 'i18n',
+    // scrollBehavior: function(to, from, savedPosition) {
+    //   return { x: 0, y: 0 }
+    // }
   },
 
   /*

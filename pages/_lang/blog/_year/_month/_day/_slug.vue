@@ -4,7 +4,12 @@
 <script>
 export default {
   layout: 'page',
+  scrollToTop: true,
+  mounted() {
+    window.scrollTo(0, 0)
+  },
   async asyncData({ app, params, store, payload }) {
+    console.log('hola es blog')
     if (params.slug.indexOf('.html') >= 0) {
       params.slug = params.slug.replace('.html', '')
     }

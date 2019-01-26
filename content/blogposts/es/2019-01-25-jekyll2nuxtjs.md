@@ -10,25 +10,23 @@ description: "Aprende cómo convertir tu sitio Jekyll en uno con NuxtJS"
 author: teleyinex
 ---
 
-Muchos sitiso...
+Últimamente todo el mundo habla de crear sitios estáticos para la web. Normal, no necesitas un servidor y además hay varios sitios en la web que nos permiten hospedarla sin coste alguno (Netlify, Github Pages, Zeit now, ...).
 
-Static sites are becoming really popular nowadays. Basically, because you don't need to have a server, and there're plenty of free hosting services on the web: Netlify, Github Pages, Zeit now, etc.
+Ahora mismo hay más de [200 frameworks](https://www.staticgen.com/). Puedes encontrar, casi seguro, el que se adapte a tus necesidades, porque hay prácticamente  uno para cada lenguaje de programación.
 
-You can actually choose from more than [200 frameworks](https://www.staticgen.com/). Actually, you should be able to find one that meets your preferences, because there's almost a framework for each programming language.
+Uno de los más populares es [Jekyll](https://www.staticgen.com/jekyll). Atesora más de 36 mil estrellas en Github, seguido muy de cerca por [Next](https://www.staticgen.com/next) y [Hugo](https://www.staticgen.com/hugo).
 
-The most popular one is [Jekyll](https://www.staticgen.com/jekyll). It has more than 36 thousand stars in Github, followed closely by [Next](https://www.staticgen.com/next) and [Hugo](https://www.staticgen.com/hugo).
+Como te puedes imaginar, llevo usando Jekyll bastante tiempo. De hecho, todas mis webs están hechas con Jekyll: [Scifabric.com](https://scifabric.com), [PYBOSSA](https://pybossa.com) y hasta ahora mi sitio web (donde estás ahora mismo).
 
-As you can guess, I've been using Jekyll for a very long time. Actually, all my websites are built with it: [Scifabric.com](https://scifabric.com), [PYBOSSA](https://pybossa.com) and obviously my home page (where you are right now).
+La simplicidad de Jekyll es increíble. Puedes empezar a programar y montar una web en minutos. Además, si sabes bastante de JS, o si quieres crear una "Progressive Web Application", Jekyll no es la mejor opción. Y por ese motivo decidí buscar alternativas.
 
-The simplicity of Jekyll is amazing. Anyone can jump automatically, and start building a site within minutes. However, if you are an experienced JS developer, or if you want to create a Progressive Web Application, Jekyll is not the best option. Which was my personal situation.
+Por tanto, ¿qué podía hacer? Bueno, la historia es que comencé a programar con VueJS desde su versión 1.0, luego la 2.0 y finalmente encontré [NuxtJS](https://nuxtjs.org/) y fue amor a primera vista :heart_eyes:.
 
-Hence, what could I do? Well, I started coding with VueJS since its version 1.0, then, 2.0 and then I fall in love with [NuxtJS](https://nuxtjs.org/). 
+NuxtJS es una pasada por varios motivos:
 
-NuxtJS is AWESOME because it handles for you tons of stuff that you don't want to deal with, and have a decent template to start with:
-
-* Performance: it uses VueJS and NodeJS best practices, so you can get the best and minimal application for your site.
-* Modular: it has more than 50 modules that will save you tons of work. You can build a Progressive Web Application (PWA) without having to write a single line of code. How cool is that?
-* Enjoyable: probably one of the best features. As I said before, I'm in deep love with this framework and VueJS. It provides meaningful information, good docs, and a better community.
+* Rendimiento: utiliza todas las buenas prácticas de VueJS y NodeJS, asegurando generar el código más limpio y pequeño para tu web.
+* Modular: tienes para elegir entre más de 50 módulos que te ahorrarán un montón de trabajo. Puedes construir una PWA sin tener que escribir una sóla línea de código.
+* Divertido: esta es probablemente una de sus mejores características. A mi no me entusiasmaba programar en JS hasta que descubrí VueJS y posteriormente NuxtJS.
 
 My love with NuxtJS has been driving my late front-end development for Scifabric. Basically, we are using for every client, as we can build really quickly any PWA that will fit the client's needs. One example is our project for Greenpeace Spain: [https://solarmaps.greenpeace.org](https://solarmaps.greenpeace.org).
 

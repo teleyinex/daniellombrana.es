@@ -29,7 +29,7 @@ export default {
       const rest = tmp.slice(3)
       let href = `/blog/${date[0]}/${date[1]}/${date[2]}/${rest.join('-')}`
       if (store.state.locale === 'es') {
-        href = `/es/${href}`
+        href = `/es${href}`
       }
       href = href.replace('.md', '.html')
 

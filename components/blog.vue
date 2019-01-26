@@ -49,7 +49,6 @@ export default {
   },
   methods: {
     goTo(link) {
-      this.$store.commit('setShow', false)
       this.$router.push(link)
     },
     getRndInteger(min, max) {
