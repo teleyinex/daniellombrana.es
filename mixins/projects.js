@@ -15,7 +15,7 @@ export default {
       sizes: '(max-width:412px) 400px,  (max-width:768px) 768px, 1040px',
       phtoSrcSet: coverSrcSet
     })
-    const data = await app.$axios.$get('/projects.json')
+    const data = await app.$axios.$get(`/${store.state.locale}/projects.json`)
     let projects = []
     for (const key of Object.keys(data)) {
       const project = data[key]
@@ -28,6 +28,9 @@ export default {
       const rest = tmp.slice(3)
       let href = `${rest.join('-')}`
       href = `/projects/${href}`
+      if (store.state.locale === 'es') {
+        href = `/es/${href}`
+      }
 
       project.photoSrcSet = photoSrcSet
       project.photo = photo

@@ -17,8 +17,12 @@ function blogpostURL(key) {
   return href
 }
 
-let projects = require('./static/projects.json')
+let projects = require('./static/en/projects.json')
 projects = Object.keys(projects)
+
+let projectsEs = require('./static/es/projects.json')
+projectsEs = Object.keys(projects)
+
 
 function projectURL(key) {
   const tmp = key.split('-')
@@ -163,5 +167,8 @@ module.exports = {
       .concat(blogpostsEs.map(b => `${blogpostURL(b)}.html`))
       .concat(projects.map(p => projectURL(p)))
       .concat(projects.map(p => `${projectURL(p)}.html`))
+      .concat(projectsEs.map(p => projectURL(p)))
+      .concat(projectsEs.map(p => `${projectURL(p)}.html`))
+
   }
 }
