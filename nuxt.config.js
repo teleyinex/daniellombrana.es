@@ -2,8 +2,12 @@ const pkg = require('./package')
 const axios = require('axios')
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 
-let blogposts = require('./static/blogposts.json')
+let blogposts = require('./static/en/blogposts.json')
 blogposts = Object.keys(blogposts)
+
+let blogpostsEs = require('./static/en/blogposts.json')
+blogpostsEs = Object.keys(blogpostsEs)
+
 
 function blogpostURL(key) {
   const tmp = key.split('-')
@@ -152,9 +156,11 @@ module.exports = {
     fallback: true,
     subFolders: true,
     routes: []
-      .concat(['/es', '/es/about'])
+      .concat(['/es', '/es/about', '/es/projects', '/es/photography', '/es/blog'])
       .concat(blogposts.map(b => blogpostURL(b)))
       .concat(blogposts.map(b => `${blogpostURL(b)}.html`))
+      .concat(blogpostsEs.map(b => blogpostURL(b)))
+      .concat(blogpostsEs.map(b => `${blogpostURL(b)}.html`))
       .concat(projects.map(p => projectURL(p)))
       .concat(projects.map(p => `${projectURL(p)}.html`))
   }

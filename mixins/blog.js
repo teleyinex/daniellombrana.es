@@ -15,7 +15,7 @@ export default {
       sizes: '(max-width:412px) 400px,  (max-width:768px) 768px, 1040px',
       phtoSrcSet: coverSrcSet
     })
-    const data = await app.$axios.$get('/blogposts.json')
+    const data = await app.$axios.$get(`/${store.state.locale}/blogposts.json`)
     let blogposts = []
     for (const key of Object.keys(data)) {
       const blog = data[key]
@@ -28,6 +28,9 @@ export default {
       const date = tmp.slice(0, 3)
       const rest = tmp.slice(3)
       let href = `/blog/${date[0]}/${date[1]}/${date[2]}/${rest.join('-')}`
+      if (store.state.locale === 'es') {
+        href = `/es/${href}`
+      }
       href = href.replace('.md', '.html')
 
       blog.photoSrcSet = photoSrcSet
