@@ -96,12 +96,12 @@ code::-webit-scrollbar-corner {
   color: primary-blog-800
 }
 
-.projectContent h1, h2, h3, h4, h5, h6
+.blogContent h1, h2, h3, h4, h5, h6
   color: primary-blog-900
-.projectContent ul
+.blogContent ul
   list-style: none
 
-.projectContent ul li::before {
+.blogContent ul li::before {
   content: "\2022";
   color: primary-blog-600;
   font-size: 20px;

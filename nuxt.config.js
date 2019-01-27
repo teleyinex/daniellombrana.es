@@ -30,10 +30,9 @@ function projectURL(key) {
   return `/projects/${rest}`
 }
 
-
 function generateAllRoutes() {
   return []
-      .concat(['/es', '/es/about', '/es/projects', '/es/photography', '/es/blog'])
+      .concat(['/', '/about/', '/projects/', '/blog', '/es', '/es/about', '/es/projects', '/es/photography', '/es/blog'])
       .concat(blogposts.map(b => blogpostURL(b)))
       .concat(blogposts.map(b => `${blogpostURL(b)}.html`))
       .concat(blogpostsEs.map(b => `/es${blogpostURL(b)}`))

@@ -24,34 +24,37 @@ Por tanto, ¿qué podía hacer? Bueno, la historia es que comencé a programar c
 
 NuxtJS es una pasada por varios motivos:
 
-* Rendimiento: utiliza todas las buenas prácticas de VueJS y NodeJS, asegurando generar el código más limpio y pequeño para tu web.
-* Modular: tienes para elegir entre más de 50 módulos que te ahorrarán un montón de trabajo. Puedes construir una PWA sin tener que escribir una sóla línea de código.
-* Divertido: esta es probablemente una de sus mejores características. A mi no me entusiasmaba programar en JS hasta que descubrí VueJS y posteriormente NuxtJS.
+* **Rendimiento**: utiliza todas las buenas prácticas de VueJS y NodeJS, asegurando generar el código más limpio y pequeño para tu web.
+* **Modular**: tienes para elegir entre más de 50 módulos que te ahorrarán un montón de trabajo. Puedes construir una PWA sin tener que escribir una sóla línea de código.
+* **Divertido**: esta es probablemente una de sus mejores características. A mi no me entusiasmaba programar en JS hasta que descubrí VueJS y posteriormente NuxtJS.
 
-My love with NuxtJS has been driving my late front-end development for Scifabric. Basically, we are using for every client, as we can build really quickly any PWA that will fit the client's needs. One example is our project for Greenpeace Spain: [https://solarmaps.greenpeace.org](https://solarmaps.greenpeace.org).
+Este amor ha surgido al trabajar todo el rato con NuxtJS en Scifabric. En la actualidad lo usamos para todos los clientes, dado que podemos crear sitios web muy rápidamente y además ofrecer PWA sin problema alguno. Un ejemplo, por si quieres echar un ojo, es el proyecto que hicimos para Greenpeace España: [https://solarmaps.greenpeace.org](https://solarmaps.greenpeace.org).
 
-As I worked more and more with NuxtJS, I was wondering how difficult would it be to migrate my home page to NuxtJS and leave behind Jekyll. Why? Because I've become used to Axios, Components, Stylus, and modern tools to build sites, so I wanted to do it for my own site.
+Al trabajar más y más con NuxtJS llegó un punto en el que empecé a preguntarme si sería muy difícil migrar mi página web de Jekyll a NuxtJS. ¿Por qué te preguntaras? Pues porque me he acostumbrado (malamente, tra, tra) a Axios, Componentes, Stylus, ... y no quiero dejarlo :smiley:
 
-The only problem: my Jekyll site has several folders with Markdown files, that rely heavily on the front-matter of them to build the site. In any case, I started to search if this could be possible, and obviously, it is :D
+El único problema es que mi sitio web tiene varias carpetas con contenido en Markdown y que además uso el front-matter para renderizarlo de una u otra forma dependiendo de en qué URL esté. El caso es que me lié la manta a la cabeza y comencé a investigar y ver si era posible, y obviamente lo es :smiley_cat:
 
-## Handling Markdown in NuxtJS
-There're plenty of solutions out there for importing and handling your Markdown files. For example, you can use the awesome [Webpack Loader for Markdown](https://www.npmjs.com/package/frontmatter-markdown-loader) to get your files imported into NuxtJS.
 
-This was my first try. Using it. While in development mode all worked well, the problem came when I built the static site. The web browser's console was complaining that it was missing the webpack loader for the Markdown files, and therefore, my blog posts didn't show up.
+## Manejando Markdown en NuxtJS
 
-Then, I thought, what if I keep things even more simple. What if I can transform the Markdown files into JSON? I did a quick search in the npm registry and I found this amazing library: [markdown-to-json](https://www.npmjs.com/package/markdown-to-json).
+Como de costumbre, la comunidad open source es maravillosa. Había varias herramientas que me permitían importar y trabajar directamente con ficheros Markdown. Por ejemplo, puedes utilizar el [cargador de ficheros Markdown para Webpack](https://www.npmjs.com/package/frontmatter-markdown-loader).
 
-This library was PERFECT. Why? Because you can pass a folder with all your Markdown files, and it will generate a JSON object with all your blog posts in there. The front-matter is parsed and you get it as JSON as well. As everything is JSON, you can request the data using HTTP requests, and you will have everything in place. 
+Este cargador fue mi primer intento. Sin embargo, mientras que en modo desarrollo iba bien, en cuanto construía el sitio estático fallaba. La consola web se quejaba de que el cargador no estaba disponible, y daba un error que no me dejaba ver mis proyectos, blogs, etc. 
 
-I tried with my current blog posts and everything worked like a charm. Thus, what I did was the following: in my NuxtJS project, I created a folder named **content**. In this folder, I have my blog posts and projects sub-folders with all the Markdown files. Then, I can run a command like this to create the JSON file with all the information:
+Entonces se me ocurrió una idea :bulb:. ¿Y si lo intentaba hacer todo más sencillo? ¿Y si transformaba los ficheros Markdown directamente a JSON? Hice una rápida busca en San Google y encontré justo lo que buscaba:  [markdown-to-json](https://www.npmjs.com/package/markdown-to-json).
+
+Esta librería es PERFECTA. ¿Por qué? Porque puedes pasarle una carpeta con ficheros Markdown, los leerá y los transformará en un objecto JSON. Así tienes en un solo fichero todos tus blog posts, proyectos, etc. Además el front-matter se parsea, y te queda dentro del JSON, con lo que un problema menos. Gracias a que ahora todos mis datos están en formato JSON, puedo solicitarlos vía HTTP (gracias Axios).
+
+Mi primera prueba fue con el blog y todo funcionó a la primera. Así que era hora de automatizarlo todo: creé una carpeta llamanda **content** en la que guardaré todos mis blog posts, proyectos, etc. Luego tan solo tengo que ejecutar un comando como el siguiente:
 
 ```
 $ m2j -c content/blogposts/*.md -o static/blogposts.json
 ```
-By placing the blogposts.json file in the /static folder, I can use within NuxtJS, Axios to get all the blog posts easily. The only problem is that when you are generating your static site, you need to actually generate all the routes for it. 
+De esta forma, me quedan todos los artículo de mi blog en un fichero JSON en la carpeta /static de NuxtJS. Estos ficheros se sirven directamente por el servidor web, por lo que puedo solicitarlos vía Axios. Con esto ya tengo todo lo que necesito. Lo único restante es decirle a NuxtJS cómo generar todas las rutas para esos artículos (en modo SSR no haría falta, pero al hacer una web estática, sí que hace falta, jeje).
 
-## Creating routes for NuxtJS
-Hence, how do we handle this? Well, easily. We only need to modify our package.json file to add a few more build commands:
+## Creando rutas en NuxtJS
+
+Para crear las rutas solo tenemos que modificar el fichero package.json con un par de comandos más:
 
 ```
     "dev": "yarn md2json && nuxt",
@@ -59,19 +62,20 @@ Hence, how do we handle this? Well, easily. We only need to modify our package.j
     "md2json": "m2j -c content/blogposts/*.md -o static/blogposts.json"
 
 ```
-Thanks to this solution, when you run yarn dev (or npm run dev) your blog posts will be converted into JSON, and the site will be ready to work with it. The same approach is used for building the static site. This is wonderful because then you can use it with Zeit, Github Pages or Netlify to build it automatically for you.
+Gracias a esta solución, cuando ejecutas *yarn dev* (o npm run dev) tus artículos del blog se convierten a JSON y el servidor de desarrollo lo tendrá todo listo para que te pongas manos a la obra. Por cierto, hacemos lo mismo para generar el sitio estático con yarn run build y así podremos desplegar nuestro sitio web en Zeit, Github Pages o Netlify.
 
-With this solved, I only had to build my site. It was more or less easy, as I was already using webpack and components in JS for my Jekyll site. In most of the cases, I copied and paste chunks of code, and then adapted them to the NuxtJS world.
+Con esto resuelto, tan solo quedaba migrar mis estilos, plantillas y demás. Esto fue más o menos sencillo porque ya estaba usando webpack para montar todo el sitio en Jekyll. Así que en muchos casos sólo tuve que copiar y pegar trozos de código y adaptarlos a NuxtJS.
 
-The result? This page. Which as you can see is amazingly fast (it's deployed on Zeit). If you are browsing the site from a phone on Android (or iOS) and you are using a modern web browser, you will see that you can install my site in your phone ;-)
+¿El resultado? Esta página. Ahora mismo es increíblemente rápida. Si además estás leyendo esto desde un móvil Android (o iOS última versión) el navegador web (si es Chrome) te preguntará si quieres instalar mi sitio web en tu móvil.  
 
-Moreover, the audits are really cool. Check them out:
+Y lo que es mejor, mirad la puntuación en Google:
 
-![Audits from Google](/assets/img/blog/audits-daniel.png)
+![Auditoría del sitio por Google](/assets/img/blog/audits-daniel.png)
 
-## A template
-As I was doing the migration of my site I realized that this could be really useful for others as well, so I've created a basic template that you can re-use. The code is available here: [https://github.com/teleyinex/jekyll2nuxt](https://github.com/teleyinex/jekyll2nuxt).
+## Una plantilla
 
-This template uses [VuetifyJS](http://vuetifyjs.com/) so you can get a material design out of the box for your site. It has the PWA and Markdown modules enabled as well, so everything will work for you out of the box. You only have to copy your blog posts into the content folder and run yarn dev. As simple as that!
+Mientras realizaba la migración de mi sitio web me di cuenta de que esto podría servirle a más gente, así que he creado una plantilla muy básica que puedes re-utilizar. El código está disponible aquí: [https://github.com/teleyinex/jekyll2nuxt](https://github.com/teleyinex/jekyll2nuxt).
 
-If you have read until here, THANKS a lot for your time :raised_hands:. I would appreciate if you share this blog post within your Twitter (or Facebook) friends, so more people can know about it. 
+Esta plantilla utiliza [VuetifyJS](http://vuetifyjs.com/), así que tendrás el look Material de Google para tu sitio web. Además está configurado con PWA y los módulos de Markdown que he descrito en este artículo, así que está todo listo para utilizarse. Tan solo tienes que copiar tus ficheros Markdown a la carpeta **content** y ejecutar **yarn dev**.
+
+Si has leído hasta aquí, MIL GRACIAS por tu tiempo :raised_hands:. Me ayudaría un montón si compartes este artículo por Twitter (o Facebook) con tu gente, para que más gente lo conozca.
