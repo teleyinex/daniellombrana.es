@@ -567,6 +567,13 @@ a
   opacity: 0
   animation-delay: 1s
 
+@media(min-width: 1281px)
+  .lang
+    width: 100%
+    padding-right: 300px
+    bottom: 300px
+
+
 @keyframes fadeIn {
  from {
   opacity: 0

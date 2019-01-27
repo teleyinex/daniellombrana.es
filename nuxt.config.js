@@ -30,6 +30,20 @@ function projectURL(key) {
   return `/projects/${rest}`
 }
 
+
+function generateAllRoutes() {
+  return []
+      .concat(['/es', '/es/about', '/es/projects', '/es/photography', '/es/blog'])
+      .concat(blogposts.map(b => blogpostURL(b)))
+      .concat(blogposts.map(b => `${blogpostURL(b)}.html`))
+      .concat(blogpostsEs.map(b => `/es${blogpostURL(b)}`))
+      .concat(blogpostsEs.map(b => `/es${blogpostURL(b)}.html`))
+      .concat(projects.map(p => projectURL(p)))
+      .concat(projects.map(p => `${projectURL(p)}.html`))
+      .concat(projectsEs.map(p => projectURL(p)))
+      .concat(projectsEs.map(p => `${projectURL(p)}.html`))
+}
+
 module.exports = {
   mode: 'spa',
 
@@ -85,8 +99,17 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/markdownit',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/google-analytics',
+    '@nuxtjs/sitemap'
   ],
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: 'https://daniellombrana.es',
+    cacheTime: 1000 * 60 * 15,
+    gzip: true,
+    generate: true, // Enable me when using nuxt generate
+    routes: generateAllRoutes()
+  },
   'google-analytics': {
     id: 'UA-36769710-1'
   },
@@ -162,16 +185,6 @@ module.exports = {
   generate: {
     fallback: true,
     subFolders: true,
-    routes: []
-      .concat(['/es', '/es/about', '/es/projects', '/es/photography', '/es/blog'])
-      .concat(blogposts.map(b => blogpostURL(b)))
-      .concat(blogposts.map(b => `${blogpostURL(b)}.html`))
-      .concat(blogpostsEs.map(b => blogpostURL(b)))
-      .concat(blogpostsEs.map(b => `${blogpostURL(b)}.html`))
-      .concat(projects.map(p => projectURL(p)))
-      .concat(projects.map(p => `${projectURL(p)}.html`))
-      .concat(projectsEs.map(p => projectURL(p)))
-      .concat(projectsEs.map(p => `${projectURL(p)}.html`))
-
+    routes: generateAllRoutes()
   }
 }
