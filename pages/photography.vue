@@ -9,6 +9,18 @@ export default {
   components: {
     photo
   },
-  mixins: [photom]
+  mixins: [photom],
+  head() {
+    return {
+      title: 'Photos',
+      meta: [
+        {
+          hid: 'photos',
+          name: 'description',
+          content: 'My collection of photos'
+        }
+      ]
+    }
+  },
 }
 </script>
