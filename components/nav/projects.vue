@@ -1,8 +1,11 @@
 <template lang="pug">
   .icons
-    v-btn#closebtn(flat='', icon='', @click="goBack", aria-label="go back")
+    v-btn#closebtn(flat='', icon='', :nuxt="true", to="/" aria-label="home")
       v-icon(color='white')
-          | mdi-arrow-left
+          | mdi-home-variant-outline
+    v-btn#closebtn(flat='', icon='', @click="goBack", aria-label="projects index" v-if="$route.name === 'lang-projects-slug' || $route.name === 'projects-slug'")
+      v-icon(color='white')
+          | mdi-library
     v-btn(icon='', flat='', href='https://github.com/teleyinex', aria-label="Daniel's Github page")
       v-icon(color='white')
         | mdi-github-circle

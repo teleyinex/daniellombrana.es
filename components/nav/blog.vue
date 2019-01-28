@@ -1,8 +1,11 @@
 <template lang="pug">
   .icons
-    v-btn#closebtn(flat='', icon='', @click="goBack", aria-label="Go back")
+    v-btn#closebtn(flat='', icon='', :nuxt="true", to="/" aria-label="home")
       v-icon(color='white')
-          | mdi-arrow-left
+          | mdi-home-variant-outline
+    v-btn#closebtn(flat='', icon='', @click="goBack", aria-label="blog index" v-if="$route.name === 'lang-blog-year-month-day-slug' || $route.name === 'blog-year-month-day-slug'")
+      v-icon(color='white')
+          | mdi-view-grid
     v-btn(icon='', flat='', :href="linkedin" target="blank" aria-label="Share this page on LinkedIn")
       v-icon(color='white')
         | mdi-linkedin
