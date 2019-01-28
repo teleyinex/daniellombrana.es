@@ -5,6 +5,18 @@
 export default {
   layout: 'page',
   scrollToTop: true,
+  head() {
+    return {
+      title: this.blog.title,
+      meta: [
+        {
+          hid: 'blog',
+          name: 'description',
+          content: this.blog.meta_description
+        }
+      ]
+    }
+  },
   mounted() {
     window.scrollTo(0, 0)
   },

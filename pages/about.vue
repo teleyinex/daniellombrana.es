@@ -9,6 +9,18 @@ export default {
     about
   },
   mixins: [aboutm],
+  head() {
+    return {
+      title: 'About me',
+      meta: [
+        {
+          hid: 'aboutme',
+          name: 'description',
+          content: 'My about page'
+        }
+      ]
+    }
+  },
   layout: 'page'
 }
 </script>

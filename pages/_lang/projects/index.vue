@@ -9,6 +9,18 @@ export default {
   components: {
     projects
   },
-  mixins: [projectsm]
+  mixins: [projectsm],
+  head() {
+    return {
+      title: 'My projects',
+      meta: [
+        {
+          hid: 'projects',
+          name: 'description',
+          content: 'My list of projects'
+        }
+      ]
+    }
+  }
 }
 </script>

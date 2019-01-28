@@ -65,8 +65,7 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Josefin+Sans|Open+Sans', defer: true },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Open+Sans', defer: true },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Josefin+Sans|Alegreya+Sans+SC|Open+Sans' }
     ]
   },
 
@@ -131,11 +130,11 @@ module.exports = {
     'name': 'Daniel Lombraña',
     'short_name': 'Teleyinex',
     'lang': 'en',
-    'description': 'My personal website',
+    'description': 'Dad, husband, geek, computer engineer, crowdsourcing expert, citizen science researcher, comics reader, pilates practitioner, runner & Founder at Scifabric.',
     'theme_color': '#000000',
     'ogImage': 'https://daniellombrana.es/',
     'ogHost': 'https://daniellombrana.es',
-    'ogDescription': 'My personal website'
+    'ogDescription': 'Dad, husband, geek, computer engineer, crowdsourcing expert, citizen science researcher, comics reader, pilates practitioner, runner & Founder at Scifabric.'
   },
   /*
   ** Axios module configuration

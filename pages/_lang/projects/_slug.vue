@@ -4,6 +4,18 @@
 <script>
 export default {
   layout: 'page',
+  head() {
+    return {
+      title: this.project.title,
+      meta: [
+        {
+          hid: 'project',
+          name: 'description',
+          content: this.project.meta_description
+        }
+      ]
+    }
+  },
   async asyncData({ app, params, query, store }) {
     if (params.slug.indexOf('.html') >= 0) {
       params.slug = params.slug.replace('.html', '')

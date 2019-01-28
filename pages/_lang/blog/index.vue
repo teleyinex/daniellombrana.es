@@ -10,6 +10,18 @@ export default {
   components: {
     blog
   },
-  mixins: [blogm]
+  mixins: [blogm],
+  head() {
+    return {
+      title: 'Mi blog',
+      meta: [
+        {
+          hid: 'projects',
+          name: 'description',
+          content: 'Mis blog posts'
+        }
+      ]
+    }
+  }
 }
 </script>
