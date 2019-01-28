@@ -1,13 +1,11 @@
-const pkg = require('./package')
-const axios = require('axios')
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
+const pkg = require('./package')
 
 let blogposts = require('./static/en/blogposts.json')
 blogposts = Object.keys(blogposts)
 
 let blogpostsEs = require('./static/en/blogposts.json')
 blogpostsEs = Object.keys(blogpostsEs)
-
 
 function blogpostURL(key) {
   const tmp = key.split('-')
@@ -21,8 +19,7 @@ let projects = require('./static/en/projects.json')
 projects = Object.keys(projects)
 
 let projectsEs = require('./static/es/projects.json')
-projectsEs = Object.keys(projects)
-
+projectsEs = Object.keys(projectsEs)
 
 function projectURL(key) {
   const tmp = key.split('-')
@@ -32,15 +29,25 @@ function projectURL(key) {
 
 function generateAllRoutes() {
   return []
-      .concat(['/', '/about/', '/projects/', '/blog', '/es', '/es/about', '/es/projects', '/es/photography', '/es/blog'])
-      .concat(blogposts.map(b => blogpostURL(b)))
-      .concat(blogposts.map(b => `${blogpostURL(b)}.html`))
-      .concat(blogpostsEs.map(b => `/es${blogpostURL(b)}`))
-      .concat(blogpostsEs.map(b => `/es${blogpostURL(b)}.html`))
-      .concat(projects.map(p => projectURL(p)))
-      .concat(projects.map(p => `${projectURL(p)}.html`))
-      .concat(projectsEs.map(p => projectURL(p)))
-      .concat(projectsEs.map(p => `${projectURL(p)}.html`))
+    .concat([
+      '/',
+      '/about/',
+      '/projects/',
+      '/blog',
+      '/es',
+      '/es/about',
+      '/es/projects',
+      '/es/photography',
+      '/es/blog'
+    ])
+    .concat(blogposts.map(b => blogpostURL(b)))
+    .concat(blogposts.map(b => `${blogpostURL(b)}.html`))
+    .concat(blogpostsEs.map(b => `/es${blogpostURL(b)}`))
+    .concat(blogpostsEs.map(b => `/es${blogpostURL(b)}.html`))
+    .concat(projects.map(p => projectURL(p)))
+    .concat(projects.map(p => `${projectURL(p)}.html`))
+    .concat(projectsEs.map(p => `/es${projectURL(p)}`))
+    .concat(projectsEs.map(p => `/es${projectURL(p)}.html`))
 }
 
 module.exports = {
@@ -58,8 +65,8 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Josefin+Sans|Open+Sans'},
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Open+Sans<Paste>'},
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Josefin+Sans|Open+Sans' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Open+Sans' },
     ]
   },
 

@@ -29,12 +29,13 @@ export default {
       let href = `${rest.join('-')}`
       href = `/projects/${href}`
       if (store.state.locale === 'es') {
-        href = `/es/${href}`
+        href = `/es${href}`
       }
 
       project.photoSrcSet = photoSrcSet
       project.photo = photo
       project.href = href
+      console.log(project.href)
       projects.push(project)
     }
     projects = projects.reverse()
