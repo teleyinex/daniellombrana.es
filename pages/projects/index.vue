@@ -12,12 +12,18 @@ export default {
   mixins: [projectsm],
   head() {
     return {
-      title: 'My projects',
+      title: this.$t('projectsTitle'),
       meta: [
         {
           hid: 'projects',
           name: 'description',
-          content: 'My list of projects'
+          content: this.$t('projectsSubtitle')
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          content:
+            'https://daniellombrana.es/assets/img/project/projectheader.jpg'
         }
       ]
     }

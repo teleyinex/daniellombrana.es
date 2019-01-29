@@ -12,6 +12,11 @@ export default {
           hid: 'project',
           name: 'description',
           content: this.project.meta_description
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          content: `https://daniellombrana.es/${this.$store.state.heroImg}`
         }
       ]
     }

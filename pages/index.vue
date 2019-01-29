@@ -317,6 +317,24 @@
 <script>
 export default {
   components: {},
+  head() {
+    return {
+      title: 'Daniel Lombraña',
+      meta: [
+        {
+          hid: 'home',
+          name: 'description',
+          content:
+            'Dad, husband, geek, computer engineer, crowdsourcing expert, citizen science researcher, comics reader, pilates practitioner, runner & Founder at Scifabric.'
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          content: 'https://daniellombrana.es/icon.png'
+        }
+      ]
+    }
+  },
   data() {
     return {
       desktop: false,

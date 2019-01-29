@@ -13,12 +13,17 @@ export default {
   mixins: [blogm],
   head() {
     return {
-      title: 'Mi blog',
+      title: this.$t('blogTitle'),
       meta: [
         {
           hid: 'projects',
           name: 'description',
-          content: 'Mis blog posts'
+          content: this.$t('blogSubtitle')
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          content: 'https://daniellombrana.es/assets/img/blog/blogheader.jpg'
         }
       ]
     }

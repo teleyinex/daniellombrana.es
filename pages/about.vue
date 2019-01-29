@@ -11,12 +11,17 @@ export default {
   mixins: [aboutm],
   head() {
     return {
-      title: 'About me',
+      title: this.$t('about'),
       meta: [
         {
           hid: 'aboutme',
           name: 'description',
-          content: 'My about page'
+          content: this.$t('aboutDescription')
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          content: 'https://daniellombrana.es/assets/img/blog/avatar.jpg'
         }
       ]
     }

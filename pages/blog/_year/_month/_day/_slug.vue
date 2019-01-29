@@ -13,6 +13,11 @@ export default {
           hid: 'blog',
           name: 'description',
           content: this.blog.meta_description
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          content: `https://daniellombrana.es/${this.$store.state.heroImg}`
         }
       ]
     }

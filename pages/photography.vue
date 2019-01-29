@@ -12,15 +12,21 @@ export default {
   mixins: [photom],
   head() {
     return {
-      title: 'Photos',
+      title: this.$t('photographyTitle'),
       meta: [
         {
-          hid: 'photos',
+          hid: 'photographyTitle',
           name: 'description',
-          content: 'My collection of photos'
+          content: this.$t('photographySubtitle')
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          content:
+            'https://daniellombrana.es/assets/img/photography/photographyheader.jpg'
         }
       ]
     }
-  },
+  }
 }
 </script>
