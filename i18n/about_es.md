@@ -1,20 +1,25 @@
 # Trabajemos juntos
 
-Me llamo Daniel Lombraña González y soy un programador fullstack. Además soy consultar y tengo más de 10 años de experencia en proyectos de crowdsourcing, desarrollo front y backend utilizando tecnologías modernas.
 
-Diseño sistemas teniendo en cuenta las limitaciones impuestas por la práctica, la seguridad y el coste. Desde 2011 he sido contratado por compañías a instituciones internacionales como el CERN, Museo Británico, la Biblioteca Nacional Británica, Cancer Research UK, Naciones Unidas, Greenpeace España, etc.
+Con más de 10 años de experiencia desarrollando proyectos web, ten por seguro que tu producto estará en buenas manos.
 
-Soy un desarrollador senior con más de 10 años de experiencia en tecnologías como Python, PostreSQL, Redis o más recientemente VueJS, NuxtJS, Sass, Stylus, etc.
+Utilizaré siempre las herramientas y tecnologías que mejor se adapten a tu proyecto. De esta manera sabrás en todo momento que al final del trabajo tu producto será exáctamente como lo habías pensado.
 
-Puedes contratarme para tu proyecto. Si estás interesado, por favor, [reserva una fecha conmigo online](https://calendly.com/scifabric/) para que podamos conocernos y hablar sobre tu proyecto.
+Si además no partes de cero, y ya tienes un wireframe o mockup, trabajaré codo con codo con tus equipos de UX/UI. Será un placer integrar y desarrollar todas las pantallas de tu proyecto.
 
-## En resumen
+Durante estos 10 años me he especializado en Python, Javascript (ES6), CSS3, SVG, VueJS, NuxtJS, PostgreSQL y Redis. Esto me ha permitido desarrollar herramientas que tienen más de [500 estrellas en Github](https://github.com/teleyinex). Instituciones como British Museum, British Library, Cancer Research UK, the Guardian, Greenpeace España son unos ejemplos de instituciones que han confiado en mi trabajo.
 
-### Desde un punto de vista aburrido
+## Hablemos
+
+Busca la [mejor fecha que te venga bien](https://calendly.com/scifabric/) para conocernos y hablar sobre tu proyecto.
+
+### En resumen
+
+#### Desde un punto de vista aburrido
 
 Soy un ingeniero informático con doctorando en Programación Genética Paralela.
 
-### Desde un punto de vista interesante
+#### Desde un punto de vista interesante
 
 Soy el **Fundador** y **Director** de [**Scifabric**](http://scifabric.com).
 
@@ -22,4 +27,4 @@ Soy el **co-fundador y director del proyecto** [PYBOSSA](http://pybossa.com) y [
 
 Soy un **alumni** de la fundación [Shuttleworth](http://www.shuttleworthfoundation.org/).
 
-### Desde un punto de vista visual
+#### Desde un punto de vista visual
