@@ -1,19 +1,32 @@
 export default {
   head() {
     return {
-      title: this.blog.title,
+      htmlAttrs: {
+        lang: this.$i18n.locale
+      },
       meta: [
+        { name: 'author', content: 'Daniel Lombraña' },
         {
-          hid: 'blog',
           name: 'description',
+          property: 'og:description',
+          content: this.blog.meta_description,
+          hid: 'description'
+        },
+        { property: 'og:title', content: this.blog.title },
+        {
+          property: 'og:image',
+          content: `${this.domain}/${this.$store.state.heroImg}`
+        },
+        {
+          name: 'twitter:description',
           content: this.blog.meta_description
         },
         {
-          hid: 'og:image',
-          name: 'og:image',
-          content: `https://daniellombrana.es/${this.$store.state.heroImg}`
+          name: 'twitter:image',
+          content: `${this.domain}/${this.$store.state.heroImg}`
         }
-      ]
+      ],
+      title: this.blog.title
     }
   },
   mounted() {
@@ -45,7 +58,8 @@ export default {
     blog.content = blog.content.replace('{: .img-responsive}', '\n')
 
     return {
-      blog
+      blog,
+      domain: 'https://daniellombrana.es'
     }
   }
 }

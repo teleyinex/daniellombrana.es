@@ -1,19 +1,32 @@
 export default {
   head() {
     return {
-      title: this.project.title,
+      htmlAttrs: {
+        lang: this.$i18n.locale
+      },
       meta: [
+        { name: 'author', content: 'Daniel Lombraña' },
         {
-          hid: 'project',
           name: 'description',
+          property: 'og:description',
+          content: this.project.meta_description,
+          hid: 'description'
+        },
+        { property: 'og:title', content: this.project.title },
+        {
+          property: 'og:image',
+          content: `${this.domain}/${this.$store.state.heroImg}`
+        },
+        {
+          name: 'twitter:description',
           content: this.project.meta_description
         },
         {
-          hid: 'og:image',
-          name: 'og:image',
-          content: `https://daniellombrana.es/${this.$store.state.heroImg}`
+          name: 'twitter:image',
+          content: `${this.domain}/${this.$store.state.heroImg}`
         }
-      ]
+      ],
+      title: this.project.title
     }
   },
   async asyncData({ app, params, query, store }) {
@@ -44,7 +57,8 @@ export default {
     })
 
     return {
-      project
+      project,
+      domain: 'https://daniellombrana.es'
     }
   }
 }
