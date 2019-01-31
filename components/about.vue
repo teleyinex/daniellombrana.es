@@ -10,9 +10,9 @@
         <v-flex :key="idx" xs12, md6>
           <v-card>
             <v-img
-              :src="img.src"
-              :srcset="img.srcSet"
-              :lazy-src="img.placeholder"
+              :src="getImg(point).src"
+              :srcset="getImg(point).srcSet"
+              :lazy-src="getImg(point).placeholder"
               :aspect-ratio="4/3"
             />
             <v-card-title primary-title>
@@ -40,6 +40,11 @@ export default {
     },
     img() {
       return require(`~/assets/${this.$store.state.heroImg}`)
+    }
+  },
+  methods: {
+    getImg(img) {
+      return require(`~/assets/img/about/${img.cover}.jpg`)
     }
   }
 }
