@@ -10,7 +10,9 @@
         <v-flex :key="idx" xs12, md6>
           <v-card>
             <v-img
-              :src="getCover(point.cover)"
+              :src="img.src"
+              :srcset="img.srcSet"
+              :lazy-src="img.placeholder"
               :aspect-ratio="4/3"
             />
             <v-card-title primary-title>
@@ -35,11 +37,9 @@ export default {
     },
     about() {
       return require(`~/i18n/about_${this.$store.state.locale}.md`)
-    }
-  },
-  methods: {
-    getCover(url) {
-      return `/assets/img/about/${url}.jpg`
+    },
+    img() {
+      return require(`~/assets/${this.$store.state.heroImg}`)
     }
   }
 }
