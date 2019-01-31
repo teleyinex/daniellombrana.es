@@ -3,9 +3,12 @@
     <v-layout align-center justify-center row fill-heigh>
       <v-flex xs12 md10>
         <div itemscope itemtype="http://schema.org/Person" class="about" v-html="about" />
+        <v-btn href="https://calendly.com/scifabric" color="hsla(282, 44%, 27%, 1)" class="ml-0" dark large>
+          {{ $t('bookAday') }}
+        </v-btn>
       </v-flex>
     </v-layout>
-    <v-layout row wrap>
+    <!--<v-layout row wrap>
       <template v-for="(point, idx) in visualPoints">
         <v-flex :key="idx" xs12, md6>
           <v-card>
@@ -26,7 +29,7 @@
           </v-card>
         </v-flex>
       </template>
-    </v-layout>
+        </v-layout>-->
   </v-container>
 </template>
 <script>
