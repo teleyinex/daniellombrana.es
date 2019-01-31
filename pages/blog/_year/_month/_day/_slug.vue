@@ -2,59 +2,11 @@
   .blogContent(v-html="$md.render(blog.content)")
 </template>
 <script>
+import blogSlug from '~/mixins/blogSlug.js'
 export default {
   layout: 'page',
   scrollToTop: true,
-  head() {
-    return {
-      title: this.blog.title,
-      meta: [
-        {
-          hid: 'blog',
-          name: 'description',
-          content: this.blog.meta_description
-        },
-        {
-          hid: 'og:image',
-          name: 'og:image',
-          content: `https://daniellombrana.es/${this.$store.state.heroImg}`
-        }
-      ]
-    }
-  },
-  mounted() {
-    window.scrollTo(0, 0)
-  },
-  async asyncData({ app, params, store, payload }) {
-    if (params.slug.indexOf('.html') >= 0) {
-      params.slug = params.slug.replace('.html', '')
-    }
-    const slug = `${params.year}-${params.month}-${params.day}-${params.slug}`
-    const blogposts = await app.$axios.$get('/blogposts.json')
-    const blog = blogposts[slug]
-    const photo = `img/blog/${blog.icon}.jpg`
-    const photoSrcSet = `img/blog/${blog.icon}-phone.jpg 400w,
-       img/blog/${blog.icon}-tablet.jpg 768w,
-       img/blog/${blog.icon}.jpg 1040w
-      `
-    store.commit('setActive', 'blog')
-    store.commit('setColor', '#2980b9')
-    store.commit('setCoverImg', photo)
-    store.commit('setPage', {
-      title: blog.title,
-      photoAuthor: blog.icon_author,
-      photoUrl: blog.icon_url,
-      photoSrcSet,
-      gradient: 'rgba(0,0,0,0.45), rgba(0,0,0,0.45)'
-    })
-
-    blog.content = blog.content.replace('<!--more-->', '')
-    blog.content = blog.content.replace('{: .img-responsive}', '\n')
-
-    return {
-      blog
-    }
-  }
+  mixins: [blogSlug]
 }
 </script>
 <style lang="styl">
