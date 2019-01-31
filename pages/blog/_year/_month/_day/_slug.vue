@@ -32,10 +32,10 @@ export default {
     const slug = `${params.year}-${params.month}-${params.day}-${params.slug}`
     const blogposts = await app.$axios.$get('/blogposts.json')
     const blog = blogposts[slug]
-    const photo = `/assets/img/blog/${blog.icon}.jpg`
-    const photoSrcSet = `/assets/img/blog/${blog.icon}-phone.jpg 400w,
-       /assets/img/blog/${blog.icon}-tablet.jpg 768w,
-       /assets/img/blog/${blog.icon}.jpg 1040w
+    const photo = `img/blog/${blog.icon}.jpg`
+    const photoSrcSet = `img/blog/${blog.icon}-phone.jpg 400w,
+       img/blog/${blog.icon}-tablet.jpg 768w,
+       img/blog/${blog.icon}.jpg 1040w
       `
     store.commit('setActive', 'blog')
     store.commit('setColor', '#2980b9')

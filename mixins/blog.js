@@ -2,10 +2,10 @@ export default {
   async asyncData({ app, store }) {
     store.commit('setActive', 'blog')
     store.commit('setColor', '#2980b9')
-    store.commit('setCoverImg', '/assets/img/blog/blogheader.jpg')
-    const coverSrcSet = `/assets/img/blog/blogheader-phone.jpg 400w,
-       /assets/img/blog/blogheader-tablet.jpg 768w,
-       /assets/img/blog/blogheader.jpg 1040w
+    store.commit('setCoverImg', 'img/blog/blogheader.jpg')
+    const coverSrcSet = `img/blog/blogheader-phone.jpg 400w,
+       img/blog/blogheader-tablet.jpg 768w,
+       img/blog/blogheader.jpg 1040w
       `
 
     store.commit('setPage', {
@@ -19,10 +19,10 @@ export default {
     let blogposts = []
     for (const key of Object.keys(data)) {
       const blog = data[key]
-      const photo = `/assets/img/blog/${blog.icon}.jpg`
-      const photoSrcSet = `/assets/img/blog/${blog.icon}-phone.jpg 400w,
-         /assets/img/blog/${blog.icon}-tablet.jpg 768w,
-         /assets/img/blog/${blog.icon}.jpg 1040w
+      const photo = `img/blog/${blog.icon}.jpg`
+      const photoSrcSet = `img/blog/${blog.icon}-phone.jpg 400w,
+         img/blog/${blog.icon}-tablet.jpg 768w,
+         img/blog/${blog.icon}.jpg 1040w
         `
       const tmp = key.split('-')
       const date = tmp.slice(0, 3)

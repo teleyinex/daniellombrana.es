@@ -5,30 +5,29 @@
         <navGen />
       </div>
     </div>
-    <v-fade-transition>
-      <v-img
-        v-if="$store.state.show"
-        cover
-        :src="$store.state.heroImg"
-        :aspect-ratio="4/3"
-        position="top"
-        :srcset="$store.state.page.photoSrcSet"
-        :sizes="$store.state.page.sizes"
-        :gradient="$store.state.page.gradient"
-        :max-height="maxHeight"
-      >
-        <div class="headlines">
-          <h1>{{ $store.state.page.title }}</h1>
-          <h3>
-            {{ $store.state.page.subTitle }}</h1>
-          </h3>
-          <h5 v-if="$store.state.page.photoUrl">
-            Photo by <a style="color:white;" href="$store.state.page.photoUrl">
-              {{ $store.state.page.photoAuthor }}
-            </a>
-          </h5>
-        </div>
-      </v-img>
+    <v-img
+      v-if="$store.state.show"
+      cover
+      :src="img.src"
+      :srcset="img.srcSet"
+      :aspect-ratio="4/3"
+      :lazy-src="img.placeholder"
+      position="top"
+      :gradient="$store.state.page.gradient"
+      :max-height="maxHeight"
+    >
+      <div class="headlines">
+        <h1>{{ $store.state.page.title }}</h1>
+        <h3>
+          {{ $store.state.page.subTitle }}</h1>
+        </h3>
+        <h5 v-if="$store.state.page.photoUrl">
+          Photo by <a style="color:white;" href="$store.state.page.photoUrl">
+            {{ $store.state.page.photoAuthor }}
+          </a>
+        </h5>
+      </div>
+    </v-img>
     </v-fade-transition>
     <v-container>
       <v-layout align-center justify-center row fill-height>
@@ -62,6 +61,9 @@ export default {
         'min-height': '4px',
         height: '4px'
       }
+    },
+    img() {
+      return require(`~/assets/${this.$store.state.heroImg}`)
     }
   },
   mounted() {

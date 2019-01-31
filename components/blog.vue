@@ -4,7 +4,7 @@ v-container(fluid grid-list-xl)
       template(v-for='(blogpost, idx) in active')
         v-flex(xs12, md6)
           v-card(:key='idx', :hover="true" :nuxt="true" @click="goTo(blogpost.href)")
-            v-img(:src='blogpost.photo', :aspect-ratio='4/3', :srcset="blogpost.photoSrcSet" sizes="(max-width:412px) 400px,  (max-width:768px) 768px, 1040px")
+            v-img(:src='img(blogpost).src', :aspect-ratio='4/3', :srcset="img(blogpost).srcSet" :placeholder="img(blogpost).placeholder") 
             v-card-title(primary-title)
               .contentCard
                 h2.mb-0
@@ -48,6 +48,9 @@ export default {
     }
   },
   methods: {
+    img(blog) {
+      return require(`~/assets/${blog.photo}`)
+    },
     goTo(link) {
       this.$router.push(link)
     },

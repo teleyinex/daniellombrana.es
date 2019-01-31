@@ -1,4 +1,5 @@
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
+const { VuetifyProgressiveModule } = require('vuetify-loader')
 const pkg = require('./package')
 
 let blogposts = require('./static/en/blogposts.json')
@@ -161,8 +162,9 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
+      const rule = config.module.rules.find(r => r.test.toString() === '/\\.(png|jpe?g|gif|svg|webp)$/i');
+      config.module.rules.splice(config.module.rules.indexOf(rule), 1);
       // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
@@ -173,18 +175,25 @@ module.exports = {
           test: require.resolve('snapsvg'),
           use: 'imports-loader?this=>window,fix=>module.exports=0'
         })
-        config.module.rules.push({
-          test: /\.(png|jpe?g|gif)$/,
-          resourceQuery: /vuetify-preload/,
-          use: [
-            'vuetify-loader/progressive-loader',
-            {
-              loader: 'url-loader',
-              options: { limit: 8000 }
-            }
-          ]
+        config.module.rules.push(
+{
+        test: /\.(jpe?g|png)$/i,
+        loader: 'responsive-loader',
+        options: {
+          placeholder: true,
+          quality: 60,
+          sizes: [300, 768, 1024],
+          adapter: require('responsive-loader/sharp')
+        }
+      },
+        {
+        test: /\.(gif|svg)$/,
+        loader: 'url-loader',
+        query: {
+          limit: 1000,
+          name: 'img/[name].[hash:7].[ext]'
+        }
         })
-      }
     }
   },
   generate: {
