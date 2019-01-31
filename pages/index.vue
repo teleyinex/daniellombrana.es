@@ -232,13 +232,13 @@
             </g>
           </svg>
         </div>
+        <a v-if="$store.state.locale === 'en'" class="lang" @click="setLang('es')">
+          Español
+        </a>
+        <a v-else class="lang" @click="setLang('en')">
+          English
+        </a>
       </div>
-      <a v-if="$store.state.locale === 'en'" class="lang" @click="setLang('es')">
-        Español
-      </a>
-      <a v-else class="lang" @click="setLang('en')">
-        English
-      </a>
     </main>
 
     <nav class="navbar navbar-fixed-bottom">
@@ -577,8 +577,7 @@ a
   animation-fill-mode: forwards
 
 .lang
-  position: absolute
-  bottom: 120px
+  margin-top: 22px
   width: 100vw
   text-align: center
   color: #757575
