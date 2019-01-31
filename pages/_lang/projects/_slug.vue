@@ -2,59 +2,10 @@
   .projectContent(v-html="$md.render(project.content)")
 </template>
 <script>
+import projectsSlug from '~/mixins/projectsSlug'
 export default {
   layout: 'page',
-  head() {
-    return {
-      title: this.project.title,
-      meta: [
-        {
-          hid: 'project',
-          name: 'description',
-          content: this.project.meta_description
-        },
-        {
-          hid: 'og:image',
-          name: 'og:image',
-          content: `https://daniellombrana.es/${this.$store.state.heroImg}`
-        }
-      ]
-    }
-  },
-  async asyncData({ app, params, query, store }) {
-    if (params.slug.indexOf('.html') >= 0) {
-      params.slug = params.slug.replace('.html', '')
-    }
-    const projects = await app.$axios.$get(
-      `/${store.state.locale}/projects.json`
-    )
-    let project = null
-    for (const k of Object.keys(projects)) {
-      if (k.indexOf(params.slug) >= 0) {
-        project = projects[k]
-        break
-      }
-    }
-    const photo = `/assets/img/project/${project.icon}.jpg`
-    const photoSrcSet = `/assets/img/project/${project.icon}-phone.jpg 400w,
-       /assets/img/project/${project.icon}-tablet.jpg 768w,
-       /assets/img/project/${project.icon}.jpg 1040w
-      `
-    store.commit('setActive', 'projects')
-    store.commit('setColor', '#f39c12')
-    store.commit('setCoverImg', photo)
-    store.commit('setPage', {
-      title: project.title,
-      photoAuthor: project.icon_author,
-      photoUrl: project.icon_url,
-      photoSrcSet,
-      gradient: 'rgba(0,0,0,0.45), rgba(0,0,0,0.45)'
-    })
-
-    return {
-      project
-    }
-  }
+  mixins: [projectsSlug]
 }
 </script>
 <style lang="styl">

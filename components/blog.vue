@@ -4,7 +4,11 @@ v-container(fluid grid-list-xl)
       template(v-for='(blogpost, idx) in active')
         v-flex(xs12, md6)
           v-card(:key='idx', :hover="true" :nuxt="true" @click="goTo(blogpost.href)")
-            v-img(:src='img(blogpost).src', :aspect-ratio='4/3', :srcset="img(blogpost).srcSet" :placeholder="img(blogpost).placeholder") 
+            v-img(
+              :src='img(blogpost).src',
+              :aspect-ratio='4/3',
+              :srcset="img(blogpost).srcSet"
+              :lazy-src="img(blogpost).placeholder") 
             v-card-title(primary-title)
               .contentCard
                 h2.mb-0

@@ -31,10 +31,6 @@ export default {
     const blogposts = await app.$axios.$get(blogUrl)
     const blog = blogposts[slug]
     const photo = `img/blog/${blog.icon}.jpg`
-    const photoSrcSet = `img/blog/${blog.icon}-phone.jpg 400w,
-       img/blog/${blog.icon}-tablet.jpg 768w,
-       img/blog/${blog.icon}.jpg 1040w
-      `
     store.commit('setActive', 'blog')
     store.commit('setColor', '#2980b9')
     store.commit('setCoverImg', photo)
@@ -42,7 +38,6 @@ export default {
       title: blog.title,
       photoAuthor: blog.icon_author,
       photoUrl: blog.icon_url,
-      photoSrcSet,
       gradient: 'rgba(0,0,0,0.45), rgba(0,0,0,0.45)'
     })
 

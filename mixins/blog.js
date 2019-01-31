@@ -3,27 +3,17 @@ export default {
     store.commit('setActive', 'blog')
     store.commit('setColor', '#2980b9')
     store.commit('setCoverImg', 'img/blog/blogheader.jpg')
-    const coverSrcSet = `img/blog/blogheader-phone.jpg 400w,
-       img/blog/blogheader-tablet.jpg 768w,
-       img/blog/blogheader.jpg 1040w
-      `
 
     store.commit('setPage', {
       title: 'Blog',
       subTitle: app.i18n.t('blogSubtitle'),
-      gradient: 'rgba(0,0,0,0.45), rgba(0,0,0,0.45)',
-      sizes: '(max-width:412px) 400px,  (max-width:768px) 768px, 1040px',
-      phtoSrcSet: coverSrcSet
+      gradient: 'rgba(0,0,0,0.45), rgba(0,0,0,0.45)'
     })
     const data = await app.$axios.$get(`/${store.state.locale}/blogposts.json`)
     let blogposts = []
     for (const key of Object.keys(data)) {
       const blog = data[key]
       const photo = `img/blog/${blog.icon}.jpg`
-      const photoSrcSet = `img/blog/${blog.icon}-phone.jpg 400w,
-         img/blog/${blog.icon}-tablet.jpg 768w,
-         img/blog/${blog.icon}.jpg 1040w
-        `
       const tmp = key.split('-')
       const date = tmp.slice(0, 3)
       const rest = tmp.slice(3)
@@ -33,7 +23,6 @@ export default {
       }
       href = href.replace('.md', '.html')
 
-      blog.photoSrcSet = photoSrcSet
       blog.photo = photo
       blog.href = href
       blogposts.push(blog)
