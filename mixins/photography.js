@@ -15,6 +15,41 @@ export default {
       order_by: 'popular'
     }
     const photos = await app.$axios.$get(url, { params: payload })
-    return { photos }
+    return { photos, domain: 'https://daniellombrana.es' }
+  },
+  head() {
+    return {
+      htmlAttrs: {
+        lang: this.$i18n.locale
+      },
+      meta: [
+        { name: 'author', content: 'Daniel Lombraña' },
+        {
+          name: 'description',
+          property: 'og:description',
+          content: this.$t('photos'),
+          hid: 'description'
+        },
+        { property: 'og:title', content: this.$t('photos') },
+        {
+          property: 'og:image',
+          content: `${this.domain}${this.img}`
+        },
+        {
+          name: 'twitter:description',
+          content: this.$t('photos')
+        },
+        {
+          name: 'twitter:image',
+          content: `${this.domain}${this.img}`
+        }
+      ],
+      title: this.$t('photos')
+    }
+  },
+  computed: {
+    img() {
+      return require(`~/assets/${this.$store.state.heroImg}`)
+    }
   }
 }

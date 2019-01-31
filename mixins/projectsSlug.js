@@ -15,7 +15,7 @@ export default {
         { property: 'og:title', content: this.project.title },
         {
           property: 'og:image',
-          content: `${this.domain}/${this.$store.state.heroImg}`
+          content: `${this.domain}/${this.img}`
         },
         {
           name: 'twitter:description',
@@ -23,7 +23,7 @@ export default {
         },
         {
           name: 'twitter:image',
-          content: `${this.domain}/${this.$store.state.heroImg}`
+          content: `${this.domain}/${this.img}`
         }
       ],
       title: this.project.title
@@ -46,6 +46,7 @@ export default {
       }
     }
     const photo = `img/project/${project.icon}.jpg`
+    project.photo = photo
     store.commit('setActive', 'projects')
     store.commit('setColor', '#f39c12')
     store.commit('setCoverImg', photo)
@@ -59,6 +60,11 @@ export default {
     return {
       project,
       domain: 'https://daniellombrana.es'
+    }
+  },
+  computed: {
+    img() {
+      return require(`~/assets/${this.$store.state.heroImg}`)
     }
   }
 }

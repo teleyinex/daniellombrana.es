@@ -5,7 +5,6 @@ export default {
       type: Boolean
     }
   },
-
   methods: {
     goBack() {
       this.$emit('update:close', true)

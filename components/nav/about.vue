@@ -1,8 +1,8 @@
 <template lang="pug">
   .icons
-    v-btn#closebtn(flat='', icon='', @click="goBack", aria-label="go back")
+    v-btn#closebtn(flat='', icon='', @click="goBack" aria-label="home")
       v-icon(color='white')
-          | mdi-arrow-left
+          | mdi-home-variant-outline
     v-btn(icon='', flat='', href='https://www.linkedin.com/in/teleyinex', aria-label="Daniel's linkedin page")
       v-icon(color='white')
         | mdi-linkedin

@@ -9,21 +9,21 @@ export default {
         {
           name: 'description',
           property: 'og:description',
-          content: this.blog.meta_description,
+          content: this.blog.description,
           hid: 'description'
         },
         { property: 'og:title', content: this.blog.title },
         {
           property: 'og:image',
-          content: `${this.domain}/${this.$store.state.heroImg}`
+          content: `${this.domain}${this.img}`
         },
         {
           name: 'twitter:description',
-          content: this.blog.meta_description
+          content: this.blog.description
         },
         {
           name: 'twitter:image',
-          content: `${this.domain}/${this.$store.state.heroImg}`
+          content: `${this.domain}${this.img}`
         }
       ],
       title: this.blog.title
@@ -60,6 +60,11 @@ export default {
     return {
       blog,
       domain: 'https://daniellombrana.es'
+    }
+  },
+  computed: {
+    img() {
+      return require(`~/assets/${this.$store.state.heroImg}`)
     }
   }
 }
