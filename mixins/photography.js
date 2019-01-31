@@ -2,17 +2,11 @@ export default {
   async asyncData({ store, app }) {
     store.commit('setColor', '#27ae60')
     store.commit('setActive', 'photography')
-    store.commit('setCoverImg', '/assets/img/photography/photographyheader.jpg')
-    const coverSrcSet = `/assets/img/photography/photographyheader-phone.jpg 400w,
-       /assets/img/photography/photographyheader-tablet.jpg 768w,
-       /assets/img/photography/photographyheader.jpg 1040w
-      `
+    store.commit('setCoverImg', 'img/photography/photographyheader.jpg')
     store.commit('setPage', {
       title: app.i18n.t('photographyTitle'),
       subTitle: app.i18n.t('photographySubtitle'),
-      gradient: 'rgba(0,0,0,0.45), rgba(0,0,0,0.45)',
-      sizes: '(max-width:412px) 400px,  (max-width:768px) 768px, 1040px',
-      phtoSrcSet: coverSrcSet
+      gradient: 'rgba(0,0,0,0.45), rgba(0,0,0,0.45)'
     })
     const url = 'https://api.unsplash.com/users/teleyinex/photos'
     const payload = {

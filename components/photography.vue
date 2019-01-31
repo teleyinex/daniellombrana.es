@@ -9,7 +9,10 @@ v-container(fluid grid-list-xl)
       template(v-for='(photo, idx) in photos')
         v-flex(xs12, md6)
           v-card(:key='idx')
-            v-img(:src='photo.urls.regular', :aspect-ratio='4/3', :srcset="photo.photoSrcSet" sizes="(max-width:412px) 400px,  (max-width:768px) 768px, 1040px")
+            v-img(
+              :src='photo.urls.regular',
+              :aspect-ratio='4/3'
+              )
             v-card-actions
               v-btn.pa-0(flat, color="hsla(145, 63%, 12%, 1)", :href="photo.links.download") Download
           v-spacer(:key='`space-${idx}`')
