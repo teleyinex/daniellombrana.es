@@ -15,7 +15,7 @@ export default {
         { property: 'og:title', content: this.blog.title },
         {
           property: 'og:image',
-          content: `${this.domain}${this.img}`
+          content: this.ogImg
         },
         {
           name: 'twitter:description',
@@ -23,7 +23,7 @@ export default {
         },
         {
           name: 'twitter:image',
-          content: `${this.domain}${this.img}`
+          content: this.ogImg
         }
       ],
       title: this.blog.title
@@ -58,13 +58,15 @@ export default {
     blog.content = blog.content.replace('{: .img-responsive}', '\n')
 
     return {
-      blog,
-      domain: 'https://daniellombrana.es'
+      blog
     }
   },
   computed: {
     img() {
       return require(`~/assets/${this.$store.state.heroImg}`)
+    },
+    ogImg() {
+      return `${process.env.baseUrl}${this.img}`
     }
   }
 }
