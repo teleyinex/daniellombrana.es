@@ -2,12 +2,12 @@
   <v-container fluid grid-list-xl>
     <v-layout align-center justify-center row fill-heigh>
       <v-flex xs12 md10>
+        <python />
         <vuejs />
         <div itemscope itemtype="http://schema.org/Person" class="about" v-html="about" />
         <v-btn href="https://calendly.com/teleyinex/30min" color="hsla(282, 44%, 27%, 1)" class="ml-0" dark large>
           {{ $t('bookAday') }}
         </v-btn>
-        <python />
         <postgresql />
         <nuxtjs />
         <babel />
