@@ -1,28 +1,37 @@
-<template>
-  <div>
-    <withEnteredViewport>
-      <redis slot-scope="{ enteredViewport }" :start="enteredViewport" />
-    </withEnteredViewport>
-    <withEnteredViewport>
-      <css3 slot-scope="{ enteredViewport }" :start="enteredViewport" />
-    </withEnteredViewport>
-    <withEnteredViewport>
-      <nuxtjs slot-scope="{ enteredViewport }" :start="enteredViewport" />
-    </withEnteredViewport>
-    <withEnteredViewport>
-      <postgresql slot-scope="{ enteredViewport }" :start="enteredViewport" />
-    </withEnteredViewport>
+<template lang="pug">
+  div
+    v-layout(align-center justify-center row fill-heigh)
+      v-flex(xs12 md10)
+        .about(style="margin-top:100px;")
+          h2 {{ $t('aboutTech') }}
 
-    <withEnteredViewport>
-      <python slot-scope="{ enteredViewport }" :start="enteredViewport" />
-    </withEnteredViewport>
-    <withEnteredViewport>
-      <vuejs slot-scope="{ enteredViewport }" :start="enteredViewport" />
-    </withEnteredViewport>
-    <withEnteredViewport>
-      <html5 slot-scope="{ enteredViewport }" :start="enteredViewport" />
-    </withEnteredViewport>
-  </div>
+    v-layout(align-center justify-center row fill-heigh)
+      v-flex(xs12 md3)
+        withEnteredViewport
+          redis(slot-scope="{ enteredViewport }" :start="enteredViewport" class="icon")
+
+        withEnteredViewport
+          nuxtjs(slot-scope="{ enteredViewport }" :start="enteredViewport" class="icon")
+
+        withEnteredViewport
+          postgresql(slot-scope="{ enteredViewport }" :start="enteredViewport" class="icon")
+
+        withEnteredViewport
+          python(slot-scope="{ enteredViewport }" :start="enteredViewport" class="icon")
+
+        withEnteredViewport
+          vuejs(slot-scope="{ enteredViewport }" :start="enteredViewport" class="icon")
+
+        withEnteredViewport
+          html5(slot-scope="{ enteredViewport }" :start="enteredViewport" class="icon")
+
+        withEnteredViewport
+          css3(slot-scope="{ enteredViewport }" :start="enteredViewport" class="icon")
+
+    v-layout(align-center justify-center row fill-heigh)
+      v-flex(xs12 md10)
+        div(v-html="$md.render($t('aboutTechInfo'))")
+        bookAday
 </template>
 <script>
 import python from '~/components/logos/python.vue'
@@ -33,8 +42,10 @@ import css3 from '~/components/logos/css3.vue'
 import redis from '~/components/logos/redis.vue'
 import vuejs from '~/components/logos/vuejs.vue'
 import withEnteredViewport from '~/components/withEnteredViewport'
+import bookAday from '~/components/bookAday'
 export default {
   components: {
+    bookAday,
     withEnteredViewport,
     python,
     postgresql,
@@ -46,3 +57,7 @@ export default {
   }
 }
 </script>
+<style lang="styl" scoped>
+  .icon
+    margin-bottom: 50px
+</style>

@@ -1,5 +1,5 @@
 <template lang="pug">
-  div
+  .center
     slot(:entered-viewport="enteredViewport")
 </template>
 
@@ -22,3 +22,7 @@ export default {
   }
 }
 </script>
+<style lang="styl" scoped>
+  .center
+    display: block
+</style>

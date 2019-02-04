@@ -1,43 +1,18 @@
-<template>
-  <v-container fluid grid-list-xl>
-    <v-layout align-center justify-center row fill-heigh>
-      <v-flex xs12 md10>
-        <div itemscope itemtype="http://schema.org/Person" class="about" v-html="about" />
-        <v-btn href="https://calendly.com/teleyinex/30min" color="hsla(282, 44%, 27%, 1)" class="ml-0" dark large>
-          {{ $t('bookAday') }}
-        </v-btn>
-        <allLogos />
-      </v-flex>
-    </v-layout>
-    <!--<v-layout row wrap>
-      <template v-for="(point, idx) in visualPoints">
-        <v-flex :key="idx" xs12, md6>
-          <v-card>
-            <v-img
-              :src="getImg(point).src"
-              :srcset="getImg(point).srcSet"
-              :lazy-src="getImg(point).placeholder"
-              :aspect-ratio="4/3"
-            />
-            <v-card-title primary-title>
-              <div class="contentCard">
-                <h2 class="mb-0">
-                  {{ point.title }}
-                </h2>
-                <p>{{ point.text }}</p>
-              </div>
-            </v-card-title>
-          </v-card>
-        </v-flex>
-      </template>
-        </v-layout>-->
-  </v-container>
+<template lang="pug">
+  v-container(fluid grid-list-xl)
+    v-layout(align-center justify-center row fill-heigh)
+      v-flex(xs12 md10)
+        div(itemscope itemtype="http://schema.org/Person" class="about" v-html="about")
+        bookAday
+    allLogos
 </template>
 <script>
 import allLogos from '~/components/logos/all'
+import bookAday from '~/components/bookAday'
 export default {
   components: {
-    allLogos
+    allLogos,
+    bookAday
   },
   computed: {
     visualPoints() {

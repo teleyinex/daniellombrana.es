@@ -17,5 +17,7 @@
     "readmore": "Leer más",
     "noBlogposts": "No hay más artículos",
     "noProjects": "No hay más proyectos",
-    "bookAday": "Reserva una cita"
+    "bookAday": "Reserva una cita",
+    "aboutTech": "Más de 10 años de experiencia para darte lo mejor",
+    "aboutTechInfo": "Durante estos 10 años me he especializado en Python, Javascript (ES6), CSS3, SVG, VueJS, NuxtJS, PostgreSQL y Redis. Esto me ha permitido desarrollar herramientas que tienen más de [500 estrellas en Github](https://github.com/teleyinex). Instituciones como British Museum, British Library, Cancer Research UK, the Guardian, Greenpeace España son unos ejemplos de instituciones que han confiado en mi trabajo."
 }
