@@ -7,7 +7,7 @@ export default {
   },
   watch: {
     start() {
-      if (this.start) {
+      if (this.start && this.$refs.hasOwnProperty('animate')) {
         this.$refs.animate.beginElement()
       }
     }
