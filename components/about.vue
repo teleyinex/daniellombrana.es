@@ -2,21 +2,11 @@
   <v-container fluid grid-list-xl>
     <v-layout align-center justify-center row fill-heigh>
       <v-flex xs12 md10>
-        <redis />
-        <css3 />
-        <nuxtjs />
-        <postgresql />
-        <python />
-        <vuejs />
-        <withEnteredViewport>
-          <html5 slot-scope="{ enteredViewport }" :start="enteredViewport" />
-        </withEnteredViewport>
-
         <div itemscope itemtype="http://schema.org/Person" class="about" v-html="about" />
         <v-btn href="https://calendly.com/teleyinex/30min" color="hsla(282, 44%, 27%, 1)" class="ml-0" dark large>
           {{ $t('bookAday') }}
         </v-btn>
-        <babel />
+        <allLogos />
       </v-flex>
     </v-layout>
     <!--<v-layout row wrap>
@@ -44,26 +34,10 @@
   </v-container>
 </template>
 <script>
-import python from '~/components/logos/python.vue'
-import postgresql from '~/components/logos/postgresql.vue'
-import nuxtjs from '~/components/logos/nuxtjs.vue'
-import babel from '~/components/logos/babel.vue'
-import html5 from '~/components/logos/html5.vue'
-import css3 from '~/components/logos/css3.vue'
-import redis from '~/components/logos/redis.vue'
-import vuejs from '~/components/logos/vuejs.vue'
-import withEnteredViewport from '~/components/withEnteredViewport'
+import allLogos from '~/components/logos/all'
 export default {
   components: {
-    withEnteredViewport,
-    python,
-    postgresql,
-    nuxtjs,
-    babel,
-    html5,
-    css3,
-    redis,
-    vuejs
+    allLogos
   },
   computed: {
     visualPoints() {

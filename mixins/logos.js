@@ -5,11 +5,16 @@ export default {
       default: false
     }
   },
+  methods: {
+    startAnim() {
+      if (this.start && this.$refs.hasOwnProperty('animate')) {
+        setTimeout(this.$refs.animate.beginElement())
+      }
+    }
+  },
   watch: {
     start() {
-      if (this.start && this.$refs.hasOwnProperty('animate')) {
-        this.$refs.animate.beginElement()
-      }
+      setTimeout(this.startAnim, 500)
     }
   }
 }
