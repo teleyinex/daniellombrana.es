@@ -170,3 +170,9 @@
     />
   </svg>
 </template>
+<script>
+import logos from '~/mixins/logos.js'
+export default {
+  mixins: [logos]
+}
+</script>

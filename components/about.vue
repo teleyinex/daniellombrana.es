@@ -4,11 +4,14 @@
       <v-flex xs12 md10>
         <redis />
         <css3 />
-        <html5 />
         <nuxtjs />
         <postgresql />
         <python />
         <vuejs />
+        <withEnteredViewport>
+          <html5 slot-scope="{ enteredViewport }" :start="enteredViewport" />
+        </withEnteredViewport>
+
         <div itemscope itemtype="http://schema.org/Person" class="about" v-html="about" />
         <v-btn href="https://calendly.com/teleyinex/30min" color="hsla(282, 44%, 27%, 1)" class="ml-0" dark large>
           {{ $t('bookAday') }}
@@ -49,8 +52,10 @@ import html5 from '~/components/logos/html5.vue'
 import css3 from '~/components/logos/css3.vue'
 import redis from '~/components/logos/redis.vue'
 import vuejs from '~/components/logos/vuejs.vue'
+import withEnteredViewport from '~/components/withEnteredViewport'
 export default {
   components: {
+    withEnteredViewport,
     python,
     postgresql,
     nuxtjs,

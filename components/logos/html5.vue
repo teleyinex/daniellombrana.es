@@ -6,9 +6,11 @@
     <path id="five" style="opacity: 0;" fill="#ebebeb" d="M142 176.3h114v45.4h-64.2l4.2 46.5h60v45.3H154.4m2 22.8H202l3.2 36.3 50.8 13.6v47.4l-93.2-26" />
     <path id="fiveRight" style="opacity: 0;" fill="#fff" d="M369.6 176.3H255.8v45.4h109.6m-4.1 46.5H255.8v45.4h56l-5.3 59-50.7 13.6v47.2l93-25.8" />
     <animate
+      id="shieldAnim"
+      ref="animate"
       xlink:href="#shield"
       attributeType="CSS"
-      begin="0ms"
+      begin="indefinite"
       from="0"
       to="1"
       dur="250ms"
@@ -16,9 +18,10 @@
       fill="freeze"
     />
     <animate
+      id="fiveAnim"
       xlink:href="#five"
       attributeType="CSS"
-      begin="250ms"
+      begin="rightShieldAnim.end + 250ms"
       from="0"
       to="1"
       dur="250ms"
@@ -26,9 +29,10 @@
       fill="freeze"
     />
     <animate
+      id="fiveRightAnim"
       xlink:href="#fiveRight"
       attributeType="CSS"
-      begin="250ms"
+      begin="rightShieldAnim.end + 250ms"
       from="0"
       to="1"
       dur="250ms"
@@ -36,9 +40,10 @@
       fill="freeze"
     />
     <animate
+      id="htmlAnim"
       xlink:href="#html"
       attributeType="CSS"
-      begin="250ms"
+      begin="fiveAnim.end"
       from="0"
       to="1"
       dur="250ms"
@@ -46,9 +51,10 @@
       fill="freeze"
     />
     <animate
+      id="rightShieldAnim"
       xlink:href="#rightShield"
       attributeType="CSS"
-      begin="250ms"
+      begin="shieldAnim.end"
       from="0"
       to="1"
       dur="250ms"
@@ -57,3 +63,9 @@
     />
   </svg>
 </template>
+<script>
+import logos from '~/mixins/logos.js'
+export default {
+  mixins: [logos]
+}
+</script>
