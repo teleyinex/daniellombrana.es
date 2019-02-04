@@ -5,7 +5,7 @@
     <animate
       xlink:href="#v1"
       attributeType="CSS"
-      begin="1s"
+      begin="v2Anim.end"
       from="0"
       to="1"
       dur="250ms"
@@ -13,12 +13,14 @@
       fill="freeze"
     />
     <animate
+      id="v2Anim"
+      ref="animate"
       xlink:href="#v2"
       attributeType="CSS"
-      begin="0s"
+      begin="indefinite"
       from="0"
       to="1"
-      dur="1s"
+      dur="250ms"
       attributeName="opacity"
       fill="freeze"
     />
