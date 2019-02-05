@@ -38,7 +38,7 @@
 
     v-layout(align-center justify-center row fill-heigh)
       v-flex(xs12 md10)
-        div(v-html="$md.render($t('aboutTechInfo'))")
+        .about(v-html="$md.render($t('aboutTechInfo'))")
         bookAday
 </template>
 <script>
