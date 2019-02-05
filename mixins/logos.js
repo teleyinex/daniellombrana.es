@@ -10,6 +10,9 @@ export default {
       if (this.start && this.$refs.hasOwnProperty('animate')) {
         setTimeout(this.$refs.animate.beginElement())
       }
+    },
+    daniel() {
+      console.log('done')
     }
   },
   watch: {

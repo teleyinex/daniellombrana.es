@@ -8,7 +8,7 @@
     v-layout(row wrap justify-center)
       v-flex(xs12 md3)
         withEnteredViewport
-          redis(slot-scope="{ enteredViewport }" :start="enteredViewport" class="icon")
+          vuejs(slot-scope="{ enteredViewport }" :start="enteredViewport" class="icon")
 
       v-flex(xs12 md3)
         withEnteredViewport
@@ -20,8 +20,7 @@
 
       v-flex(xs12 md3)
         withEnteredViewport
-          python(slot-scope="{ enteredViewport }" :start="enteredViewport" class="icon")
-
+          redis(slot-scope="{ enteredViewport }" :start="enteredViewport" class="icon")
 
     v-layout(row align-center justify-center wrap)
       v-flex(xs12 md3)
@@ -34,7 +33,7 @@
 
       v-flex(xs12 md3)
         withEnteredViewport
-          vuejs(slot-scope="{ enteredViewport }" :start="enteredViewport" class="icon")
+          python(slot-scope="{ enteredViewport }" :start="enteredViewport" class="icon")
 
 
     v-layout(align-center justify-center row fill-heigh)
