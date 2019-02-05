@@ -399,6 +399,7 @@ export default {
       }
     },
     showCurtain(id) {
+      this.$ga.event('index', 'button', id, 1)
       this.menu[id].showCurtain = true
       let url = `/${id}/`
       if (this.$store.state.locale === 'es') {
