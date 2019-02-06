@@ -16,7 +16,7 @@
         v-btn.pa-0(flat, color="hsla(37, 90%, 21%, 1)", @click="goTo(suggestedProject.href)") {{$t('readmore')}}
 </template>
 <script>
-import { getUrl } from '~/utils/projects.js'
+import { getUrl, isRelated } from '~/utils/projects.js'
 export default {
   layout: 'page',
   props: {
@@ -33,7 +33,12 @@ export default {
     suggestedProject() {
       const posts = Object.keys(this.projects)
       const key = posts[0]
-      const project = this.projects[key]
+      let candidates = []
+      for (const key of posts) {
+        candidates.push(this.projects[key])
+      }
+      candidates = candidates.filter(p => isRelated(this.project.tags, p.tags))
+      const project = candidates[Math.floor(Math.random() * candidates.length)]
       project.href = getUrl(key, this.$store.state.locale)
       return project
     },

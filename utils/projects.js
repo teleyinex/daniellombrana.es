@@ -8,4 +8,15 @@ function getUrl(key, locale) {
   }
   return href
 }
-export { getUrl }
+
+function isRelated(origTags, tags) {
+  origTags = origTags.split(',')
+  tags = tags.split(',')
+  const res = origTags.filter(value => tags.indexOf(value) !== -1)
+  if (res.length > 0) {
+    return true
+  } else {
+    return false
+  }
+}
+export { getUrl, isRelated }

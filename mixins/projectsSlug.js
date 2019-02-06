@@ -57,6 +57,8 @@ export default {
       gradient: 'rgba(0,0,0,0.45), rgba(0,0,0,0.45)'
     })
 
+    delete projects[project.basename]
+
     return {
       project,
       projects,
