@@ -59,6 +59,7 @@ export default {
 
     return {
       project,
+      projects,
       domain: 'https://daniellombrana.es'
     }
   },

@@ -1,3 +1,4 @@
+import { getUrl } from '~/utils/projects.js'
 export default {
   async asyncData({ app, store }) {
     store.commit('setActive', 'projects')
@@ -14,16 +15,8 @@ export default {
     for (const key of Object.keys(data)) {
       const project = data[key]
       const photo = `img/project/${project.icon}.jpg`
-      const tmp = key.split('-')
-      const rest = tmp.slice(3)
-      let href = `${rest.join('-')}`
-      href = `/projects/${href}`
-      if (store.state.locale === 'es') {
-        href = `/es${href}`
-      }
-
       project.photo = photo
-      project.href = href
+      project.href = getUrl(key, store.state.locale)
       projects.push(project)
     }
     projects = projects.reverse()
