@@ -128,4 +128,9 @@ code::-webit-scrollbar-corner {
   width: 1em;
   margin-left: -1em;
 }
+
+.twitter-tweet
+  font-style: italic
+  text-align: left
+
 </style>

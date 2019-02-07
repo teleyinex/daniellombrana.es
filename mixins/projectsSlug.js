@@ -33,7 +33,7 @@ export default {
     if (params.slug.indexOf('.html') >= 0) {
       params.slug = params.slug.replace('.html', '')
     }
-    let projectUrl = '/projects.json'
+    let projectUrl = '/en/projects.json'
     if (store.state.locale === 'es') {
       projectUrl = '/es/projects.json'
     }

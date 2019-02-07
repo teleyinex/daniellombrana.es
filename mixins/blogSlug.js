@@ -37,7 +37,7 @@ export default {
       params.slug = params.slug.replace('.html', '')
     }
     const slug = `${params.year}-${params.month}-${params.day}-${params.slug}`
-    let blogUrl = '/blogposts.json'
+    let blogUrl = '/es/blogposts.json'
     if (store.state.locale === 'es') {
       blogUrl = '/es/blogposts.json'
     }
