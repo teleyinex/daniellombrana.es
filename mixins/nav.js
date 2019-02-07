@@ -13,6 +13,7 @@ export default {
       // }
       // this.$router.push(url)
       this.$emit('update:close', true)
+      this.$
       // this.$store.commit('setShow', false)
     }
   }
