@@ -7,14 +7,7 @@ export default {
   },
   methods: {
     goBack(id) {
-      // let url = `/${id}`
-      // if (this.$store.state.locale === 'es') {
-      //   url = `/es/${id}`
-      // }
-      // this.$router.push(url)
       this.$emit('update:close', true)
-      this.$
-      // this.$store.commit('setShow', false)
     }
   }
 }

@@ -58,9 +58,15 @@ export default {
       } else {
         this.$store.commit('setShow', false)
         this.openNav()
-        let url = `/${this.$store.state.active}`
-        if (this.$store.state.locale === 'es') {
-          url = `/es/${this.$store.state.active}`
+        let url = '/'
+        if (
+          this.$store.state.active !== 'about' &&
+          this.$store.state.active !== 'photography'
+        ) {
+          url = `/${this.$store.state.active}`
+          if (this.$store.state.locale === 'es') {
+            url = `/es/${this.$store.state.active}`
+          }
         }
         await this.$router.push(url)
       }
