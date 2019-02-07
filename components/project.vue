@@ -1,19 +1,26 @@
 <template lang="pug">
   div
     .projectContent(v-html="$md.render(project.content)")
-    v-card
-      v-img(
-        :src="suggestedCover"
-        :aspect-ratio="4/3"
-        :srcset="suggestedCover.srcSet"
-        :lazy-src="suggestedCover.placeholder"
-        )
-      v-card-title(primary-title='')
-        .contentCard
-          h2.mb-0
-            | {{ suggestedProject.title }}
-      v-card-actions
-        v-btn.pa-0(flat, color="hsla(37, 90%, 21%, 1)", @click="goTo(suggestedProject.href)") {{$t('readmore')}}
+
+    v-container(fluid grid-list-xl ml-0 pa-0)
+      v-layout(row wrap)
+        v-flex(xs12)
+          h2(style="margin-top:50px;") {{$tc('keepReadingProjects', suggestedProjects.length)}}
+        template(v-for="project of suggestedProjects")
+          v-flex(xs12, md6)
+            v-card()
+              v-img(
+                :src="suggestedCover(project)"
+                :aspect-ratio="4/3"
+                :srcset="suggestedCover(project).srcSet"
+                :lazy-src="suggestedCover(project).placeholder"
+                )
+              v-card-title(primary-title='')
+                .contentCard
+                  h2.mb-0
+                    | {{ project.title }}
+              v-card-actions
+                v-btn.pa-0(flat, color="hsla(37, 90%, 21%, 1)", @click="goTo(project.href)") {{$t('readmore')}}
 </template>
 <script>
 import { getUrl, isRelated } from '~/utils/projects.js'
@@ -30,24 +37,24 @@ export default {
     }
   },
   computed: {
-    suggestedProject() {
+    suggestedProjects() {
       const posts = Object.keys(this.projects)
-      const key = posts[0]
       let candidates = []
       for (const key of posts) {
         candidates.push(this.projects[key])
       }
       candidates = candidates.filter(p => isRelated(this.project.tags, p.tags))
-      const project = candidates[Math.floor(Math.random() * candidates.length)]
-      project.href = getUrl(key, this.$store.state.locale)
-      return project
-    },
-    suggestedCover() {
-      const photo = `img/project/${this.suggestedProject.icon}.jpg`
-      return require(`~/assets/${photo}`)
+      for (const project of candidates) {
+        project.href = getUrl(project.basename, this.$store.state.locale)
+      }
+      return candidates.slice(0, 2)
     }
   },
   methods: {
+    suggestedCover(project) {
+      const photo = `img/project/${project.icon}.jpg`
+      return require(`~/assets/${photo}`)
+    },
     goTo(link) {
       this.$store.commit('setShow', false)
       this.$router.push(link)
