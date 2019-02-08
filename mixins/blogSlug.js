@@ -37,7 +37,7 @@ export default {
       params.slug = params.slug.replace('.html', '')
     }
     const slug = `${params.year}-${params.month}-${params.day}-${params.slug}`
-    let blogUrl = '/es/blogposts.json'
+    let blogUrl = '/en/blogposts.json'
     if (store.state.locale === 'es') {
       blogUrl = '/es/blogposts.json'
     }
@@ -57,8 +57,11 @@ export default {
     blog.content = blog.content.replace('<!--more-->', '')
     blog.content = blog.content.replace('{: .img-responsive}', '\n')
 
+    delete blogposts[blog.basename]
+
     return {
-      blog
+      blog,
+      blogposts
     }
   },
   computed: {

@@ -1,11 +1,15 @@
 <template lang="pug">
-  .blogContent(v-html="$md.render(blog.content)")
+  blogpost(:blog="blog", :blogposts="blogposts")
 </template>
 <script>
 import blogSlug from '~/mixins/blogSlug'
+import blogpost from '~/components/blogpost.vue'
 export default {
   layout: 'page',
   scrollToTop: true,
+  components: {
+    blogpost
+  },
   mixins: [blogSlug]
 }
 </script>

@@ -2,7 +2,7 @@
   div
     .projectContent(v-html="$md.render(project.content)")
 
-    v-container(fluid grid-list-xl ml-0 pa-0)
+    v-container(fluid grid-list-xl ml-0 pa-0, v-if="suggestedProjects.length")
       v-layout(row wrap)
         v-flex(xs12)
           h2(style="margin-top:50px;") {{$tc('keepReadingProjects', suggestedProjects.length)}}
