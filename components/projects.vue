@@ -63,7 +63,7 @@ export default {
       return Math.floor(Math.random() * (max - min)) + min
     },
     onInfinite($state) {
-      const t = this.getRndInteger(900, 1000)
+      const t = this.getRndInteger(100, 250)
       setTimeout(() => {
         this.offset = this.offset + this.limit
         const slice = this.projects.slice(
