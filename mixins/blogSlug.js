@@ -53,9 +53,11 @@ export default {
       photoUrl: blog.icon_url,
       gradient: 'rgba(0,0,0,0.45), rgba(0,0,0,0.45)'
     })
+    let find = '{: .img-responsive}'
+    let re = new RegExp(find, 'g')
 
     blog.content = blog.content.replace('<!--more-->', '')
-    blog.content = blog.content.replace('{: .img-responsive}', '\n')
+    blog.content = blog.content.replace(re, '\n')
 
     delete blogposts[blog.basename]
 

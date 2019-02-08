@@ -139,6 +139,8 @@ code::-webit-scrollbar-corner {
   height: 0; 
   overflow: hidden; 
   max-width: 100%; 
+  margin-top: 25px;
+  margin-bottom: 25px;
 } 
 .embed-responsive iframe, .embed-responsive object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
