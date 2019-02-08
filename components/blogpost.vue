@@ -19,7 +19,7 @@
                   h2.mb-0
                     | {{ blogpost.title }}
               v-card-actions
-                v-btn.pa-0(flat, color="hsla(37, 90%, 21%, 1)", @click="goTo(blogpost.href)") {{$t('readmore')}}
+                v-btn.pa-0(flat, color="hsla(204, 64%, 24%, 1)", @click="goTo(blogpost.href)") {{$t('readmore')}}
 
 </template>
 <script>
