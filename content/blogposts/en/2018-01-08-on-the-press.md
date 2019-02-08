@@ -7,6 +7,7 @@ icon: press
 icon_author: Samule Sun
 icon_url: https://unsplash.com/photos/XJXWbfSo2f0
 description: "Press coverage about my work"
+tags: "press, pybossa, scifabric, video, conference"
 
 ---
 

@@ -7,6 +7,7 @@ icon: code
 icon_author: Luca Bravo
 icon_url: https://unsplash.com/photos/XJXWbfSo2f0
 description: "Hacking with Jekyll, VueJS & Bulma"
+tags: "jekyll, hacking, vuejs, bulma, frontend"
 
 ---
 

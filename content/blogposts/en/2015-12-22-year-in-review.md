@@ -8,6 +8,7 @@ icon_author: Dustin Graffke
 icon_url: https://www.flickr.com/photos/onepointfour/21478226510/
 description: "2015 has been an incredible year for team SciFabric."
 author: teleyinex
+tags: yearinreview
 ---
 
 Wow, another year is almost over! Time flies and, like everyone else, we love to

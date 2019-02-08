@@ -7,6 +7,7 @@ icon: moving
 icon_author: Ethan Weil
 icon_url: https://unsplash.com/photos/9Q7PqDxCZeQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 description: "Learn how you can migrate your static site to NuxtJS"
+tags: "frontend, vuejs, nuxtjs, migration, staticsite, jekyll"
 author: teleyinex
 ---
 

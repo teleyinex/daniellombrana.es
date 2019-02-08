@@ -4,7 +4,7 @@ layout: blog
 icon: cottoncell
 icon_author: Project-128
 icon_url: https://www.flickr.com/photos/project-128/11612131236/
-tags: Crowdcrafting, thesis, phd
+tags: Crowdcrafting, thesis, phd, hardware, maker
 meta_description: "Build an atomic force microscope in less than 2 hours!"
 headline: "Build an atomic force microscope in less than 2 hours!"
 

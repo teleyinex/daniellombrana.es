@@ -7,6 +7,7 @@ icon: back
 icon_author: Jay Toor
 icon_url: https://unsplash.com/photos/PjABCLdM6DY
 description: "What we have done this 2018"
+tags: "yearinreview, pybossa, scifabric"
 author: teleyinex
 ---
 
