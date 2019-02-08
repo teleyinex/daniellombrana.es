@@ -25,7 +25,7 @@ will allow us to explore the **nano** world. But, how did we get here? How old
 is the microscope? Let's start... from the beginning.
 
 <div class="embed-responsive embed-responsive-16by9">
-<iframe src="//giphy.com/embed/1unWthRtNnzkA" width="480" height="260" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p></p>
+    <iframe src="//giphy.com/embed/1unWthRtNnzkA" width="100%" height="auto" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p></p>
 </div>
 
 Indeed! It's a long story, but worth it. Bear with me. 
