@@ -123,7 +123,7 @@ module.exports = {
     injected: true,
     preset: 'default',
     linkify: true,
-    breaks: true,
+    breaks: false,
     html: true,
     use: ['markdown-it-emoji']
   },

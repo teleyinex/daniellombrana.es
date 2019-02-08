@@ -59,6 +59,11 @@ export default {
 
     delete projects[project.basename]
 
+    const find = '{: .img-responsive}'
+    const re = new RegExp(find, 'g')
+    project.content = project.content.replace('<!--more-->', '')
+    project.content = project.content.replace(re, '\n')
+
     return {
       project,
       projects,
