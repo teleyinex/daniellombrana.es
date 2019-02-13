@@ -5,7 +5,7 @@ const pkg = require('./package')
 let blogposts = require('./static/en/blogposts.json')
 blogposts = Object.keys(blogposts)
 
-let blogpostsEs = require('./static/en/blogposts.json')
+let blogpostsEs = require('./static/es/blogposts.json')
 blogpostsEs = Object.keys(blogpostsEs)
 
 function blogpostURL(key) {
