@@ -1,146 +1,148 @@
 <template>
   <div id="homepage" class="background-home" :class="{homeDesktop: desktop}">
-    <nav class="navbar navbar-fixed-top">
-      <div class="">
-        <div class="top">
-          <div
-            id="about"
-            ref="about"
-            data-link="/about/"
-            :class="{'animated fadeIn': menu.about.animate}"
-          >
-            <a href="/about/" class="menulink aboutBtn" @click.prevent="showCurtain('about')">
-              {{ $t('about') }}
-            </a>
-            <svg width="100" height="4" version="1.1" xmlns="http://www.w3.org/2000/svg" class="line-left-right">
-              <rect x="0" y="0" width="0" height="3" fill="rgb(142, 68, 173)">
-                <animate
-                  attributeType="XML"
-                  attributeName="width"
-                  from="0"
-                  to="100"
-                  values="0; 25; 50; 75; 100;"
-                  keySplines="0.42 0 1 1;"
-                  fill="freeze"
-                  dur="200ms"
-                  d="about-anim"
-                />
-              </rect>
-            </svg>
-          </div>
-          <div
-            id="blog"
-            ref="blog"
-            class="pull-right"
-            :class="{'animated fadeIn': menu.blog.animate}"
-          >
-            <a href="/blog/" class="blogBtn menulink pull-right" @click.prevent="showCurtain('blog')">
-              {{ $t('blog') }}
-            </a>
-            <svg width="3" height="60" version="1.1" xmlns="http://www.w3.org/2000/svg" class="line-top-bottom">
-              <rect x="0" y="0" width="3" height="0" fill="hsla(204, 64%, 44%, 1)">
-                <animate
-                  attributeType="XML"
-                  attributeName="height"
-                  from="0"
-                  to="60"
-                  fill="freeze"
-                  values="0; 15; 30; 45; 60;"
-                  keySplines="0.42 0 1 1;"
-                  dur="200ms"
-                />
-              </rect>
-            </svg>
-          </div>
-        </div>
-      </div>
-    </nav>
-
-    <main>
-      <div class="logo logoFadein" :class="{logoDesktop: desktop}">
-        <div id="badge" ref="badge">
-          <icon />
-        </div>
-        <a
-          v-if="$store.state.locale === 'en'"
-          class="lang"
-          @click="setLang('es')"
-          v-html="$md.render(':es:')"
-        />
-        <a v-else class="lang" @click="setLang('en')" v-html="$md.render(':uk:')" />
-      </div>
-    </main>
-
-    <nav class="navbar navbar-fixed-bottom">
-      <div class="">
-        <div class="bottom">
-          <div
-            id="photography"
-            ref="photography"
-            :class="{'animated fadeIn': menu.photography.animate}"
-          >
-            <a href="/photography/" class="photosBtn menulink pull-left" @click.prevent="showCurtain('photography')">
-              {{ $t('photos') }}
-            </a>
-            <svg
-              width="3"
-              height="60"
-              version="1.1"
-              xmlns="http://www.w3.org/2000/svg"
-              class="line-bottom-top"
+    <div v-show="show">
+      <nav class="navbar navbar-fixed-top">
+        <div class="">
+          <div class="top">
+            <div
+              id="about"
+              ref="about"
+              data-link="/about/"
+              :class="{'animated fadeIn': menu.about.animate}"
             >
-              <rect x="0" y="60" width="3" height="60" fill="hsla(145, 63%, 42%, 1)">
-                <animate
-                  attributeType="XML"
-                  attributeName="y"
-                  from="60"
-                  to="0"
-                  values="60; 45; 30; 15; 0;"
-                  keySplines="0.42 0 1 1;"
-                  fill="freeze"
-                  dur="200ms"
-                />
-              </rect>
-            </svg>
-          </div>
-          <div
-            id="projects"
-            ref="projects"
-            class="pull-right" 
-            :class="{'animated fadeIn': menu.projects.animate}"
-          >
-            <a href="/projects/" class="projectsBtn menulink pull-right" @click.prevent="showCurtain('projects')">
-              {{ $t('projects') }}
-            </a>
-            <svg
-              width="100"
-              height="3"
-              version="1.1"
-              xmlns="http://www.w3.org/2000/svg"
-              style="left: 0px;"
-              class="line-bottom-top"
+              <a href="/about/" class="menulink aboutBtn" @click.prevent="showCurtain('about')">
+                {{ $t('about') }}
+              </a>
+              <svg width="100" height="4" version="1.1" xmlns="http://www.w3.org/2000/svg" class="line-left-right">
+                <rect x="0" y="0" width="0" height="3" fill="rgb(142, 68, 173)">
+                  <animate
+                    attributeType="XML"
+                    attributeName="width"
+                    from="0"
+                    to="100"
+                    values="0; 25; 50; 75; 100;"
+                    keySplines="0.42 0 1 1;"
+                    fill="freeze"
+                    dur="200ms"
+                    d="about-anim"
+                  />
+                </rect>
+              </svg>
+            </div>
+            <div
+              id="blog"
+              ref="blog"
+              class="pull-right"
+              :class="{'animated fadeIn': menu.blog.animate}"
             >
-              <rect x="0" y="0" width="100" height="3" fill="hsla(37, 90%, 41%, 1)">
-                <animate
-                  attributeType="XML"
-                  attributeName="x"
-                  from="100"
-                  to="0"
-                  fill="freeze"
-                  values="100; 75; 50; 25; 0;"
-                  keySplines="0.42 0 1 1;"
-                  dur="200ms"
-                />
-              </rect>
-            </svg>
+              <a href="/blog/" class="blogBtn menulink pull-right" @click.prevent="showCurtain('blog')">
+                {{ $t('blog') }}
+              </a>
+              <svg width="3" height="60" version="1.1" xmlns="http://www.w3.org/2000/svg" class="line-top-bottom">
+                <rect x="0" y="0" width="3" height="0" fill="hsla(204, 64%, 44%, 1)">
+                  <animate
+                    attributeType="XML"
+                    attributeName="height"
+                    from="0"
+                    to="60"
+                    fill="freeze"
+                    values="0; 15; 30; 45; 60;"
+                    keySplines="0.42 0 1 1;"
+                    dur="200ms"
+                  />
+                </rect>
+              </svg>
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
-    <div class="curtain curtain-left" :class="{center: menu.about.showCurtain}" />
-    <div class="curtain curtain-right" :class="{center: menu.projects.showCurtain}" />
-    <div class="curtain curtain-top" :class="{center: menu.blog.showCurtain}" />
-    <div class="curtain curtain-down" :class="{center: menu.photography.showCurtain}" />
+      </nav>
+
+      <main>
+        <div class="logo logoFadein" :class="{logoDesktop: desktop}">
+          <div id="badge" ref="badge">
+            <icon />
+          </div>
+          <a
+            v-if="$store.state.locale === 'en'"
+            class="lang"
+            @click="setLang('es')"
+            v-html="$md.render(':es:')"
+          />
+          <a v-else class="lang" @click="setLang('en')" v-html="$md.render(':uk:')" />
+        </div>
+      </main>
+
+      <nav class="navbar navbar-fixed-bottom">
+        <div class="">
+          <div class="bottom">
+            <div
+              id="photography"
+              ref="photography"
+              :class="{'animated fadeIn': menu.photography.animate}"
+            >
+              <a href="/photography/" class="photosBtn menulink pull-left" @click.prevent="showCurtain('photography')">
+                {{ $t('photos') }}
+              </a>
+              <svg
+                width="3"
+                height="60"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                class="line-bottom-top"
+              >
+                <rect x="0" y="60" width="3" height="60" fill="hsla(145, 63%, 42%, 1)">
+                  <animate
+                    attributeType="XML"
+                    attributeName="y"
+                    from="60"
+                    to="0"
+                    values="60; 45; 30; 15; 0;"
+                    keySplines="0.42 0 1 1;"
+                    fill="freeze"
+                    dur="200ms"
+                  />
+                </rect>
+              </svg>
+            </div>
+            <div
+              id="projects"
+              ref="projects"
+              class="pull-right" 
+              :class="{'animated fadeIn': menu.projects.animate}"
+            >
+              <a href="/projects/" class="projectsBtn menulink pull-right" @click.prevent="showCurtain('projects')">
+                {{ $t('projects') }}
+              </a>
+              <svg
+                width="100"
+                height="3"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                style="left: 0px;"
+                class="line-bottom-top"
+              >
+                <rect x="0" y="0" width="100" height="3" fill="hsla(37, 90%, 41%, 1)">
+                  <animate
+                    attributeType="XML"
+                    attributeName="x"
+                    from="100"
+                    to="0"
+                    fill="freeze"
+                    values="100; 75; 50; 25; 0;"
+                    keySplines="0.42 0 1 1;"
+                    dur="200ms"
+                  />
+                </rect>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="curtain curtain-left" :class="{center: menu.about.showCurtain}" />
+      <div class="curtain curtain-right" :class="{center: menu.projects.showCurtain}" />
+      <div class="curtain curtain-top" :class="{center: menu.blog.showCurtain}" />
+      <div class="curtain curtain-down" :class="{center: menu.photography.showCurtain}" />
+    </div>
   </div>
 </template>
 
@@ -169,6 +171,7 @@ export default {
   data() {
     return {
       desktop: false,
+      show: false,
       menu: {
         about: {
           line: null,
@@ -228,6 +231,7 @@ export default {
       } else {
         this.desktop = false
       }
+      this.show = true
     },
     showCurtain(id) {
       this.$ga.event('index', 'button', id, 1)
