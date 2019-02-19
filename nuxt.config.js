@@ -31,6 +31,7 @@ function projectURL(key) {
 function generateAllRoutes() {
   return []
     .concat([
+      '/prueba',
       '/',
       '/about/',
       '/projects/',
@@ -52,17 +53,17 @@ function generateAllRoutes() {
 }
 
 module.exports = {
-  mode: 'spa',
+  mode: 'universal',
 
   /*
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: 'Daniel Lombraña',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      { hid: 'description', name:'description', content: 'hola' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -86,7 +87,8 @@ module.exports = {
   */
   plugins: [
     '@/plugins/vuetify',
-    '@/plugins/snap.js',
+    '~/plugins/social.js',
+    { src: '@/plugins/snap.js', ssr: false },
     '~/plugins/i18n.js'
   ],
 
@@ -131,19 +133,20 @@ module.exports = {
     'name': 'Daniel Lombraña',
     'short_name': 'Teleyinex',
     'lang': 'en',
-    'description': 'Dad, husband, geek, computer engineer, crowdsourcing expert, citizen science researcher, comics reader, pilates practitioner, runner & Founder at Scifabric.',
     'theme_color': '#000000',
-    'ogImage': 'https://daniellombrana.es/',
-    'ogHost': 'https://daniellombrana.es',
-    'ogDescription': 'Dad, husband, geek, computer engineer, crowdsourcing expert, citizen science researcher, comics reader, pilates practitioner, runner & Founder at Scifabric.'
+  },
+  meta: {
+    ogType: false,
+    ogTitle: false,
+    ogDescription: false,
+    ogImage: false
   },
   /*
   ** Axios module configuration
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
-    baseURL: '/',
-    browserBaseURL: '/'
+    baseURL: 'http://localhost:3000'
   },
 
   /*

@@ -1,3 +1,5 @@
+import projectsEs from '~/static/es/projects.json'
+import projectsEn from '~/static/en/projects.json'
 export default {
   head() {
     return {
@@ -5,39 +7,41 @@ export default {
         lang: this.$i18n.locale
       },
       meta: [
-        { name: 'author', content: 'Daniel Lombraña' },
+        { hid: 'author', name: 'author', content: 'Daniel Lombraña' },
         {
           name: 'description',
           property: 'og:description',
           content: this.project.meta_description,
           hid: 'description'
         },
-        { property: 'og:title', content: this.project.title },
+        { hid: 'og:title', property: 'og:title', content: this.project.title },
         {
+          hid: 'og:image',
           property: 'og:image',
-          content: `${this.domain}/${this.img}`
+          content: `https://daniellombrana.es${this.img}`
         },
         {
+          hid: 'twitter:description',
           name: 'twitter:description',
           content: this.project.meta_description
         },
         {
+          hid: 'twitter:image',
           name: 'twitter:image',
-          content: `${this.domain}/${this.img}`
+          content: `https://daniellombrana.es${this.img}`
         }
       ],
       title: this.project.title
     }
   },
-  async asyncData({ app, params, query, store }) {
+  asyncData({ app, params, query, store }) {
     if (params.slug.indexOf('.html') >= 0) {
       params.slug = params.slug.replace('.html', '')
     }
-    let projectUrl = '/en/projects.json'
+    let projects = projectsEn
     if (store.state.locale === 'es') {
-      projectUrl = '/es/projects.json'
+      projects = projectsEs
     }
-    const projects = await app.$axios.$get(projectUrl)
     let project = null
     for (const k of Object.keys(projects)) {
       if (k.indexOf(params.slug) >= 0) {

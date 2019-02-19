@@ -33,7 +33,7 @@
       <v-layout align-center justify-center row fill-height>
         <v-flex xs12 md7>
           <v-fade-transition>
-            <nuxt v-if="$store.state.show" />
+            <nuxt />
           </v-fade-transition>
         </v-flex>
         <v-fade-transition>
@@ -44,9 +44,10 @@
   </v-app>
 </template>
 <script>
+import navGen from '~/components/nav.vue'
 export default {
   components: {
-    navGen: () => import('~/components/nav.vue')
+    navGen
   },
   data() {
     return {

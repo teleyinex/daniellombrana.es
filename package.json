@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "yarn md2json && nuxt",
-    "build": "yarn md2json && nuxt build",
+    "build": "yarn md2json && nuxt generate",
     "md2json": "m2j -c content/blogposts/en/*.md -o static/en/blogposts.json && m2j -c content/blogposts/es/*.md -o static/es/blogposts.json && m2j -c content/projects/en/*.md -o static/en/projects.json && m2j -c content/projects/es/*.md -o static/es/projects.json",
     "now-build": "yarn build",
     "start": "nuxt start",
@@ -42,6 +42,7 @@
     "vivus": "^0.4.4",
     "vue-i18n": "^8.7.0",
     "vue-infinite-loading": "^2.4.3",
+    "vue-social-sharing": "^2.3.4",
     "vuetify": "^1.3.14",
     "vuetify-loader": "^1.1.1"
   },

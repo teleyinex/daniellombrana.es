@@ -3,7 +3,10 @@ nav.navbar.navbar-fixed-top(
   :class="navbarClass", 
   @animationend="showRest",
   :style="currentStyle")
-  component(v-bind:is="$store.state.active", :close.sync="close" @hideContent="hideContent")
+  component(
+    v-bind:is="$store.state.active"
+    :close.sync="close"
+    @hideContent="hideContent")
 </template>
 <script>
 export default {

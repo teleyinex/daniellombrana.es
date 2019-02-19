@@ -1,5 +1,5 @@
 <template lang="pug">
-  blogpost(:blog="blog", :blogposts="blogposts")
+  blogpost(:blog="blog", :blogposts="blogposts", v-if="$store.state.show")
 </template>
 <script>
 import blogSlug from '~/mixins/blogSlug.js'

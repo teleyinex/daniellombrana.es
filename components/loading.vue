@@ -190,11 +190,13 @@ export default {
       })
     },
     finish() {
-      clearInterval(this.intervalId)
-      const self = this
-      this.quick.animate({ height: 0 }, 500, window.mina.easein, () => {
-        self.loading = false
-        self.$store.commit('setShow', true)
+      this.$nextTick(() => {
+        clearInterval(this.intervalId)
+        const self = this
+        this.quick.animate({ height: 0 }, 500, window.mina.easein, () => {
+          self.loading = false
+          self.$store.commit('setShow', true)
+        })
       })
     }
   }

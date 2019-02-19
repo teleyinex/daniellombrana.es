@@ -1,47 +1,52 @@
+import blogEs from '~/static/es/blogposts.json'
+import blogEn from '~/static/en/blogposts.json'
 export default {
+  mounted() {
+    window.scrollTo(0, 0)
+  },
   head() {
     return {
       htmlAttrs: {
         lang: this.$i18n.locale
       },
       meta: [
-        { name: 'author', content: 'Daniel Lombraña' },
+        { hid: 'author', name: 'author', content: 'Daniel Lombraña' },
         {
           name: 'description',
           property: 'og:description',
-          content: this.blog.description,
+          content: this.blog.meta_description,
           hid: 'description'
         },
-        { property: 'og:title', content: this.blog.title },
+        { hid: 'og:title', property: 'og:title', content: this.blog.title },
         {
+          hid: 'og:image',
           property: 'og:image',
-          content: this.ogImg
+          content: `https://daniellombrana.es${this.img}`
         },
         {
+          hid: 'twitter:description',
           name: 'twitter:description',
-          content: this.blog.description
+          content: this.blog.meta_description
         },
         {
+          hid: 'twitter:image',
           name: 'twitter:image',
-          content: this.ogImg
+          content: `https://daniellombrana.es${this.img}`
         }
       ],
       title: this.blog.title
     }
   },
-  mounted() {
-    window.scrollTo(0, 0)
-  },
-  async asyncData({ app, params, store, payload }) {
+
+  asyncData({ app, params, store, payload }) {
     if (params.slug.indexOf('.html') >= 0) {
       params.slug = params.slug.replace('.html', '')
     }
     const slug = `${params.year}-${params.month}-${params.day}-${params.slug}`
-    let blogUrl = '/en/blogposts.json'
+    let blogposts = blogEn
     if (store.state.locale === 'es') {
-      blogUrl = '/es/blogposts.json'
+      blogposts = blogEs
     }
-    const blogposts = await app.$axios.$get(blogUrl)
     const blog = blogposts[slug]
     const photo = `img/blog/${blog.icon}.jpg`
     store.commit('setActive', 'blog')

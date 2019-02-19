@@ -3,19 +3,24 @@
     v-btn#closebtn(flat='', icon='', :nuxt="true", to="/" aria-label="home")
       v-icon(color='white')
           | mdi-home-variant-outline
-    v-btn#closebtn(flat='', icon='', @click="goBack", aria-label="blog index" v-if="$route.name === 'lang-blog-year-month-day-slug' || $route.name === 'blog-year-month-day-slug'")
+    v-btn#closebtn(
+      flat
+      icon
+      @click="goBack"
+      aria-label="blog index"
+      v-show="$route.name === 'lang-blog-year-month-day-slug' || $route.name === 'blog-year-month-day-slug'")
       v-icon(color='white')
           | mdi-view-grid
-    v-btn(icon='', flat='', :href="linkedin" target="blank" aria-label="Share this page on LinkedIn")
-      v-icon(color='white')
-        | mdi-linkedin
-    v-btn(icon='', flat='', :href="twitter", target="blank", aria-label="Share this page on Twitter")
-      v-icon(color='white')
-        | mdi-twitter
+    // v-btn(icon='', flat='', :href="linkedin" target="blank" aria-label="Share this page on LinkedIn")
+    //   v-icon(color='white')
+    //     | mdi-linkedin
+    // v-btn(icon='', flat='', :href="twitter", target="blank", aria-label="Share this page on Twitter")
+    //   v-icon(color='white')
+    //     | mdi-twitter
 </template>
 <script>
 import nav from '~/mixins/nav.js'
-import socialMediaLinks from 'social-media-links'
+// import socialMediaLinks from 'social-media-links'
 export default {
   mixins: [nav],
   computed: {
@@ -36,13 +41,13 @@ export default {
         img: this.$store.state.page.photoUrl || this.$store.state.heroImg,
         via: 'teleyinex'
       }
-    },
-    linkedin() {
-      return socialMediaLinks.create(this.socialLinkedInData)
-    },
-    twitter() {
-      return socialMediaLinks.create(this.socialTwitterData)
     }
+    // linkedin() {
+    //   return socialMediaLinks.create(this.socialLinkedInData)
+    // },
+    // twitter() {
+    //   return socialMediaLinks.create(this.socialTwitterData)
+    // }
   }
 }
 </script>
