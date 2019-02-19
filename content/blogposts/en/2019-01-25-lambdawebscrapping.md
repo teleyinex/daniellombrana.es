@@ -194,7 +194,7 @@ PWA so you can install it on your phone.
 For the UI toolkit, I'm using Vuetify and its Sparklines components. They are
 super cool, and you can create these amazing animations:
 
-<video width="400" controls>
+<video width="100%" controls>
   <source src="/vid/aire.mp4" type="video/mp4">
   Your browser does not support HTML5 video.
 </video>

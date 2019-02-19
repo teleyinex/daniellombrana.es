@@ -61,12 +61,13 @@
         <div id="badge" ref="badge">
           <icon />
         </div>
-        <a v-if="$store.state.locale === 'en'" class="lang" @click="setLang('es')">
-          Español
-        </a>
-        <a v-else class="lang" @click="setLang('en')">
-          English
-        </a>
+        <a
+          v-if="$store.state.locale === 'en'"
+          class="lang"
+          @click="setLang('es')"
+          v-html="$md.render(':es:')"
+        />
+        <a v-else class="lang" @click="setLang('en')" v-html="$md.render(':uk:')" />
       </div>
     </main>
 

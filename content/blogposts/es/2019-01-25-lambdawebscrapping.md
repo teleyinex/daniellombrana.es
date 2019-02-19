@@ -207,7 +207,7 @@ activado para que vaya rápido como el rayo.
 Para la parte gráfica tiramos de Vuetify y sus Sparklines que nos permiten hacer
 animaciones super chulas como esta:
 
-<video width="400" controls>
+<video width="100%" controls>
   <source src="/vid/aire.mp4" type="video/mp4">
   Your browser does not support HTML5 video.
 </video>
