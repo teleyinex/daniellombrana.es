@@ -31,7 +31,10 @@ v-container(fluid grid-list-xl)
 <script>
 import { mapState } from 'vuex'
 import InfiniteLoading from 'vue-infinite-loading'
-import Lunr from 'lunr'
+import lunr from 'lunr'
+require('lunr-languages/lunr.stemmer.support')(lunr)
+require('lunr-languages/lunr.multi')(lunr)
+require('lunr-languages/lunr.es')(lunr)
 export default {
   components: {
     InfiniteLoading
@@ -60,7 +63,8 @@ export default {
   },
   created() {
     const self = this
-    const idx = new Lunr(function() {
+    const idx = lunr(function() {
+      this.use(lunr.multiLanguage('en', 'es'))
       this.ref('basename')
       this.field('content')
       self.blogposts.forEach(blog => this.add(blog), this)

@@ -18,7 +18,8 @@
       v-btn(icon='', flat='', :href="twitter", target="blank", aria-label="Share this page on Twitter")
         v-icon(color='white')
           | mdi-twitter
-      v-btn(icon='', flat='', @click="searchShow = true" aria-label="Share this page on Twitter")
+      v-btn(icon='', flat='', @click="searchShow = true" aria-label="Search"
+        v-show="$route.name === 'lang-blog' || $route.name === 'blog'")
         v-icon(color='white')
           | mdi-magnify 
     .search(v-else)

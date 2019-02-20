@@ -5050,6 +5050,10 @@ lru-cache@^5.1.1:
   dependencies:
     yallist "^3.0.2"
 
+lunr-languages@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/lunr-languages/-/lunr-languages-1.0.0.tgz#830bca2fe864b713ebe13ff33ed48ee06e635723"
+
 lunr@^2.3.5:
   version "2.3.5"
   resolved "https://registry.yarnpkg.com/lunr/-/lunr-2.3.5.tgz#7b510bad57e948dfb99a71fdff00c1bf9171bdda"
