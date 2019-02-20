@@ -3,6 +3,7 @@ export const state = () => ({
   heroImg: '/assets/img/blog/avatar.jpg',
   color: 'black',
   show: false,
+  showSearch: false,
   locale: 'es',
   locales: ['en', 'es'],
   idx: null,
@@ -40,5 +41,8 @@ export const mutations = {
   },
   setFound(state, found) {
     state.found = found
+  },
+  setShowSearch(state, show) {
+    state.showSearch = show
   }
 }

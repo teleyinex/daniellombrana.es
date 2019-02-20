@@ -1,6 +1,6 @@
 <template lang="pug">
   .icons
-    .regular(v-if="!searchShow")
+    .regular(v-if="!showSearch")
       v-btn#closebtn(flat='', icon='', :nuxt="true", to="/" aria-label="home")
         v-icon(color='white')
             | mdi-home-variant-outline
@@ -18,7 +18,7 @@
       v-btn(icon='', flat='', :href="twitter", target="blank", aria-label="Share this page on Twitter")
         v-icon(color='white')
           | mdi-twitter
-      v-btn(icon='', flat='', @click="searchShow = true" aria-label="Search"
+      v-btn(icon='', flat='', @click="setShowSearch(true)" aria-label="Search"
         v-show="$route.name === 'lang-blog' || $route.name === 'blog'")
         v-icon(color='white')
           | mdi-magnify 
@@ -33,15 +33,18 @@
 <script>
 import nav from '~/mixins/nav.js'
 import { debounce } from 'lodash'
+import { mapState, mapMutations } from 'vuex'
 export default {
   mixins: [nav],
   data() {
     return {
-      searchShow: false,
       query: ''
     }
   },
   computed: {
+    ...mapState({
+      showSearch: state => state.showSearch
+    }),
     socialTwitterData() {
       return {
         account: 'twitter',
@@ -81,12 +84,16 @@ export default {
     )
   },
   methods: {
+    ...mapMutations({
+      setShowSearch: 'setShowSearch'
+    }),
     search() {
       const found = this.$store.state.idx.search(this.query)
       this.$store.commit('setFound', found)
     },
     closeSearch() {
-      this.searchShow = false
+      this.setShowSearch(false)
+      this.query = ''
       this.$store.commit('setFound', [])
     }
   }

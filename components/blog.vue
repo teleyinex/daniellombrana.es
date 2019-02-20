@@ -29,7 +29,7 @@ v-container(fluid grid-list-xl)
 
 </template>
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 import InfiniteLoading from 'vue-infinite-loading'
 import lunr from 'lunr'
 require('lunr-languages/lunr.stemmer.support')(lunr)
@@ -74,10 +74,14 @@ export default {
     this.origBlogposts = this.blogposts
   },
   methods: {
+    ...mapMutations({
+      setShowSearch: 'setShowSearch'
+    }),
     img(blog) {
       return require(`~/assets/${blog.photo}`)
     },
     goTo(link) {
+      this.setShowSearch(false)
       this.$router.push(link)
     },
     getRndInteger(min, max) {
