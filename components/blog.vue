@@ -1,7 +1,7 @@
 <template lang="pug">
 v-container(fluid grid-list-xl)
   v-layout(row wrap)
-      template(v-for='(blogpost, idx) in active')
+      template(v-for='(blogpost, idx) in currentActive')
         v-flex(xs12, md6)
           v-card(:key='idx', :hover="true" :nuxt="true" @click="goTo(blogpost.href)")
             v-img(
@@ -17,16 +17,21 @@ v-container(fluid grid-list-xl)
               v-btn.pa-0(flat, color="hsla(204, 64%, 24%, 1)", @click="goTo(blogpost.href)") {{$t('readmore')}}
           v-spacer(:key='`space-${idx}`')
       v-flex(xs12, md6)
-        InfiniteLoading(
-          ref="infiniteLoading" 
-          @infinite="onInfinite")
-            p(slot='no-more') {{$t('noBlogposts')}}
-            p(slot='no-results') {{$t('noBlogposts')}}
+        no-ssr
+          InfiniteLoading(
+            :distance="10"
+            spinner="waveDots"
+            ref="infiniteLoading" 
+            @infinite="onInfinite")
+              p(slot='no-more') {{$t('noBlogposts')}}
+              p(slot='no-results') {{$t('noBlogposts')}}
 
 
 </template>
 <script>
+import { mapState } from 'vuex'
 import InfiniteLoading from 'vue-infinite-loading'
+import Lunr from 'lunr'
 export default {
   components: {
     InfiniteLoading
@@ -48,8 +53,21 @@ export default {
   data() {
     return {
       limit: 5,
-      offset: 0
+      offset: 0,
+      currentActive: [],
+      origBlogposts: []
     }
+  },
+  created() {
+    const self = this
+    const idx = new Lunr(function() {
+      this.ref('basename')
+      this.field('content')
+      self.blogposts.forEach(blog => this.add(blog), this)
+    })
+    this.$store.commit('setIdx', idx)
+    this.currentActive = this.active
+    this.origBlogposts = this.blogposts
   },
   methods: {
     img(blog) {
@@ -65,17 +83,41 @@ export default {
       const t = this.getRndInteger(100, 250)
       setTimeout(() => {
         this.offset = this.offset + this.limit
-        const slice = this.blogposts.slice(
+        const slice = this.origBlogposts.slice(
           this.offset,
           this.offset + this.limit - 1
         )
         if (slice.length > 0) {
-          this.active = this.active.concat(slice)
+          this.currentActive = this.currentActive.concat(slice)
           $state.loaded()
         } else {
           $state.complete()
         }
       }, t)
+    }
+  },
+  computed: {
+    ...mapState({
+      match: state => state.found
+    }),
+    filteredPosts() {
+      const refs = this.match.map(m => m.ref)
+      return this.blogposts.filter(b => {
+        return refs.includes(b.basename)
+      })
+    }
+  },
+  watch: {
+    filteredPosts() {
+      this.offset = 0
+      this.limit = 5
+      if (this.filteredPosts.length) {
+        this.currentActive = this.filteredPosts.slice(0, 5)
+        this.origBlogposts = this.filteredPosts
+      } else {
+        this.currentActive = this.active
+        this.origBlogposts = this.blogposts
+      }
     }
   }
 }

@@ -1,28 +1,45 @@
 <template lang="pug">
   .icons
-    v-btn#closebtn(flat='', icon='', :nuxt="true", to="/" aria-label="home")
-      v-icon(color='white')
-          | mdi-home-variant-outline
-    v-btn#closebtn(
-      flat
-      icon
-      @click="goBack"
-      aria-label="blog index"
-      v-show="$route.name === 'lang-blog-year-month-day-slug' || $route.name === 'blog-year-month-day-slug'")
-      v-icon(color='white')
-          | mdi-view-grid
-    v-btn(icon='', flat='', :href="linkedin" target="blank" aria-label="Share this page on LinkedIn")
-      v-icon(color='white')
-        | mdi-linkedin
-    v-btn(icon='', flat='', :href="twitter", target="blank", aria-label="Share this page on Twitter")
-      v-icon(color='white')
-        | mdi-twitter
+    .regular(v-if="!searchShow")
+      v-btn#closebtn(flat='', icon='', :nuxt="true", to="/" aria-label="home")
+        v-icon(color='white')
+            | mdi-home-variant-outline
+      v-btn#closebtn(
+        flat
+        icon
+        @click="goBack"
+        aria-label="blog index"
+        v-show="$route.name === 'lang-blog-year-month-day-slug' || $route.name === 'blog-year-month-day-slug'")
+        v-icon(color='white')
+            | mdi-view-grid
+      v-btn(icon='', flat='', :href="linkedin" target="blank" aria-label="Share this page on LinkedIn")
+        v-icon(color='white')
+          | mdi-linkedin
+      v-btn(icon='', flat='', :href="twitter", target="blank", aria-label="Share this page on Twitter")
+        v-icon(color='white')
+          | mdi-twitter
+      v-btn(icon='', flat='', @click="searchShow = true" aria-label="Share this page on Twitter")
+        v-icon(color='white')
+          | mdi-magnify 
+    .search(v-else)
+      v-btn.ml-0(flat icon @click="closeSearch" aria-label="close search bar")
+        v-icon(color='white')
+            | mdi-arrow-left
+      v-slide-x-reverse-transition
+        v-text-field(v-model="query", solo, flat, clearable,
+        clear-icon='mdi-close', style="margin-top:25px;", autofocus)
 </template>
 <script>
 import nav from '~/mixins/nav.js'
-// import socialMediaLinks from 'social-media-links'
+import { debounce } from 'lodash'
 export default {
   mixins: [nav],
+  data() {
+    return {
+      searchShow: false,
+      query: ''
+    }
+  },
   computed: {
     socialTwitterData() {
       return {
@@ -52,15 +69,40 @@ export default {
         this.socialTwitterData.title
       }&url=${this.socialTwitterData.url}`
     }
+  },
+  watch: {
+    query: debounce(
+      function() {
+        this.search()
+      },
+      250,
+      { maxWait: 1000 }
+    )
+  },
+  methods: {
+    search() {
+      const found = this.$store.state.idx.search(this.query)
+      this.$store.commit('setFound', found)
+    },
+    closeSearch() {
+      this.searchShow = false
+      this.$store.commit('setFound', [])
+    }
   }
 }
 </script>
-<style lang="scss" scoped>
-.icons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-  width: 100%;
-}
+<style lang="styl" scoped>
+.icons,
+.regular
+  display: flex
+  justify-content: space-between
+  align-items: center
+  color: white
+  width: 100%
+
+.search
+  width: 100%
+  display: flex
+  justify-content: space-between
+  align-items: center
 </style>

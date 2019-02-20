@@ -5,6 +5,8 @@ export const state = () => ({
   show: false,
   locale: 'es',
   locales: ['en', 'es'],
+  idx: null,
+  found: [],
   page: {
     title: null,
     subTitle: null,
@@ -32,5 +34,11 @@ export const mutations = {
   },
   setPage(state, page) {
     state.page = page
+  },
+  setIdx(state, idx) {
+    state.idx = idx
+  },
+  setFound(state, found) {
+    state.found = found
   }
 }
