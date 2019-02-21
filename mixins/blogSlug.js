@@ -24,6 +24,21 @@ export default {
           content: `https://daniellombrana.es${this.img}`
         },
         {
+          hid: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary'
+        },
+        {
+          hid: 'twitter:site',
+          name: 'twitter:site',
+          content: '@teleyinex'
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: this.blog.title
+        },
+        {
           hid: 'twitter:description',
           name: 'twitter:description',
           content: this.blog.meta_description
