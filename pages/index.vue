@@ -334,6 +334,7 @@ a
   text-align: center
   justify-content: center
   align-items: center
+  font-family: 'Open Sans', sans-serif
 
 
 .menulink:hover,
