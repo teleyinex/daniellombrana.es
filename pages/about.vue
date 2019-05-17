@@ -9,6 +9,6 @@ export default {
     about
   },
   mixins: [aboutm],
-  layout: 'page'
+  layout: 'about'
 }
 </script>
