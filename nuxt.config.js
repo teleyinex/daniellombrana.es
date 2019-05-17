@@ -31,11 +31,11 @@ function projectURL(key) {
 function generateAllRoutes() {
   return []
     .concat([
-      '/prueba',
       '/',
       '/about/',
       '/projects/',
       '/blog',
+      '/photography',
       '/es',
       '/es/about',
       '/es/projects',
@@ -50,6 +50,21 @@ function generateAllRoutes() {
     .concat(projects.map(p => `${projectURL(p)}.html`))
     .concat(projectsEs.map(p => `/es${projectURL(p)}`))
     .concat(projectsEs.map(p => `/es${projectURL(p)}.html`))
+}
+
+function sitemapUrls(urls) {
+  tmp = []
+  for(const url of urls) {
+    tmp.push(
+      {
+       url: url,
+       changefreq: 'daily',
+       priority: 1,
+       lastmodISO: new Date().toISOString()
+      }
+    )
+  }
+  return tmp
 }
 
 module.exports = {
@@ -117,7 +132,7 @@ module.exports = {
     cacheTime: 1000 * 60 * 15,
     gzip: true,
     generate: true, // Enable me when using nuxt generate
-    routes: generateAllRoutes()
+    routes: sitemapUrls(generateAllRoutes())
   },
   'google-analytics': {
     id: 'UA-36769710-1'
