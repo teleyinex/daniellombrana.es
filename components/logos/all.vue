@@ -7,34 +7,26 @@
 
     v-layout(row wrap justify-center)
       v-flex(xs12 md3)
-        withEnteredViewport
-          vuejs(slot-scope="{ enteredViewport }" :start="enteredViewport" class="icon")
+        vuejs(class="icon")
 
       v-flex(xs12 md3)
-        withEnteredViewport
-          nuxtjs(slot-scope="{ enteredViewport }" :start="enteredViewport" class="icon")
+        nuxtjs(class="icon")
 
       v-flex(xs12 md3)
-        withEnteredViewport
-          postgresql(slot-scope="{ enteredViewport }" :start="enteredViewport" class="icon")
+        postgresql(class="icon")
 
       v-flex(xs12 md3)
-        withEnteredViewport
-          redis(slot-scope="{ enteredViewport }" :start="enteredViewport" class="icon")
+        redis(class="icon")
 
     v-layout(row align-center justify-center wrap)
       v-flex(xs12 md3)
-        withEnteredViewport
-          html5(slot-scope="{ enteredViewport }" :start="enteredViewport" class="icon")
+        html5(class="icon")
 
       v-flex(xs12 md3)
-        withEnteredViewport
-          css3(slot-scope="{ enteredViewport }" :start="enteredViewport" class="icon")
+        css3(class="icon")
 
       v-flex(xs12 md3)
-        withEnteredViewport
-          python(slot-scope="{ enteredViewport }" :start="enteredViewport" class="icon")
-
+        python(class="icon")
 
     v-layout(align-center justify-center row fill-heigh)
       v-flex(xs12 md10)

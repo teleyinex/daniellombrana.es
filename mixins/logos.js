@@ -1,8 +1,7 @@
 export default {
-  props: {
-    start: {
-      type: Boolean,
-      default: false
+  data() {
+    return {
+      start: false
     }
   },
   methods: {
@@ -11,8 +10,8 @@ export default {
         setTimeout(this.$refs.animate.beginElement())
       }
     },
-    daniel() {
-      console.log('done')
+    visibilityChanged(isVisible, entry) {
+      this.start = isVisible
     }
   },
   watch: {

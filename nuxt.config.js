@@ -105,6 +105,7 @@ module.exports = {
     '@/plugins/vuetify',
     '~/plugins/social.js',
     { src: '@/plugins/snap.js', ssr: false },
+    { src: '@/plugins/observe.js', ssr: false },
     '~/plugins/i18n.js'
   ],
 

@@ -1,5 +1,5 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480">
+  <svg v-observe-visibility="{callback: visibilityChanged, once: true}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480">
     <g id="shieldCss" style="opacity: 0;">
       <path fill="#264de4" d="M100.916 441.447L69.968 94.331h340.064L379.05 441.393 239.79 480z" />
       <path fill="#2965f1" d="M240 122.713V450.49l112.528-31.197 26.475-296.58z" />
