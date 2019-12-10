@@ -31,9 +31,9 @@
         clear-icon='mdi-close', style="margin-top:25px;", autofocus)
 </template>
 <script>
-import nav from '~/mixins/nav.js'
 import { debounce } from 'lodash'
 import { mapState, mapMutations } from 'vuex'
+import nav from '~/mixins/nav.js'
 export default {
   mixins: [nav],
   data() {
@@ -99,7 +99,7 @@ export default {
   }
 }
 </script>
-<style lang="styl" scoped>
+<style lang="sass" scoped>
 .icons,
 .regular
   display: flex

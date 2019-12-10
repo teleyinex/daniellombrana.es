@@ -6,7 +6,10 @@ export default {
   },
   methods: {
     startAnim() {
-      if (this.start && this.$refs.hasOwnProperty('animate')) {
+      if (
+        this.start &&
+        Object.prototype.hasOwnProperty.call(this.$refs, 'animate')
+      ) {
         setTimeout(this.$refs.animate.beginElement())
       }
     },

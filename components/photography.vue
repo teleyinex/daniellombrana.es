@@ -31,6 +31,7 @@ export default {
   computed: {
     photography() {
       return require(`~/i18n/photography_${this.$store.state.locale}.md`)
+        .default
     }
   }
 }
@@ -38,7 +39,7 @@ export default {
 <style lang="styl" scoped>
 @require '~assets/style/colors.styl'
 .photography h1, h2, h3, h4, h5, h6, strong {
-	color: primary-photography-800
+  color: primary-photography-800;
 }
 
 .photography a,

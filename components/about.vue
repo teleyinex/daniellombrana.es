@@ -19,7 +19,7 @@ export default {
       return require(`~/i18n/visualpoint_${this.$store.state.locale}.json`)
     },
     about() {
-      return require(`~/i18n/about_${this.$store.state.locale}.md`)
+      return require(`~/i18n/about_${this.$store.state.locale}.md`).default
     },
     img() {
       return require(`~/assets/${this.$store.state.heroImg}`)
@@ -43,8 +43,14 @@ export default {
   justify-content: center;
 }
 
-.about > section > h1, h2, h3, h4, h5, h6, strong {
-	color: primary-about-800
+.about > section > h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+  color: primary-about-800;
 }
 
 .about a,

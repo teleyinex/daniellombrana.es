@@ -42,7 +42,7 @@ export default {
       for (const key of posts) {
         candidates.push(this.blogposts[key])
       }
-      if (this.blog.hasOwnProperty('tags')) {
+      if (Object.prototype.hasOwnProperty.call(this.blog, 'tags')) {
         candidates = candidates.filter(p => isRelated(this.blog.tags, p.tags))
         for (const blog of candidates) {
           blog.href = getUrl(blog.basename, this.$store.state.locale)
