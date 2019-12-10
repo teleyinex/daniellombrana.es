@@ -4,6 +4,9 @@
   "description": "My personal web page",
   "author": "Daniel Lombraña González",
   "private": true,
+  "engines": {
+    "node": "10.x"
+  },
   "scripts": {
     "dev": "yarn md2json && nuxt",
     "build": "yarn md2json && nuxt generate",
@@ -34,6 +37,7 @@
     "node-dir": "^0.1.17",
     "node-sass": "^4.11.0",
     "nuxt": "^2.3.4",
+    "nuxt-cookie-control": "^1.7.4",
     "pug": "2.0.3",
     "pug-plain-loader": "^1.0.0",
     "responsive-loader": "^1.2.0",
