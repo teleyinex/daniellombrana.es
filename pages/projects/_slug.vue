@@ -9,6 +9,15 @@ export default {
   components: {
     project
   },
-  mixins: [projectsSlug]
+  mixins: [projectsSlug],
+  jsonld() {
+    return {
+      '@context': 'http://schema.org',
+      '@type': 'Project',
+      name: this.project.name,
+      description: this.project.meta_description,
+      url: this.$route.fullPath
+    }
+  }
 }
 </script>

@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import { person } from '~/jsonld/person.js'
 export default {
   // head() {
   //   return this.$nuxtI18nSeo()
@@ -31,6 +32,15 @@ export default {
       right: true,
       rightDrawer: false,
       title: 'Vuetify.js'
+    }
+  },
+  jsonld() {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      abstract:
+        'Dad, husband, geek, computer engineer, crowdsourcing expert, citizen science researcher, comics reader, pilates practitioner, runner & Founder at Scifabric.',
+      author: person
     }
   }
 }

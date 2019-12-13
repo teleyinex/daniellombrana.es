@@ -106,7 +106,8 @@ module.exports = {
     '~/plugins/social.js',
     { src: '@/plugins/snap.js', ssr: false },
     { src: '@/plugins/observe.js', ssr: false },
-    '~/plugins/i18n.js'
+    '~/plugins/i18n.js',
+    '~/plugins/jsonld.js'
   ],
 
   router: {

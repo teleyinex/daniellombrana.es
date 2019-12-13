@@ -158,7 +158,7 @@ export default {
           hid: 'home',
           name: 'description',
           content:
-            'Dad, husband, geek, computer engineer, crowdsourcing expert, citizen science researcher, comics reader, pilates practitioner, runner & Founder at Scifabric.'
+            'Dad, husband, geek, computer engineer, crowdsourcing expert, citizen science researcher, comics reader, runner & Founder at Scifabric.'
         },
         {
           hid: 'og:image',

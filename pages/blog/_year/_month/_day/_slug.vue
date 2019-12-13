@@ -4,12 +4,24 @@
 <script>
 import blogSlug from '~/mixins/blogSlug.js'
 import blogpost from '~/components/blogpost.vue'
+import { person } from '~/jsonld/person.js'
 export default {
   layout: 'page',
   scrollToTop: true,
   components: {
     blogpost
   },
-  mixins: [blogSlug]
+  mixins: [blogSlug],
+  jsonld() {
+    return {
+      '@context': 'http://schema.org',
+      '@type': 'BlogPosting',
+      articleBody: this.blog.content,
+      about: this.blog.description,
+      author: person,
+      dateCreated: this.blog.date,
+      headline: this.blog.title
+    }
+  }
 }
 </script>
