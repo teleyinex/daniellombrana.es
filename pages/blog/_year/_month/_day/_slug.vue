@@ -23,6 +23,7 @@ export default {
       headline: this.blog.title,
       name: this.blog.title,
       datePublished: this.blog.date,
+      publisher: person,
       image: {
         '@type': 'imageObject',
         url: this.img.src,

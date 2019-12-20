@@ -2,6 +2,7 @@ export const person = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   givenName: 'Daniel',
+  name: 'Daniel',
   familyName: 'Lombraña',
   email: 'teleyinex@gmail.com',
   url: 'https://daniellombrana.es',
