@@ -33,6 +33,7 @@ Thus, go to your _data folder and create a file named **mydata.yml**. This file 
   person_name: John Doe
   person_position: Digital Solutions Architect
 ```
+
 Then go to your Jekyll folder where you will be rendering your VueJS app. Let's see you want to build a hello world URL, so go to the folder helloworld and edit a file named index.html.
 
 This file will have the front matter as any other Jekyll file, but you will have to modify it to render your VueJS app:
@@ -61,7 +62,7 @@ Well, this has been easy, right? But, how do we adequately integrate our webpack
 
 ### Webpack 
 
-``` javascript
+```javascript
 // webpack.config.js
 var htmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require("webpack");
@@ -114,6 +115,7 @@ vue: {
 
 }
 ```
+
 NOTE: adapt the paths to your specific needs. These are just examples, so feel free to modify them to whatever you like.
 
 As you can see, we're telling webpack to compile our code, minimize it and put it in the right place that we want. Now, you can jump into your VueJS app.
@@ -138,9 +140,10 @@ var app = new Vue({
     components: { App },
 })
 ```
+
 Then, create a components folder and create a file named App.vue:
 
-``` Javascript
+```javascript
 <template>
     <h1 v-for="datum in mydata">{{datum.title}}</h1>
 </template>
@@ -155,6 +158,7 @@ export default {
 <style>
 </style>
 ```
+
 Done! Now you are loading your data created in mydata.yml file into your VueJS app. Now you are free to do whatever you want, as you are in the field of VueJS. Enjoy!
 
 **NOTE**: Jekyll sometimes does not recompile the _data folder, so you will need to re-run it to be sure that your data is updated.
@@ -163,14 +167,15 @@ Done! Now you are loading your data created in mydata.yml file into your VueJS a
 
 We use SaSS to style our Jekyll sites; I guess you do it too. If this is the case, you don't want to have separate sass folders to build your website and your VueJS apps. You can solve it by instructing your VueJS to re-use the Bulma CSS framework. How? Like this:
 
-```scss
+```
 <style lang="scss">
 @import "../../../_sass/_scifabric.scss";
 @import "~buefy/src/scss/buefy";
 
 // your SCSS
-</script>
+</style>
 ```
+
 ## Cavebeats
 
 While this is an excellent **hack** it's not the best solution. It would be much much better to use only a static website generator built with Node.JS or just something like [nuxt.js](https://nuxtjs.org/), but we needed to re-use our Jekyll infrastructure and therefore the hack.
