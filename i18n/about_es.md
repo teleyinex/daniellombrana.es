@@ -6,3 +6,10 @@ Utilizaré siempre las herramientas y tecnologías que mejor se adapten a tu pro
 
 Si además no partes de cero, y ya tienes un wireframe o mockup, trabajaré codo con codo con tus equipos de UX/UI. Será un placer integrar y desarrollar todas las pantallas de tu proyecto.
 
+# Experiencia
+
+ * Fundador, CEO y CTO de [Scifabric](https://scifabric.com). 
+ * CTO de [PYBOSSA](https://pybossa.com).
+ * CTO de [B4Motion](http://b4motion.com/). 
+ * CTO interino de [Fleeet](https://www.myfleeet.com/).
+ * CTO interino de [BotOn](https://theboton.io/).

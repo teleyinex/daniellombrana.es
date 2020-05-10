@@ -6,6 +6,7 @@
     dark
     large
     @click="open"
+    style="margin-top: 50px;"
   >
     {{ $t('bookAday') }}
   </v-btn>

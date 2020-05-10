@@ -2,7 +2,7 @@
   div
     v-layout(align-center justify-center row fill-heigh)
       v-flex(xs12 md10)
-        .about(style="margin-top:100px;")
+        .about(style="margin-top:50px;")
           h2 {{ $t('aboutTech') }}
 
     v-layout(row wrap justify-center)
