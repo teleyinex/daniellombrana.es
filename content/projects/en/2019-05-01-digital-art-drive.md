@@ -11,7 +11,7 @@ featured: yes
 meta_description: "Store your art collection in a reliable place"
 partners: []
 icon: triangle
-iconauthor: 
+iconauthor:
 lang: en
 role: "CTO, frontend developer, backend developer, data analysis"
 ---

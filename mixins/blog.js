@@ -1,7 +1,5 @@
-import blogEs from '~/static/es/blogposts.json'
-import blogEn from '~/static/en/blogposts.json'
 export default {
-  asyncData({ app, store }) {
+  async asyncData({ app, store }) {
     store.commit('setActive', 'blog')
     store.commit('setColor', '#2980b9')
     store.commit('setCoverImg', 'img/blog/blogheader.jpg')
@@ -11,9 +9,11 @@ export default {
       subTitle: app.i18n.t('blogSubtitle'),
       gradient: 'rgba(0,0,0,0.45), rgba(0,0,0,0.45)'
     })
-    let data = blogEn
+    let data = []
     if (store.state.locale === 'es') {
-      data = blogEs
+      data = await app.$axios.$get('/es/blogposts.json')
+    } else {
+      data = await app.$axios.$get('/en/blogposts.json')
     }
     let blogposts = []
     for (const key of Object.keys(data)) {

@@ -1,33 +1,31 @@
 ---
 layout: project
-title: Dark Skies
-date: 2014-07-04
+title: Lost at Night
+date: 2017-04-01
 tags: crowdcrafting, PYBOSSA, science, light pollution
 type: crowdsourcing
 home: https://lostatnight.daniellombrana.es
-state: beta
-permalink: /projects/darkskies
-featured: no
+state: production
+permalink: /projects/lostatnight
+featured: yes
 meta_description: "Analyzing light pollution from space"
-partners: ['<a href="http://guaix.fis.ucm.es/"><span itemprop="creator">UCM group of Extragalactic Astrophysics and Astronomical Instrumentation</span></a>', '<a href="http://medialab-prado.es/"><span itemprop="creator"> Medialab-Prado</span>', '<a href="http://crowdcrafting.org/"><span itemprop="creator">Crowdcrafting</span></a>']
-icon: space
-iconauthor: <a href="http://earth.jsc.nasa.gov/sseop/images/ESC/large/ISS030/ISS030-E-21177.jpg">NASA</a>
+partners: ['<a href="http://guaix.fis.ucm.es/"><span itemprop="creator">UCM group of Extragalactic Astrophysics and Astronomical Instrumentation</span></a>', '<a href="https://scifabric.com/"><span itemprop="creator"> Scifabric</span>', '<a href="http://crowdcrafting.org/"><span itemprop="creator">Crowdcrafting</span></a>']
+icon: lost
+iconauthor: <a href="https://unsplash.com/photos/yZygONrUBe8">NASA</a>
 lang: en
-role: "developer"
+role: "developer, CTO"
 ---
 
-This is a project where using photographs taken by the astronauts at the International Space Station (ISS), volunteers from all over the world
-help classifying them in order to analyze the light pollution of the cities.
+In 2014 I worked with a reseracher from Madrid, Alejandro Sánchez de Miguel, who wanted to create a citizen science project. The project aim was to classify all pictures taken by astronauts from the International Space Station in order to study the light pollution at cities.
 
 The project started at the [ Citizen Cyberscience Summit ](http://cybersciencesummit.org/) as a prototype as a
 collaboration with the [UCM group of Extragalactic Astrophysics and Astronomical Instrumentation](guaix.fis.ucm.es).
 
-Right now is being developed as part of an ongoing workshop
-in Medialab-Prado: [Madrid Laboratorio Urbano](http://medialab-prado.es/article/madridlaboratoriourbano).
+Then, it continued as part of a workshop at Medialab-Prado: [Madrid Laboratorio Urbano](http://medialab-prado.es/article/madridlaboratoriourbano).
 
-This project has become one of the most popular projects in [Crowdcrafting](http://crowdcrafting.org), with more than 100 thousand tasks, and storing in one single day more than 80 thousand answers.
+This project became one of the most popular projects in our now defunct [Crowdcrafting](https://scifabric.com/crowdcrafting) crowdsourcing platform, with more than 100 thousand tasks, and storing in one single day more than 80 thousand answers thanks to the volunteers.
 
-The project has official support from NASA, ESA, ISS, etc. and has been featured in [FOX tv](https://video.foxnews.com/v/video-embed.html?video_id=3742323090001). Here you have some tweets about the project:
+The project received official support from NASA, ESA, ISS, etc. and it was been featured on prime time on [FOX tv](https://video.foxnews.com/v/video-embed.html?video_id=3742323090001). These are some tweets about the project:
 
 <blockquote class="twitter-tweet" lang="es" align="center"><p>Space station sharper images of Earth at night crowdsourced for science: <a href="http://t.co/bHBiLwvZSv">http://t.co/bHBiLwvZSv</a>   <a href="https://twitter.com/hashtag/ISS?src=hash">#ISS</a> <a href="http://t.co/bL9LymQ6cq">pic.twitter.com/bL9LymQ6cq</a></p>&mdash; NASA (@NASA) <a href="https://twitter.com/NASA/status/499963958552711168">agosto 14, 2014</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -43,9 +41,6 @@ The project has official support from NASA, ESA, ISS, etc. and has been featured
 <blockquote class="twitter-tweet" lang="es" align="center"><p>Citizen Science with Night Images <a href="http://t.co/xEwnPqhLkE">http://t.co/xEwnPqhLkE</a> <a href="https://twitter.com/hashtag/NASA?src=hash">#NASA</a> <a href="http://t.co/FcKAu0C4zB">pic.twitter.com/FcKAu0C4zB</a></p>&mdash; NASA Earth (@NASA_EO) <a href="https://twitter.com/NASA_EO/status/505716577619439616">agosto 30, 2014</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+Due to the success of this project, we created a special web page where we used audio from the Apollo 11 and Apollo 13 missions to showcase this amazing project. The reason? Well, photography has been always played a key role in this field, and during the landing on the moon the astronauts chat about which camera and lenses they want to use. If you want to experience it, I highly recommend you to go to https://lostatnight.daniellombrana.es and enjoy it.
 
-
-For more information, visit the [offial project page](http://www.citiesatnight.org/).
-
-<a target="_blank" href="http://crowdcrafting.org/app/darkskies/">Check the
-project</a>.
+For more information, visit the [offial project page](https://www.citiesatnight.org/).

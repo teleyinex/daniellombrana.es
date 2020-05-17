@@ -1,8 +1,6 @@
-import projectsEs from '~/static/es/projects.json'
-import projectsEn from '~/static/en/projects.json'
 import { getUrl } from '~/utils/projects.js'
 export default {
-  asyncData({ app, store }) {
+  async asyncData({ app, store }) {
     store.commit('setActive', 'projects')
     store.commit('setColor', '#f39c12')
     store.commit('setCoverImg', 'img/project/projectheader.jpg')
@@ -12,9 +10,11 @@ export default {
       subTitle: app.i18n.t('projectsSubtitle'),
       gradient: 'rgba(0,0,0,0.45), rgba(0,0,0,0.45)'
     })
-    let data = projectsEn
+    let data = []
     if (store.state.locale === 'es') {
-      data = projectsEs
+      data = await app.$axios.$get('/es/projects.json')
+    } else {
+      data = await app.$axios.$get('/en/projects.json')
     }
 
     let projects = []

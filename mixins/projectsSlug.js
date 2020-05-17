@@ -1,5 +1,3 @@
-import projectsEs from '~/static/es/projects.json'
-import projectsEn from '~/static/en/projects.json'
 export default {
   head() {
     return {
@@ -49,13 +47,15 @@ export default {
       title: this.project.title
     }
   },
-  asyncData({ app, params, query, store }) {
+  async asyncData({ app, params, query, store }) {
     if (params.slug.indexOf('.html') >= 0) {
       params.slug = params.slug.replace('.html', '')
     }
-    let projects = projectsEn
+    let projects = []
     if (store.state.locale === 'es') {
-      projects = projectsEs
+      projects = await app.$axios.$get('/es/projects.json')
+    } else {
+      projects = await app.$axios.$get('/en/projects.json')
     }
     let project = null
     for (const k of Object.keys(projects)) {

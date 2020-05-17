@@ -11,8 +11,8 @@ featured: yes
 meta_description: "Almacena tu colección de arte de manera segura"
 partners: []
 icon: triangle
-iconauthor: 
-lang: en
+iconauthor:
+lang: es
 role: "CTO, frontend developer, backend developer, data analysis"
 ---
 

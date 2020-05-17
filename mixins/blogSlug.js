@@ -1,5 +1,3 @@
-import blogEs from '~/static/es/blogposts.json'
-import blogEn from '~/static/en/blogposts.json'
 export default {
   mounted() {
     window.scrollTo(0, 0)
@@ -53,15 +51,18 @@ export default {
     }
   },
 
-  asyncData({ app, params, store, payload }) {
+  async asyncData({ app, params, store, payload }) {
     if (params.slug.indexOf('.html') >= 0) {
       params.slug = params.slug.replace('.html', '')
     }
     const slug = `${params.year}-${params.month}-${params.day}-${params.slug}`
-    let blogposts = blogEn
+    let blogposts = []
     if (store.state.locale === 'es') {
-      blogposts = blogEs
+      blogposts = await app.$axios.$get('/es/blogposts.json')
+    } else {
+      blogposts = await app.$axios.$get('/en/blogposts.json')
     }
+
     const blog = blogposts[slug]
     const photo = `img/blog/${blog.icon}.jpg`
     store.commit('setActive', 'blog')
