@@ -1,5 +1,19 @@
 <template>
   <div id="homepage" class="background-home" :class="{homeDesktop: desktop}">
+    <v-dialog v-model="showCookies" dark>
+      <v-card>
+        <v-card-title>Hi! I'm using Google Analytics to know which pages do you visit the most. If you want to disable them, just go ahead.</v-card-title>
+        <v-card-actions>
+          <v-btn flat @click="reject">
+            Disable
+          </v-btn>
+          <v-spacer />
+          <v-btn flat @click="accept">
+            Accept
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
     <div v-show="show">
       <nav class="navbar navbar-fixed-top">
         <div class="">
@@ -107,7 +121,7 @@
             <div
               id="projects"
               ref="projects"
-              class="pull-right" 
+              class="pull-right"
               :class="{'animated fadeIn': menu.projects.animate}"
             >
               <a href="/projects/" class="projectsBtn menulink pull-right" @click.prevent="showCurtain('projects')">
@@ -147,6 +161,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import icon from '~/components/logos/main.vue'
 export default {
   components: { icon },
@@ -213,13 +228,44 @@ export default {
       }
     }
   },
+  computed: {
+    ...mapState({
+      showCookies: state => state.cookies
+    })
+  },
   mounted() {
+    if (process.client) {
+      const gdpr = localStorage.getItem('gdpr')
+      if (gdpr === null) {
+        this.$store.commit('setCookies', true)
+      }
+      if (gdpr === 'false') {
+        this.$store.commit('setCookies', false)
+      }
+      if (gdpr === 'true') {
+        this.$store.commit('setCookies', false)
+        this.$ga.enable()
+      }
+    }
     this.$nextTick(function() {
       window.addEventListener('resize', this.getWindowWidth)
       this.getWindowWidth()
     })
   },
   methods: {
+    reject() {
+      if (process.client) {
+        this.$store.commit('setCookies', false)
+        localStorage.setItem('gdpr', false)
+      }
+    },
+    accept() {
+      if (process.client) {
+        localStorage.setItem('gdpr', true)
+        this.$store.commit('setCookies', false)
+        this.$ga.enable()
+      }
+    },
     setLang(locale) {
       this.$store.commit('setLang', locale)
       this.$i18n.locale = locale
@@ -251,7 +297,7 @@ export default {
 a
   font-size: 15px
 
-.background-home 
+.background-home
   background: black
   height: 100vh
   overflow: hidden
@@ -339,7 +385,7 @@ a
 
 .menulink:hover,
 .menulink:active,
-.menulink:visited 
+.menulink:visited
   text-decoration: none
   color: white
 
@@ -395,7 +441,7 @@ a
   transform: translate(0vw, 0vh) !important
 
 
-.homeDesktop 
+.homeDesktop
   padding: 150px
 
 .logoDesktop

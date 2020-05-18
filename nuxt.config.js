@@ -137,7 +137,8 @@ module.exports = {
     routes: sitemapUrls(generateAllRoutes())
   },
   'google-analytics': {
-    id: 'UA-36769710-1'
+    id: 'UA-36769710-1',
+    disabled: true
   },
   markdownit: {
     injected: true,

@@ -1,4 +1,5 @@
 export const state = () => ({
+  cookies: false,
   active: 'about',
   heroImg: '/assets/img/blog/avatar.jpg',
   color: 'black',
@@ -18,6 +19,9 @@ export const state = () => ({
 })
 
 export const mutations = {
+  setCookies(state, val) {
+    state.cookies = val
+  },
   setLang(state, locale) {
     state.locale = locale
   },
