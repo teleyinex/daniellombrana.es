@@ -54,15 +54,13 @@ function generateAllRoutes() {
 
 function sitemapUrls(urls) {
   tmp = []
-  for(const url of urls) {
-    tmp.push(
-      {
-       url: url,
-       changefreq: 'daily',
-       priority: 1,
-       lastmodISO: new Date().toISOString()
-      }
-    )
+  for (const url of urls) {
+    tmp.push({
+      url: url,
+      changefreq: 'daily',
+      priority: 1,
+      lastmodISO: new Date().toISOString()
+    })
   }
   return tmp
 }
@@ -78,12 +76,20 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name:'description', content: 'Dad, husband, geek, computer engineer, crowdsourcing expert, citizen science researcher, comics reader, pilates practitioner, runner, Founder at SciFabric and CTO at B4Motion.' }
-
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'Dad, husband, geek, computer engineer, crowdsourcing expert, citizen science researcher, comics reader, pilates practitioner, runner, Founder at SciFabric and CTO at B4Motion.'
+      }
     ],
     link: [
       { rel: 'icon', type: 'image/png', href: '/icon.png' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Josefin+Sans|Alegreya+Sans+SC|Open+Sans' }
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css?family=Josefin+Sans|Alegreya+Sans+SC|Open+Sans'
+      }
     ]
   },
 
@@ -95,9 +101,7 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: [
-    '~/assets/style/app.styl'
-  ],
+  css: ['~/assets/style/app.styl'],
   /*
   ** Plugins to load before mounting the App
   */
@@ -111,7 +115,7 @@ module.exports = {
   ],
 
   router: {
-    middleware: ['i18n', 'html'],
+    middleware: ['i18n', 'html']
     // scrollBehavior: function(to, from, savedPosition) {
     //   return { x: 0, y: 0 }
     // }
@@ -149,10 +153,10 @@ module.exports = {
     use: ['markdown-it-emoji']
   },
   manifest: {
-    'name': 'Daniel Lombraña',
-    'short_name': 'Teleyinex',
-    'lang': 'en',
-    'theme_color': '#000000',
+    name: 'Daniel Lombraña',
+    short_name: 'Teleyinex',
+    lang: 'en',
+    theme_color: '#000000'
   },
   meta: {
     ogType: false,
@@ -163,10 +167,7 @@ module.exports = {
   /*
   ** Axios module configuration
   */
-  axios: {
-    // See https://github.com/nuxt-community/axios-module#options
-    baseURL: '/'
-  },
+  axios: {},
 
   /*
   ** Build configuration
@@ -176,7 +177,7 @@ module.exports = {
     plugins: [new VuetifyLoaderPlugin()],
     loaders: {
       stylus: {
-        import: ["~assets/style/variables.styl"]
+        import: ['~assets/style/variables.styl']
       }
     },
 
@@ -184,38 +185,41 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
-      const rule = config.module.rules.find(r => r.test.toString() === '/\\.(png|jpe?g|gif|svg|webp)$/i');
-      config.module.rules.splice(config.module.rules.indexOf(rule), 1);
+      const rule = config.module.rules.find(
+        r => r.test.toString() === '/\\.(png|jpe?g|gif|svg|webp)$/i'
+      )
+      config.module.rules.splice(config.module.rules.indexOf(rule), 1)
       // Run ESLint on save
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-        config.module.rules.push({
-          test: require.resolve('snapsvg'),
-          use: 'imports-loader?this=>window,fix=>module.exports=0'
-        })
-        config.module.rules.push(
-{
-        test: /\.(jpe?g|png)$/i,
-        loader: 'responsive-loader',
-        options: {
-          placeholder: true,
-          quality: 60,
-          sizes: [300, 768, 1024],
-          adapter: require('responsive-loader/sharp')
-        }
-      },
+      config.module.rules.push({
+        enforce: 'pre',
+        test: /\.(js|vue)$/,
+        loader: 'eslint-loader',
+        exclude: /(node_modules)/
+      })
+      config.module.rules.push({
+        test: require.resolve('snapsvg'),
+        use: 'imports-loader?this=>window,fix=>module.exports=0'
+      })
+      config.module.rules.push(
         {
-        test: /\.(gif|svg)$/,
-        loader: 'url-loader',
-        query: {
-          limit: 1000,
-          name: 'img/[name].[hash:7].[ext]'
+          test: /\.(jpe?g|png)$/i,
+          loader: 'responsive-loader',
+          options: {
+            placeholder: true,
+            quality: 60,
+            sizes: [300, 768, 1024],
+            adapter: require('responsive-loader/sharp')
+          }
+        },
+        {
+          test: /\.(gif|svg)$/,
+          loader: 'url-loader',
+          query: {
+            limit: 1000,
+            name: 'img/[name].[hash:7].[ext]'
+          }
         }
-        })
+      )
     }
   },
   generate: {
