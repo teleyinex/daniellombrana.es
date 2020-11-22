@@ -51,19 +51,8 @@ export default {
     }
   },
 
-  async asyncData({ app, params, store, payload }) {
-    if (params.slug.indexOf('.html') >= 0) {
-      params.slug = params.slug.replace('.html', '')
-    }
-    const slug = `${params.year}-${params.month}-${params.day}-${params.slug}`
-    let blogposts = []
-    if (store.state.locale === 'es') {
-      blogposts = await app.$axios.$get('/es/blogposts.json')
-    } else {
-      blogposts = await app.$axios.$get('/en/blogposts.json')
-    }
-
-    const blog = blogposts[slug]
+  async asyncData({ app, params, store, payload, $content }) {
+    const blog = await $content('blog', store.state.locale, params.slug).fetch()
     const photo = `img/blog/${blog.icon}.jpg`
     store.commit('setActive', 'blog')
     store.commit('setColor', '#2980b9')
@@ -74,14 +63,7 @@ export default {
       photoUrl: blog.icon_url,
       gradient: 'rgba(0,0,0,0.45), rgba(0,0,0,0.45)'
     })
-    const find = '{: .img-responsive}'
-    const re = new RegExp(find, 'g')
-
-    blog.content = blog.content.replace('<!--more-->', '')
-    blog.content = blog.content.replace(re, '\n')
-
-    delete blogposts[blog.basename]
-
+    const blogposts = {}
     return {
       blog,
       blogposts
@@ -89,7 +71,7 @@ export default {
   },
   computed: {
     img() {
-      return require(`~/assets/${this.$store.state.heroImg}`)
+      return require(`~/assets/img/blog/${this.blog.icon}.jpg`)
     },
     ogImg() {
       return `${process.env.baseUrl}${this.img}`

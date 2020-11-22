@@ -8,9 +8,9 @@
     "node": "10.x"
   },
   "scripts": {
-    "dev": "yarn md2json && nuxt",
+    "dev": "nuxt",
     "build": "yarn md2json && nuxt generate",
-    "md2json": "m2j -c content/blogposts/en/*.md -o static/en/blogposts.json && m2j -c content/blogposts/es/*.md -o static/es/blogposts.json && m2j -c content/projects/en/*.md -o static/en/projects.json && m2j -c content/projects/es/*.md -o static/es/projects.json",
+    "md2json": "m2j -c content/projects/en/*.md -o static/en/projects.json && m2j -c content/projects/es/*.md -o static/es/projects.json",
     "now-build": "yarn build",
     "start": "nuxt start",
     "generate": "nuxt generate",
@@ -18,6 +18,8 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@nuxt/content": "^1.11.0",
+    "@nuxt/image": "0.0.4",
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/google-analytics": "^2.0.2",
     "@nuxtjs/markdownit": "^1.2.3",

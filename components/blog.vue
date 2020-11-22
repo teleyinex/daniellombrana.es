@@ -3,25 +3,25 @@ v-container(fluid grid-list-xl)
   v-layout(row wrap)
       template(v-for='(blogpost, idx) in currentActive')
         v-flex(xs12, md6)
-          v-card(:key='idx', :hover="true" :nuxt="true" @click="goTo(blogpost.href)")
+          v-card(:key='idx', :hover="true" :nuxt="true" @click="goTo(blogpost.path)")
             v-img(
               :src='img(blogpost).src',
               :aspect-ratio='4/3',
               :srcset="img(blogpost).srcSet"
-              :lazy-src="img(blogpost).placeholder") 
+              :lazy-src="img(blogpost).placeholder")
             v-card-title(primary-title)
               .contentCard
                 h2.mb-0
                   | {{ blogpost.title }}
             v-card-actions
-              v-btn.pa-0(flat, color="hsla(204, 64%, 24%, 1)", @click="goTo(blogpost.href)") {{$t('readmore')}}
+              v-btn.pa-0(flat, color="hsla(204, 64%, 24%, 1)", :to="`${blogpost.path}`") {{$t('readmore')}}
           v-spacer(:key='`space-${idx}`')
       v-flex(xs12, md6)
         no-ssr
           InfiniteLoading(
             :distance="10"
             spinner="waveDots"
-            ref="infiniteLoading" 
+            ref="infiniteLoading"
             @infinite="onInfinite")
               p(slot='no-more') {{$t('noBlogposts')}}
               p(slot='no-results') {{$t('noBlogposts')}}
@@ -31,10 +31,6 @@ v-container(fluid grid-list-xl)
 <script>
 import { mapState, mapMutations } from 'vuex'
 import InfiniteLoading from 'vue-infinite-loading'
-import lunr from 'lunr'
-require('lunr-languages/lunr.stemmer.support')(lunr)
-require('lunr-languages/lunr.multi')(lunr)
-require('lunr-languages/lunr.es')(lunr)
 export default {
   components: {
     InfiniteLoading
@@ -62,14 +58,6 @@ export default {
     }
   },
   created() {
-    const self = this
-    const idx = lunr(function() {
-      this.use(lunr.multiLanguage('en', 'es'))
-      this.ref('basename')
-      this.field('content')
-      self.blogposts.forEach(blog => this.add(blog), this)
-    })
-    this.$store.commit('setIdx', idx)
     this.currentActive = this.active
     this.origBlogposts = this.blogposts
   },
@@ -78,7 +66,7 @@ export default {
       setShowSearch: 'setShowSearch'
     }),
     img(blog) {
-      return require(`~/assets/${blog.photo}`)
+      return require(`~/assets/img/blog/${blog.icon}.jpg`)
     },
     goTo(link) {
       this.setShowSearch(false)
@@ -134,6 +122,6 @@ export default {
 @require '~assets/style/colors.styl'
 .contentCard
   min-height: 122px
-  h2 
-    color: primary-blog-800
+  h2
+    color: primary-blog-800;
 </style>
