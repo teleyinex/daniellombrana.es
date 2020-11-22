@@ -168,7 +168,7 @@ module.exports = {
   ** Axios module configuration
   */
   axios: {
-    baseUrl: 'https://daniellombrana.es/'
+    baseURL: 'https://daniellombrana.es/'
   },
 
   /*
