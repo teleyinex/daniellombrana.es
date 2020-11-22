@@ -167,7 +167,9 @@ module.exports = {
   /*
   ** Axios module configuration
   */
-  axios: {},
+  axios: {
+    baseUrl: '/'
+  },
 
   /*
   ** Build configuration
