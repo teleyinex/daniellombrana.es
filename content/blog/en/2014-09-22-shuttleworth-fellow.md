@@ -1,7 +1,8 @@
 ---
-title: Year in review as a Shuttleworth Fellow 
+title: Year in review as a Shuttleworth Fellow
 template: entry
 slug: shuttleworth-fellow
+date: 2014-09-22
 icon: open
 icon_author: Open Source
 icon_url: https://www.flickr.com/photos/opensourceway/7496803264
@@ -24,20 +25,20 @@ another year. Amazing!
 ## Becoming a fellow
 
 One of the most interesting aspects of pitching to Shuttleworth Foundation is
-the [video pitch](https://shuttleworthfoundation.org/applications/). Last year, 
+the [video pitch](https://shuttleworthfoundation.org/applications/). Last year,
 I wrote a [blog post about it](/blog/2013/09/23/video-tutorial.html) explaining
 how I shot that video.
 
 *The video is a very interesting exercise*, as you are forced to express your
 ideas in a very succinct way, as you only have 5 minutes, and you have to use
-them wisely. 
+them wisely.
 
 My first video was done in two days, and I loved the result, however I needed
-something better for my second year. 
+something better for my second year.
 
 I wanted to show *how much I love my work*,
 who am I, and what do I do thanks to the foundation's support. The result?
-Well, judge it yourself (please leave me a comment about the video): 
+Well, judge it yourself (please leave me a comment about the video):
 
 <div class="embed-responsive embed-responsive-16by9">
 <iframe src='http://www.youtube.com/embed/rQ3yLqdEhvc' frameborder='0' allowfullscreen></iframe></div>
@@ -45,7 +46,7 @@ Well, judge it yourself (please leave me a comment about the video):
 *I'll write another blog post about the video and its creation. I promise.*
 
 The foundation liked it, and I have another year to do many more things thanks
-to their support. 
+to their support.
 
 ## Year in review
 
@@ -58,7 +59,7 @@ page](http://pybossa.com/about/).
 
 Now, with a team behind [PYBOSSA](http://pybossa.com) and
 [Crowdcrafting](http://Crowdcrafting.org), I could move quickly, learn from the
-team, attend more meatings, develope new features and make Crowdcrafting a place 
+team, attend more meatings, develope new features and make Crowdcrafting a place
 to hang out for citizen scientists.
 
 ## Growing step by step
@@ -70,7 +71,7 @@ wanted to use it for their [own citizen science project](http://micropasts.org/)
 
 ![Happy animated gif](http://i.giphy.com/13k4VSc3ngLPUY.gif){: .img-responsive}
 
-In April of 2014, the project was launched with great [coverage](http://www.ucl.ac.uk/news/news-articles/0414/160414-crowdsourcing-bronze-age) 
+In April of 2014, the project was launched with great [coverage](http://www.ucl.ac.uk/news/news-articles/0414/160414-crowdsourcing-bronze-age)
 from the
 [press](http://www.theguardian.com/science/2014/aug/18/volunteers-british-museum-crowdsourcing-archeology).
 At the time of this writing, the project has managed to have more than 1

@@ -3,10 +3,11 @@ title: Citizen Science hackfest in Madrid
 template: entry
 slug: cienciaciudadana
 icon: balloon
+date: 2013-12-02
 icon_url: http://www.flickr.com/photos/32985084@N00/11170324726/
 icon_author: Daniel Lombraña
 tags: citizen, science, spectrometer, balloonmapping, epicollect, crowdcrafting, PYBOSSA
-location: Madrid, Spain 
+location: Madrid, Spain
 meta_description: Citizen Science hackfest in Madrid
 headline: "Madrid citizens participate in a citizen science hackfest."
 layout: blog
@@ -23,17 +24,17 @@ The event this time had the participation of two respected experts in the field 
 * Fermín Serrano, from [Ibercivis Foundation](http://ibercivis.es/)
 
 The hackfest started with a morning session with talks from all the experts in a dedicated session
-for the FECYT ComCiRed event at Medialab-Prado. 
+for the FECYT ComCiRed event at Medialab-Prado.
 
 Francois Grey introduced the past,
-present and future of citizen science. 
+present and future of citizen science.
 
 Shannon explained how her team create open hardware tools
 for measuring the world (balloon mapping tools, spectrometers, infrared cameras, etc.) representing
-the *volunteer sensing* area. 
+the *volunteer sensing* area.
 
 Then, Fermín Serrano presented the Ibercivis Foundation and its work
-in Spain regarding *volunteer computing* with several research projects. 
+in Spain regarding *volunteer computing* with several research projects.
 
 I closed the session
 talking about *volunteer thinking* showing how [Crowdcrafting](http://crowdcrafting.org) can
@@ -51,7 +52,7 @@ that we will be having along the day:
 
 ## Balloon Mapping
 
-We started with the balloon mapping workshop. Shannon explained step by step how to 
+We started with the balloon mapping workshop. Shannon explained step by step how to
 build the balloon mapping using one of the kits they shell (but that you can build yourself if you want).
 
 <div class="embed-responsive embed-responsive-16by9">
@@ -93,10 +94,10 @@ ortho-referenced the pictures for creating the following map:
 <iframe style="border:none;" width="500" height="375" src="http://archive.publiclab.org/leaflet/?tms=http://mapknitter.org/tms/plant-wall-in-madrid/&lat=40.4110814393&lon=-3.6931872467"></iframe>
 </div>
 
-That was imported into a [Crowdcrafting application](http://crowdcrafting.org/app/balloonmappingmadrid/), using this [template](http://github.com/PYBOSSA/app-mapknitter). 
-The result, people can help you to count the number of participants in the workshop really easily. 
+That was imported into a [Crowdcrafting application](http://crowdcrafting.org/app/balloonmappingmadrid/), using this [template](http://github.com/PYBOSSA/app-mapknitter).
+The result, people can help you to count the number of participants in the workshop really easily.
 
-The template provides also an example for measuring areas within the map, and this was the clue to 
+The template provides also an example for measuring areas within the map, and this was the clue to
 propose to the [Medialab-Prado Urban Bees Keepers](http://mieldebarrio.wordpress.com/) to use this
 technique to map the roofs of the city, and quantify which ones are good or not (sometimes they cannot
 access the roofs) and also to measure how many square meters are available to place several hives.

@@ -2,12 +2,13 @@
 title: The adventure of knowing
 template: entry
 slug: la-aventura-del-saber
+date: 2014-01-14
 icon: adventure
 icon_url: http://www.flickr.com/photos/thekellyscope/4450666660/
 icon_author: Sean Kelly
 tags: "learning, tv, show, open science, crowdcrafting, PYBOSSA"
-location: Madrid, Spain 
-meta_description: The adventure of knowing 
+location: Madrid, Spain
+meta_description: The adventure of knowing
 headline: "Hacking together at Medialab-Prado."
 layout: blog
 ---
@@ -30,7 +31,7 @@ Here you have the snippet of the program showing the event (*starts at minute 00
             href="http://www.rtve.es/alacarta/videos/la-aventura-del-saber/aventura-del-saber-medialab-prado/2306808/"><strong>La Aventura del Saber. Medialab-Prado</strong></a></div>
 </div>
 
-La aventura del saber (or the adventure of knowing) is a daily show in the mornings of the Spanish national tv, with the goal of teaching and divulge using interviews and documentaries. 
+La aventura del saber (or the adventure of knowing) is a daily show in the mornings of the Spanish national tv, with the goal of teaching and divulge using interviews and documentaries.
 
 
 Enjoy!!!

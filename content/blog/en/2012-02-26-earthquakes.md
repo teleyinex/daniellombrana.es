@@ -2,6 +2,7 @@
 title: Earthquakes & citizen scientists
 template: entry
 slug: earthquakes-citizen-science
+date: 2012-02-26
 icon: asiathome
 icon_author: Daniel Lombraña
 icon_url:  http://www.flickr.com/photos/32985084@N00/6930671175/
@@ -12,7 +13,7 @@ headline: "Asia@Home a workshop about citizen scientists studying earthquakes."
 layout: blog
 ---
 
-The Asia@Home workshop started focused on earthquakes and volunteers to track them. 
+The Asia@Home workshop started focused on earthquakes and volunteers to track them.
 The project The Quake Catcher Network presented their results an approach in different parts of the world (Chile, Christchurch, California, etc.) and a collaboration with Taiwan for monitoring earthquakes.
 
 <!--more-->

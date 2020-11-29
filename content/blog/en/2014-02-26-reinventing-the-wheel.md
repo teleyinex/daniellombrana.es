@@ -3,10 +3,11 @@ title: Reinventing the wheel
 template: entry
 slug: reinventing-the-wheel
 icon: wheel
+date: 2014-02-26
 icon_author: Rego Korosi
 icon_url: https://www.flickr.com/photos/korosirego/4849943530
 tags: citizen science, open source, PYBOSSA, evolution, discussion
-location: London, United Kingdom 
+location: London, United Kingdom
 meta_description: Reinventing the wheel
 headline: "Reinventing the wheel can be treated as a technique that will assure enough genetic diversity."
 layout: blog
@@ -38,9 +39,9 @@ What do you think? Is it a waste of time, energy and resources? My answer: yes, 
 
 During these three days I've thinking about all these issues and I've realized that when we are arguing about it, what we are actually doing is describing [the evolution of species](http://en.wikipedia.org/wiki/On_the_Origin_of_Species) (thanks Darwin!).
 
-Yes, you have read it right: the evolution of species. Let me explain it to you. 
+Yes, you have read it right: the evolution of species. Let me explain it to you.
 
-Let's pick a topic completely randomly (cough): *citizen science*. Now let's pick a problem within it: *developing a citizen science framework*. 
+Let's pick a topic completely randomly (cough): *citizen science*. Now let's pick a problem within it: *developing a citizen science framework*.
 
 Developing the best possible and imaginable citizen science framework is challenging, right? Thus, we can say that finding a solution is going to be complicated, really difficult.
 

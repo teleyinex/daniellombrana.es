@@ -2,6 +2,7 @@
 title: 2nd CERN Summer Webfest
 template: entry
 slug: cernsummerwebfest2013
+date: 2013-07-06
 icon: cernsummerwebfest2013
 icon_url: http://www.flickr.com/photos/32985084@N00/5389725627/
 icon_author: Daniel Lombraña
@@ -40,7 +41,7 @@ The tutorials were really interesting:
 
 As in the previous year, the atmosphere was amazing. The students participated in the tutorials (when they were not really busy working on their projects), chat and about everything: code, code, code and work ;-)
 
-On Sunday afternoon, the final pitches about the projects were made and the winner was announced: [Mother Hunt](http://www.citizencyberscience.net/wiki/index.php?title=Mother_Hunt). In this game you are an end state particle that explores CERN to try to reconstruct his family history of decay mothers and ancestors. 
+On Sunday afternoon, the final pitches about the projects were made and the winner was announced: [Mother Hunt](http://www.citizencyberscience.net/wiki/index.php?title=Mother_Hunt). In this game you are an end state particle that explores CERN to try to reconstruct his family history of decay mothers and ancestors.
 
 The team created a 3D world using some of the available models at CERN, making a very interesting and immersing game in the CERN scenario. They created a short story line that could be played in one computer, and they are hoping to release the software, so more people could play it and learn physics.
 

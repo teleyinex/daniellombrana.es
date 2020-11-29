@@ -3,10 +3,11 @@ title: Shooting and Editing videos in GNU/Linux
 template: entry
 slug: video-tutorial
 icon: film
+date: 2013-09-23
 icon_author: Rami
 icon_url: https://www.flickr.com/photos/rhk313/4846377172
 tags: video, open source, tutorial, shuttleworth, tools, crowdcrafting, PYBOSSA
-location: Madrid, Spain 
+location: Madrid, Spain
 meta_description: How to make a short film using only open source tools
 headline: "Open source tools for video editing."
 layout: blog
@@ -22,7 +23,7 @@ The Fellowship program is incredible!!! Why? Because all the fellows are amazing
 
  * [Mark Surman, Executive Director of Mozilla](http://www.shuttleworthfoundation.org/fellows/mark-surman/)
  * [Francois Grey, Coordinator of Citizen Cyberscience Centre](http://www.shuttleworthfoundation.org/fellows/francois-grey/)
- * [Rufus Pollock, co-founder & director of Open Knowledge Foundation](http://www.shuttleworthfoundation.org/fellows/dr-rufus-pollock/), or 
+ * [Rufus Pollock, co-founder & director of Open Knowledge Foundation](http://www.shuttleworthfoundation.org/fellows/dr-rufus-pollock/), or
  * [Phillip Schmidt, Executive Director & Co-founder of Peer 2 Peer University](http://www.shuttleworthfoundation.org/fellows/philipp-schmidt/).
 
 <!--more-->
@@ -31,21 +32,21 @@ Amazing right!? As you can see, the level is pretty high!!! If you additionally 
 
 ## Fellowship Application
 
-[Applying for the fellowship](http://www.shuttleworthfoundation.org/funding/fellowship-programme/) has two steps: 
+[Applying for the fellowship](http://www.shuttleworthfoundation.org/funding/fellowship-programme/) has two steps:
  * the regular paperwork, plus
  * *a short video* pitching why they should fund you and your idea that would change the world.
 
 **Pitching a project or idea is always hard**. *Really hard*.
 
-You need to work on it as much as possible, trying to express as clear as possible what do you want to achieve if they fund you. 
+You need to work on it as much as possible, trying to express as clear as possible what do you want to achieve if they fund you.
 
 For the written proposal, a good colleague and friend helped me to shape the document. However *for the video I was alone!*
 
-Before moving forward I have to say that I own a *good* [<abbr>DSLR</abbr> camera](http://en.wikipedia.org/wiki/Digital_single-lens_reflex_camera). It is not a professional one, those are *really* expensive, but a modest one that allows me to record video in high quality without too many problems. 
+Before moving forward I have to say that I own a *good* [<abbr>DSLR</abbr> camera](http://en.wikipedia.org/wiki/Digital_single-lens_reflex_camera). It is not a professional one, those are *really* expensive, but a modest one that allows me to record video in high quality without too many problems.
 
 As you can see, the gear was not the problem. **The problem was that I've never filmed a short-movie in my life**.
 
-## Learning how to shoot a video 
+## Learning how to shoot a video
 
 OK, so I do not know how to shot a video, and I only have 2 weeks to write the application, shoot the video, edit it, and send everything to the program. Did I hear the word: stress? :-)
 
@@ -63,11 +64,11 @@ The DSLR lessons are a must if you want to shoot with your reflex camera. I watc
 
 Once I had the proper configuration for the camera, I had to actually shoot the video. But before going crazy and shooting the video I decided to do a bit of research again. I basically expended one afternoon browsing Vimeo and Youtube looking for other video applications for the Shuttleworth program to see what other people have done.
 
-*In general all the videos were shot with one cut, with the applicant in front of it pitching his/her project, using almost all the time available (5 minutes)*. 
+*In general all the videos were shot with one cut, with the applicant in front of it pitching his/her project, using almost all the time available (5 minutes)*.
 
 While I was watching them I knew that I had to do something different, if I wanted to get the attention of the Shuttleworth judges. Hence, I decided to create several cuts and reduce the video length as much as possible. Why? Because I didn't want to get them bored :-)
 
-Now that I knew the initial structure, it was time to learn a bit more about how to tell a story with a film. 
+Now that I knew the initial structure, it was time to learn a bit more about how to tell a story with a film.
 
 ## The Art of Storytelling
 
@@ -84,19 +85,19 @@ The video explains perfectly well how your script has to look like. Basically yo
  * **Plot: What is the conflict and the journey?** This is the tough one! Basically pitching my project.
  * **Purpose: Why should anyone care about this?** Another complicated one. Here I explained why I'm pitching my project and why is important.
 
-After watching the video I started to write down my script answering those questions. The process helped me a lot to focus on what I wanted to tell, and more importantly: how I wanted to tell it. 
+After watching the video I started to write down my script answering those questions. The process helped me a lot to focus on what I wanted to tell, and more importantly: how I wanted to tell it.
 
-My pitch is about **Citizen Science**: *citizens doing science themselves with simple tools that I am building*. 
+My pitch is about **Citizen Science**: *citizens doing science themselves with simple tools that I am building*.
 
-*Citizens are a key aspect of my pitch*, so I wanted to give them a lot of relevance and I decided that I needed to film citizens, but where? 
+*Citizens are a key aspect of my pitch*, so I wanted to give them a lot of relevance and I decided that I needed to film citizens, but where?
 
-Well, the question **Place** gave me the answer. As I am based in Madrid, I decided to present the place, Madrid, filming in the most popular places: Sol, Callao and Plaza Mayor. 
+Well, the question **Place** gave me the answer. As I am based in Madrid, I decided to present the place, Madrid, filming in the most popular places: Sol, Callao and Plaza Mayor.
 
 As I was going to shoot in the streets, I needed to add also a sound track according to the city style, so I browsed several open licensed tracks from Hip-Hop that could fit with the video. As you can see, I was giving body to the video thanks to answering the four P's.
 
 Then I wrote plot. I expend a lot of time refining it until I was happy with it. I recorded myself several times repeating the text, just to get used to what I wanted to say, to check the rhythm, etc. This process helped me to rephrase several times parts of the script and to make it the way I wanted. It may sound silly, but I recommend you to film yourself to relax, learn your script, look natural, etc.
 
-Finally, my wife and I went to the final place where she was going to film me. But when we were preparing I realized that we had a problem: the quality of sound as we were going to shoot in a public space. 
+Finally, my wife and I went to the final place where she was going to film me. But when we were preparing I realized that we had a problem: the quality of sound as we were going to shoot in a public space.
 
 The previous cuts were fine, because the sound of the camera were going to be overwritten by the sound track. However, in this new cuts I needed to sound as clear as possible. Therefore, how can I do it without a professional camera? The solution: back to Vimeo and Google to do some research about it.
 
@@ -137,7 +138,7 @@ Did you say: painful? Yes, really painful. Add also that every time I changed so
     <iframe src="//player.vimeo.com/video/66246703?title=0&amp;byline=0&amp;portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </div>
 
-After all, the experience was really beautiful because I learned a lot. Some people would say that open source tools sucks (I do not share that feeling at all), but actually, thanks to that I've learned a lot, due to all the research I did. 
+After all, the experience was really beautiful because I learned a lot. Some people would say that open source tools sucks (I do not share that feeling at all), but actually, thanks to that I've learned a lot, due to all the research I did.
 
 When I finished my video, I checked the OpenShot web site to see if there is a new version that fixes all the problems I had,  and luckily it seems like a new version is in the oven. Thus, in the future it should be much easier to do it in GNU/Linux.
 

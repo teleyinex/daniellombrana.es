@@ -1,14 +1,15 @@
 ---
 title: The Art of Graceful Reloading
 template: entry
+date: 2015-07-01
 slug: gracefulreloading
 icon: loop
 icon_author: Leo Prieto
 icon_url: https://www.flickr.com/photos/leoprieto/582310541/
 tags: Crowdcrafting, architecture, infrastructure
 location: Madrid, Spain
-meta_description: "Reloading your server without your users noticing it" 
-headline: "Reloading your server without your users noticing it" 
+meta_description: "Reloading your server without your users noticing it"
+headline: "Reloading your server without your users noticing it"
 layout: blog
 ---
 
@@ -18,12 +19,12 @@ In this blog post I explain how we have achieved it using [uWSGI Zerg Mode](http
 
 <!--more-->
 
-In a previous post I've already said that I love [uWSGI](http://uwsgi-docs.readthedocs.org/). 
+In a previous post I've already said that I love [uWSGI](http://uwsgi-docs.readthedocs.org/).
 The main reason? You can do lots of nice tricks in your stack without having to add other
 layers to it, like for example: **graceful reloading**.
 
 The documentation from uWSGI is really great, and it covers most of the cases for graceful
-reloading, however due to our current [stack](/blog/2015/02/10/infrastructure.html) and our [auto deployments solution](/blog/2015/02/25/autodeployments.html) 
+reloading, however due to our current [stack](/blog/2015/02/10/infrastructure.html) and our [auto deployments solution](/blog/2015/02/25/autodeployments.html)
 we needed something that integrated well with the so called: [Zerg dance](http://uwsgi-docs.readthedocs.org/en/latest/articles/TheArtOfGracefulReloading.html#the-zerg-dance-pausing-instances).
 
 ## Zerg Mode
@@ -32,7 +33,7 @@ The Zerg mode is a nice feature from uWSGI that allows you to run your web appli
 file descriptors over Unix sockets. As stated on the [official docs](http://uwsgi-docs.readthedocs.org/en/latest/articles/TheArtOfGracefulReloading.html#zerg-mode):
 
 *Zerg mode works by making use of the venerable “fd passing over Unix sockets” technique.*
- 
+
 *Basically, an external process (the zerg server/pool) binds to the various sockets required by your app. Your uWSGI instance, instead of binding by itself, asks the zerg server/pool to pass it the file descriptor. This means multiple unrelated instances can ask for the same file descriptors and work together.*
 
 
@@ -54,7 +55,7 @@ zerg = /tmp/zerg_master.sock
 {% endhighlight %}
 
 And you are done! That will configure your server to run in Zerg mode. However,
-we can configure it to handle reloading in a more useful way: keeping a binary copy of 
+we can configure it to handle reloading in a more useful way: keeping a binary copy of
 the previous running instance, pausing it, and deploying the new code on a new Zerg.
 This is known as Zerg Dance, so let's dance!
 
@@ -77,7 +78,7 @@ Because uWSGI can have as many master FIFOs as you want allowing you to pause ze
 and move between them. This feature allows us to keep a binary copy of previously deployed code
 on the server, that you can pause/resume and use it when something goes wrong.
 
-This is really fast. The only issue is that you'll need more memory on your server, but I 
+This is really fast. The only issue is that you'll need more memory on your server, but I
 think it's worthy as you'll be able to rollback a deployment with just two commands (we'll see
 that in a moment).
 
@@ -113,7 +114,7 @@ hook-accepting1-once = writefifo:/var/run/new.fifo 1
 {% endhighlight %}
 
 After the FIFOs there is a section where we declare some hooks. These hooks will handle
-automatically which FIFO has to be used in case of a server is started again. 
+automatically which FIFO has to be used in case of a server is started again.
 
 The usual work flow will be the following:
 

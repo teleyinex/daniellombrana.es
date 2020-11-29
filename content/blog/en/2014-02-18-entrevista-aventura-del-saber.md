@@ -2,16 +2,17 @@
 title: Interview
 slug: interview-aventura-del-saber
 icon: camera
+date: 2014-02-18
 icon_author: EstatesGazzette
 icon_url: http://www.flickr.com/photos/48698930@N04/7637177726/
 tags: citizen science, tv, interview, open science, crowdcrafting, PYBOSSA
-location: Madrid, Spain 
+location: Madrid, Spain
 meta_description: The adventure of knowing interview
 headline: "Citizen science means opening the doors of the labs."
 layout: blog
 ---
 
-Last week I was invited by [La Aventura del Saber](http://www.rtve.es/television/la-aventura-del-saber/), a TV show from the **Spanish National TV**, 
+Last week I was invited by [La Aventura del Saber](http://www.rtve.es/television/la-aventura-del-saber/), a TV show from the **Spanish National TV**,
 to talk about Citizen Science and explain it.
 
 To me it was a great surprise, one of those that make your day, and I felt really honored and proud to be part of their program.

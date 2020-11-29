@@ -3,10 +3,11 @@ title: Sharing your PYBOSSA application analysis with Enki
 template: entry
 slug: pybossa-enki
 icon: enki
+date: 2013-12-16
 icon_author: Georgelazenby
 icon_url: http://en.wikipedia.org/wiki/File:Chaos_Monster_and_Sun_God.png
 tags: "enki, science, analysis, sharing, open science, crowdcrafting, PYBOSSA"
-location: Madrid, Spain 
+location: Madrid, Spain
 meta_description: Sharing your PYBOSSA application analysis with Enki
 headline: "Analyzing your PYBOSSA project with Python."
 layout: blog
@@ -55,7 +56,7 @@ getting the most voted answer is as simple as this:
 As Enki uses Pandas software, the describe function will detect if it is dealing with strings, or with numbers. In the latter case you
 will get the mean, avg, std, etc. as a result of the output. Handy, right?
 
-## Ipython + Enki = sharing the analysis 
+## Ipython + Enki = sharing the analysis
 
 Therefore, Enki is the right tool for doing the analysis of any of your PYBOSSA applications. However, I wanted to provide a more
 interesting tool. I wanted to easily share the analysis in order to embrace **open science**, so other researchers and citizens could

@@ -2,6 +2,7 @@
 title: CERN Summer Webfest
 template: entry
 slug: cernsummerwebfest2012
+date: 2012-08-09
 icon: cernsummerwebfest
 icon_author: Daniel Lombraña
 icon_url: http://www.flickr.com/photos/32985084@N00/7771808714/

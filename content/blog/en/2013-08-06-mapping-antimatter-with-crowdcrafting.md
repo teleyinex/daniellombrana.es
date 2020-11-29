@@ -3,6 +3,7 @@ title: Mapping Antimatter tracks with Crowdcrafting.org
 template: entry
 slug: mapping-antimatter-crowdcrafting
 icon: antimatter
+date: 2013-08-06
 icon_url: http://home.web.cern.ch/sites/home.web.cern.ch/files/styles/medium/public/image/experiment/2013/01/alpha.jpg?itok=ZPb7wNsC
 icon_author: CERN
 tags: CERN, crowdcrafting, Webfest, science, physics
@@ -54,7 +55,7 @@ We divided the work between different groups, and we worked together in the diff
  * 3D model of tracks using HTML5 WebGL.
  * Physics description of the problem and tutorial.
 
-For the 2D Canvas solution we decided to use the popular [Kinetic.JS](http://www.kineticjs.com/) library. This library is very versatile as you can not only render images in the 2D canvas, but also paint lines. 
+For the 2D Canvas solution we decided to use the popular [Kinetic.JS](http://www.kineticjs.com/) library. This library is very versatile as you can not only render images in the 2D canvas, but also paint lines.
 
 For the 3D model we decided to use the popular [Three.JS library](http://threejs.org/). We created a 3D area using the Tron colors palette to draw the reported tracks by the users.
 

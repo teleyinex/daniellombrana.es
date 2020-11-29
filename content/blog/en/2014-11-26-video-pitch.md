@@ -1,11 +1,12 @@
 ---
 title: Video pitching one day of my life
 template: entry
-slug: video-pitching-my-life 
+slug: video-pitching-my-life
+date: 2014-11-26
 icon: 8mm
 icon_author: Kevin Stanchfield
 icon_url: https://www.flickr.com/photos/sgt_spanky/3970722137
-tags: video, science, Crowdcrafting, PYBOSSA, application 
+tags: video, science, Crowdcrafting, PYBOSSA, application
 location: Madrid, Spain
 meta_description: Video Pitching
 headline: "Filming one day of my life to pitch why it matters to support me."
@@ -19,22 +20,22 @@ thrown away into the pool of *boring-nothing-new* videos basket.
 
 As [I've told you
 recently](http://daniellombrana.es/blog/2014/09/22/shuttleworth-fellow.html),
-I've been offered a second year fellowship at the 
+I've been offered a second year fellowship at the
 Shuttleworth Foundation, but in order to get a second year you've to pitch again
 your project, and of course it has to have a video.
 
-When I got my first year, [I blogged about it](http://daniellombrana.es/blog/2013/09/23/video-tutorial.html). 
-Shooting was a lot of fun, but also very painful due to the software I used to 
+When I got my first year, [I blogged about it](http://daniellombrana.es/blog/2013/09/23/video-tutorial.html).
+Shooting was a lot of fun, but also very painful due to the software I used to
 edit the video (OpenShot if you were wondering which one).
 
-While recording a second video this year should be easier because the foundation 
+While recording a second video this year should be easier because the foundation
 already knows me, **I wanted to shoot a video that explained
 who am I, and more importantly, why it matters to support me**. For these
 reasons, *I decided to record a day of my life and show it to them*.
 
 ## Step 0: The script
 
-If you read my [previous blog post](http://daniellombrana.es/blog/2013/09/23/video-tutorial.html) 
+If you read my [previous blog post](http://daniellombrana.es/blog/2013/09/23/video-tutorial.html)
 about how to shoot a video, you know that you've to ask yourself the 4 Ps before writing your script:
 
  * **People: Who is in the story?**
@@ -58,13 +59,13 @@ the video.
 
 ## Step 1: Video gear
 
-This year I used the same camera as in the last one, my beloved Canon 550D. 
+This year I used the same camera as in the last one, my beloved Canon 550D.
 I borrowed a 35mm fixed lens to have a nice touch in the video (just because I
 love that lens, hehe).
 
 As I was going to film myself walking, I needed a way to shoot the video in a
 steady mode. As I didn't want to expend lots of money in buying a professional rig, I
-decided to create my own following some [tutorials on the web](https://www.youtube.com/watch?v=RNCwPDXODMs). 
+decided to create my own following some [tutorials on the web](https://www.youtube.com/watch?v=RNCwPDXODMs).
 
 Next photo shows the front side of the rig. The white plate is where you attach
 your camera. You can also see the two handles to do some panning shots:
@@ -81,14 +82,14 @@ give me a more steady movement of the camera:
 Once I built my own rig (lots of fun!), I needed to work in the microphone of the camera.
 The problem was that I was going to be shooting in the streets, so lots of
 noise will get through ruining the sound due a feature known as Automatic Gain
-Control (AGC). 
+Control (AGC).
 
 My camera has a microphone input, but it has an issue: you cannot disable the
 AGC. This feature continuously adjusts the audio levels so
 that loud sounds won’t overload and distort, and soft sounds won’t go unheard.
 
 While this sounds fantastic, it actually ruins your video recordings, as you
-will get all the ambient noise in your movie, and what you really want is to listen 
+will get all the ambient noise in your movie, and what you really want is to listen
 to the speakers. Hence I needed a way to disable AGC hacking the camera. My
 reaction:
 
@@ -115,9 +116,9 @@ written the script and built my own gear to start filming.
 
 ## Editing the video
 
-Last year I used [OpenShot](http://www.openshot.org/) and I had lots of problems. 
+Last year I used [OpenShot](http://www.openshot.org/) and I had lots of problems.
 Basically, every time I changed anything, the software crashed. Luckily for me,
-even though it crashed 
+even though it crashed
 the status was saved, so *I could work with it*. However, as you can imagine,
 this was very painful as every change involved a crash, restart, wait to load
 all the video and sound clips, check the changes, do a modification and again a

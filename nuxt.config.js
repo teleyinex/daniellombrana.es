@@ -2,19 +2,19 @@ const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 const { VuetifyProgressiveModule } = require('vuetify-loader')
 const pkg = require('./package')
 
-let blogposts = require('./static/en/blogposts.json')
-blogposts = Object.keys(blogposts)
-
-let blogpostsEs = require('./static/es/blogposts.json')
-blogpostsEs = Object.keys(blogpostsEs)
-
-function blogpostURL(key) {
-  const tmp = key.split('-')
-  const date = tmp.slice(0, 3)
-  const rest = tmp.slice(3)
-  const href = `/blog/${date[0]}/${date[1]}/${date[2]}/${rest.join('-')}`
-  return href
-}
+// let blogposts = require('./static/en/blogposts.json')
+// blogposts = Object.keys(blogposts)
+//
+// let blogpostsEs = require('./static/es/blogposts.json')
+// blogpostsEs = Object.keys(blogpostsEs)
+//
+// function blogpostURL(key) {
+//   const tmp = key.split('-')
+//   const date = tmp.slice(0, 3)
+//   const rest = tmp.slice(3)
+//   const href = `/blog/${date[0]}/${date[1]}/${date[2]}/${rest.join('-')}`
+//   return href
+// }
 
 let projects = require('./static/en/projects.json')
 projects = Object.keys(projects)
@@ -29,27 +29,27 @@ function projectURL(key) {
 }
 
 function generateAllRoutes() {
-  return []
-    .concat([
-      '/',
-      '/about/',
-      '/projects/',
-      '/blog',
-      '/photography',
-      '/es',
-      '/es/about',
-      '/es/projects',
-      '/es/photography',
-      '/es/blog'
-    ])
-    .concat(blogposts.map(b => blogpostURL(b)))
-    .concat(blogposts.map(b => `${blogpostURL(b)}.html`))
-    .concat(blogpostsEs.map(b => `/es${blogpostURL(b)}`))
-    .concat(blogpostsEs.map(b => `/es${blogpostURL(b)}.html`))
-    .concat(projects.map(p => projectURL(p)))
-    .concat(projects.map(p => `${projectURL(p)}.html`))
-    .concat(projectsEs.map(p => `/es${projectURL(p)}`))
-    .concat(projectsEs.map(p => `/es${projectURL(p)}.html`))
+  return (
+    []
+      .concat([
+        '/',
+        '/about/',
+        '/projects/',
+        '/photography',
+        '/es',
+        '/es/about',
+        '/es/projects',
+        '/es/photography'
+      ])
+      // .concat(blogposts.map(b => blogpostURL(b)))
+      // .concat(blogposts.map(b => `${blogpostURL(b)}.html`))
+      // .concat(blogpostsEs.map(b => `/es${blogpostURL(b)}`))
+      // .concat(blogpostsEs.map(b => `/es${blogpostURL(b)}.html`))
+      .concat(projects.map(p => projectURL(p)))
+      .concat(projects.map(p => `${projectURL(p)}.html`))
+      .concat(projectsEs.map(p => `/es${projectURL(p)}`))
+      .concat(projectsEs.map(p => `/es${projectURL(p)}.html`))
+  )
 }
 
 function sitemapUrls(urls) {
@@ -126,12 +126,16 @@ module.exports = {
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
+    '@nuxt/content',
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/markdownit',
     '@nuxtjs/google-analytics',
     '@nuxtjs/sitemap'
   ],
+  content: {
+    // Options
+  },
   sitemap: {
     path: '/sitemap.xml',
     hostname: 'https://daniellombrana.es',

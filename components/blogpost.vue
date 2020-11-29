@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    .blogContent(v-html="$md.render(blog.content)")
+    nuxt-content(:document="blog").blogContent
     v-container(fluid grid-list-xl ml-0 pa-0, v-if="suggestedBlogposts.length")
       v-layout(row wrap)
         v-flex(xs12)
@@ -82,11 +82,11 @@ code::-webkit-scrollbar:horizontal, {
     width: 4px;
     height: 4px
 }
- 
+
 code::-webkit-scrollbar-track {
     background: gray-100
 }
- 
+
 code::-webkit-scrollbar-thumb {
     background: primary-blog-700
 }
@@ -131,19 +131,19 @@ code::-webit-scrollbar-corner {
   color: primary-blog-600;
   font-size: 20px;
   font-weight: bold;
-  display: inline-block; 
+  display: inline-block;
   width: 1em;
   margin-left: -1em;
 }
-.embed-responsive { 
+.embed-responsive {
   position: relative;
-  padding-bottom: 56.25%; 
-  height: 0; 
-  overflow: hidden; 
-  max-width: 100%; 
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
   margin-top: 25px;
   margin-bottom: 25px;
 
-} 
+}
 .embed-responsive iframe, .embed-responsive object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 </style>

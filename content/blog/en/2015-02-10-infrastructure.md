@@ -2,12 +2,13 @@
 title: Crowdcrafting stack
 template: entry
 slug: crowdcrafting-stack
+date: 2015-02-10
 icon: engine
 icon_author: Sina
 icon_url: https://www.flickr.com/photos/limerick6/14038228238
 tags: Crowdcrafting, architecture, infrastructure
 location: Madrid, Spain
-meta_description: 
+meta_description:
 headline: "Whenever someone creates something with all of their heart, then that creation is given a soul"
 layout: blog
 ---
@@ -23,7 +24,7 @@ On December 4 of 2014, we got the very wonderful news that
 [Crowdcrafting](http://crowdcrafting.org) was recognized as [one of the social
 technological companies of the year](http://socialtech.org.uk/nominet-trust-100/).
 
-Wining this price has been amazing, a recognition to our really hard to make our 
+Wining this price has been amazing, a recognition to our really hard to make our
 Crowdcrafting site robust, scalable and stable.
 
 **TL;DR** as this is going to describe our current infrastructure and how we run
@@ -85,8 +86,8 @@ grow horizontally without taking care of where the files are being served.
 
 Additionally, if someone does not want to enable the CDN, they can configure
 PYBOSSA to use the local uploader and use a Glusterfs to distribute the files
-across all the servers. We didn't like this solution as it added another point for 
-failure in our systems and we've to take care of it ourselves, while the CDN does 
+across all the servers. We didn't like this solution as it added another point for
+failure in our systems and we've to take care of it ourselves, while the CDN does
 this for us *automagically*.
 
 Once the request is in the [uWSGI](https://uwsgi-docs.readthedocs.org) middleware, the PYBOSSA server will probably
@@ -105,14 +106,14 @@ performance and community around it. We LOVE IT! Best DB ever.
 As we will have lots of connections coming from different servers, we wanted to
 improve how we handle those connections to the DB to reduce overhead and timing
 establishing connections, closing, etc. For this issue we're using in each
-PYBOSSA server [PgBouncer](https://wiki.postgresql.org/wiki/PgBouncer) for pooling the connections to two [PostgreSQL](http://www.postgresql.org) servers: 
+PYBOSSA server [PgBouncer](https://wiki.postgresql.org/wiki/PgBouncer) for pooling the connections to two [PostgreSQL](http://www.postgresql.org) servers:
 
  - Master node accepting read and write queries, and
  - Slave node accepting only read queries.
 
 PYBOSSA establishes two different connections to the databases in order to use
 read-only connections when we want to grab just information, or write
-connections when we've to write something back to the DB. 
+connections when we've to write something back to the DB.
 
 While [PgBouncer](https://wiki.postgresql.org/wiki/PgBouncer) pools connections, it does not load balance them, so for this
 reason we use [HAProxy](http://www.haproxy.org) to load balance the READ queries between the master and
@@ -125,7 +126,7 @@ balancing our infrastructure easily.
 
 While this solution is great, some queries need to be cached before hitting the
 database as they take time to be processed (i.e. statistics for Crowdcrafting
-projects). For this reason we're using [Redis](http://redis.io) and [Sentinel](http://redis.io/topics/sentinel) to cache almost 
+projects). For this reason we're using [Redis](http://redis.io) and [Sentinel](http://redis.io/topics/sentinel) to cache almost
 everything.
 
 ## Redis & Sentinel
@@ -136,9 +137,9 @@ love them too :-)
 ![](http://i.giphy.com/f31DK1KpGsyMU.gif){: .img-responsive}
 
 Since the very beginning PYBOSSA has been using [Redis](http://redis.io) and [Sentinel](http://redis.io/topics/sentinel) to build a
-load-balance high-available cache solution. 
+load-balance high-available cache solution.
 
-There set up is pretty simple: one [Redis](http://redis.io) master node that accepts read and write 
+There set up is pretty simple: one [Redis](http://redis.io) master node that accepts read and write
 queries, while almost every other node in our infrastructure has a slave node.
 
 Additionally [Sentinel](http://redis.io/topics/sentinel) takes care of handling all these nodes for us
@@ -149,20 +150,20 @@ the DB, improving our performance.
 More over, we are using [Redis](http://redis.io) also for background jobs (i.e. exporting results,
 computing statistics, sending emails, etc.) thanks to
 [Python-RQ](http://python-rq.org/) and [rq-scheduler](https://github.com/ui/rq-scheduler)
-to run periodic jobs. 
+to run periodic jobs.
 
 We checked Celery but it was overkilling for what we are
-building and we decided again to keep things simple. 
+building and we decided again to keep things simple.
 
 [Python-RQ](http://python-rq.org/) and
-[rq-scheduler](https://github.com/ui/rq-scheduler) are small libraries that can be easily adapted to our 
+[rq-scheduler](https://github.com/ui/rq-scheduler) are small libraries that can be easily adapted to our
 needs, plus we already have in our systems [Redis](http://redis.io) so it was the best candidate
 for us.
 
 ### Summary
 
-In summary, we're using micro frameworks to build our project paired with 
-a very simple infrastructure that allows us to grow 
+In summary, we're using micro frameworks to build our project paired with
+a very simple infrastructure that allows us to grow
 horizontally without problems and load balance our incoming traffic efficiently.
 
 The next picture shows how a request goes through our current setup:
@@ -173,18 +174,18 @@ The next picture shows how a request goes through our current setup:
 **UPDATE**: Some people have asked about our numbers. The truth is that
 the current setup can serve up to 2.5k rpm in less than 200ms for 1500
 users browsing the site at the same time (we've 2 PYBOSSA servers with 2GB of RAM
-and 2 cores each, while the DBs have 4GB of RAM and 4 cores -master and slave). 
+and 2 cores each, while the DBs have 4GB of RAM and 4 cores -master and slave).
 
-In August 2014 we managed to store in our servers more than 1.5 datum per second 
-one day. At that moment the DB servers have only 1GB of RAM, 
-and taking into account that the OS takes around 200MB of it, 
+In August 2014 we managed to store in our servers more than 1.5 datum per second
+one day. At that moment the DB servers have only 1GB of RAM,
+and taking into account that the OS takes around 200MB of it,
 the DBs were using only 800MB of RAM.
 
 ## Deployments & Ansible
 
 Up to now we've been managing all our infrastructure by hand. However, in the
 last weeks we've been migrating our infrastructure to be completely
-controlled via [Ansible](http://www.ansible.com). 
+controlled via [Ansible](http://www.ansible.com).
 
 Additionally, we've developed our own in-house solution
 for automatic deployments for all the team integrated with Github Deployments
