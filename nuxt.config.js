@@ -192,36 +192,36 @@ module.exports = {
       )
       config.module.rules.splice(config.module.rules.indexOf(rule), 1)
       // Run ESLint on save
-      config.module.rules.push({
-        enforce: 'pre',
-        test: /\.(js|vue)$/,
-        loader: 'eslint-loader',
-        exclude: /(node_modules)/
-      })
+      // config.module.rules.push({
+      //   enforce: 'pre',
+      //   test: /\.(js|vue)$/,
+      //   loader: 'eslint-loader',
+      //   exclude: /(node_modules)/
+      // })
       config.module.rules.push({
         test: require.resolve('snapsvg'),
         use: 'imports-loader?this=>window,fix=>module.exports=0'
       })
-      config.module.rules.push(
-        {
-          test: /\.(jpe?g|png)$/i,
-          loader: 'responsive-loader',
-          options: {
-            placeholder: true,
-            quality: 60,
-            sizes: [300, 768, 1024],
-            adapter: require('responsive-loader/sharp')
-          }
-        },
-        {
-          test: /\.(gif|svg)$/,
-          loader: 'url-loader',
-          query: {
-            limit: 1000,
-            name: 'img/[name].[hash:7].[ext]'
-          }
-        }
-      )
+      // config.module.rules.push(
+      //   {
+      //     test: /\.(jpe?g|png)$/i,
+      //     loader: 'responsive-loader',
+      //     options: {
+      //       placeholder: true,
+      //       quality: 60,
+      //       sizes: [300, 768, 1024],
+      //       adapter: require('responsive-loader/sharp')
+      //     }
+      //   },
+      //   {
+      //     test: /\.(gif|svg)$/,
+      //     loader: 'url-loader',
+      //     query: {
+      //       limit: 1000,
+      //       name: 'img/[name].[hash:7].[ext]'
+      //     }
+      //   }
+      // )
     }
   },
   generate: {

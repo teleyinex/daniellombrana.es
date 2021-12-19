@@ -8,8 +8,7 @@
     <v-img
       v-if="$store.state.show"
       cover
-      :src="img.src"
-      :srcset="img.srcSet"
+      :src="img"
       :aspect-ratio="4/3"
       :lazy-src="img.placeholder"
       :position="whichPosition"
@@ -71,7 +70,10 @@ export default {
       }
     },
     img() {
-      return require(`~/assets/${this.$store.state.heroImg}`)
+      const url = `https://teleyinex.imgix.net/assets/${
+        this.$store.state.heroImg
+      }?auto=compress&fm=webp`
+      return url
     }
   },
   mounted() {

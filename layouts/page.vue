@@ -8,8 +8,7 @@
     <v-img
       v-if="$store.state.show"
       cover
-      :src="img.src"
-      :srcset="img.srcSet"
+      :src="img"
       :aspect-ratio="4/3"
       :lazy-src="img.placeholder"
       position="top"

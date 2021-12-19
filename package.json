@@ -4,9 +4,6 @@
   "description": "My personal web page",
   "author": "Daniel Lombraña González",
   "private": true,
-  "engines": {
-    "node": "10.x"
-  },
   "scripts": {
     "dev": "yarn md2json && nuxt",
     "build": "yarn md2json && nuxt generate",
@@ -43,7 +40,7 @@
     "pug-plain-loader": "^1.0.0",
     "responsive-loader": "^1.2.0",
     "sass-loader": "^7.1.0",
-    "sharp": "^0.21.3",
+    "sharp": "^0.29.3",
     "snapsvg": "^0.5.1",
     "social-media-links": "^1.0.2",
     "vivus": "^0.4.4",
