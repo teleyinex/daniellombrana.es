@@ -77,7 +77,10 @@ export default {
       setShowSearch: 'setShowSearch'
     }),
     img(blog) {
-      return require(`~/assets/${blog.photo}`)
+      const url = `https://teleyinex.imgix.net/assets/${
+        blog.photo
+      }?auto=compress&fm=webp`
+      return url
     },
     goTo(link) {
       this.setShowSearch(false)

@@ -52,8 +52,10 @@ export default {
   },
   methods: {
     suggestedCover(project) {
-      const photo = `img/project/${project.icon}.jpg`
-      return require(`~/assets/${photo}`)
+      const url = `https://teleyinex.imgix.net/assets/img/project/${
+        project.icon
+      }.jpg?auto=compress&fm=webp`
+      return url
     },
     goTo(link) {
       this.$store.commit('setShow', false)

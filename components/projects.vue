@@ -47,7 +47,10 @@ export default {
 
   methods: {
     img(project) {
-      return require(`~/assets/${project.photo}`)
+      const url = `https://teleyinex.imgix.net/assets/${
+        project.photo
+      }?auto=compress&fm=webp`
+      return url
     },
     goTo(link) {
       this.$store.commit('setShow', false)

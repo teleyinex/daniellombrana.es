@@ -63,7 +63,10 @@ export default {
       }
     },
     img() {
-      return require(`~/assets/${this.$store.state.heroImg}`)
+      const url = `https://teleyinex.imgix.net/assets/${
+        this.$store.state.heroImg
+      }?auto=compress&fm=webp`
+      return url
     }
   },
   mounted() {
