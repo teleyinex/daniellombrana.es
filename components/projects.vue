@@ -5,9 +5,8 @@ v-container(fluid grid-list-xl)
         v-flex(xs12, md6)
           v-card(:key='idx', :hover="true", :nuxt="true", @click="goTo(project.href)")
             v-img(
-              :src='img(project).src',
+              :src='img(project)',
               :aspect-ratio='4/3',
-              :srcset="img(project).srcSet"
               :lazy-src="img(project).placeholder")
             v-card-title(primary-title)
               .contentCard
