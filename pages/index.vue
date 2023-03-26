@@ -299,7 +299,7 @@ a
 
 .background-home
   background: black
-  height: 100vh
+  height: 100dvh
   overflow: hidden
   color: white
   font-family: 'Josefin Sans', sans-serif !important
@@ -392,7 +392,7 @@ a
 
 .logo
   width: 100vw
-  height: calc(100vh - 120px)
+  height: calc(100dvh - 120px)
   display: flex
   flex-flow: column
   justify-content: center
@@ -408,7 +408,7 @@ a
 
 .curtain
   width: 100vw
-  height: 100vh
+  height: 100dvh
   background-color: white
   z-index: 2000
   position: fixed
@@ -446,7 +446,7 @@ a
 
 .logoDesktop
   width: auto
-  height: calc(100vh - 420px)
+  height: calc(100dvh - 420px)
 
 
 .aboutBtn,
