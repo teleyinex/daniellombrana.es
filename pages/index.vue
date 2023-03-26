@@ -299,6 +299,7 @@ a
 
 .background-home
   background: black
+  height: 100vh
   height: 100dvh
   overflow: hidden
   color: white
@@ -392,6 +393,7 @@ a
 
 .logo
   width: 100vw
+  height: calc(100vh - 120px)
   height: calc(100dvh - 120px)
   display: flex
   flex-flow: column
@@ -408,6 +410,7 @@ a
 
 .curtain
   width: 100vw
+  height: 100vh
   height: 100dvh
   background-color: white
   z-index: 2000
@@ -446,6 +449,7 @@ a
 
 .logoDesktop
   width: auto
+  height: calc(100vh - 420px)
   height: calc(100dvh - 420px)
 
 
