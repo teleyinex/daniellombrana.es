@@ -13,7 +13,7 @@
       :lazy-src="img.placeholder"
       :position="whichPosition"
       :gradient="$store.state.page.gradient"
-      :max-height="maxHeight"
+      class="size"
     >
       <div class="headlines">
         <h1>{{ $store.state.page.title }}</h1>
@@ -122,4 +122,11 @@ export default {
   text-align: center;
   h1, h2, h3, h4, h5, h6
     color: white
+
+.size
+  max-height: 520px;
+
+@media(min-width: 1000px)
+  .size
+    max-height: 90vh;
 </style>
