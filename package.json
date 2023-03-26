@@ -32,14 +32,12 @@
     "markdown-it-emoji": "^1.4.0",
     "markdown-to-json": "^0.5.1",
     "node-dir": "^0.1.17",
-    "node-sass": "^4.11.0",
     "nuxt": "^2.3.4",
     "nuxt-cookie-control": "^1.7.4",
     "nuxt-jsonld": "^1.4.4",
     "pug": "2.0.3",
     "pug-plain-loader": "^1.0.0",
     "responsive-loader": "^1.2.0",
-    "sass-loader": "^7.1.0",
     "sharp": "^0.29.3",
     "snapsvg": "^0.5.1",
     "social-media-links": "^1.0.2",
@@ -70,6 +68,8 @@
     "frontmatter-markdown-loader": "^1.5.2",
     "nodemon": "^1.18.9",
     "prettier": "1.14.3",
+    "sass": "^1.55.0",
+    "sass-loader": "^10.3.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2"
   }

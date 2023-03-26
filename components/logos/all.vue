@@ -3,7 +3,6 @@
     v-layout(align-center justify-center row fill-heigh)
       v-flex(xs12 md10)
         .about(style="margin-top:50px;")
-          h2 {{ $t('aboutTech') }}
 
     v-layout(row wrap justify-center)
       v-flex(xs12 md3)
@@ -28,10 +27,11 @@
       v-flex(xs12 md3)
         python(class="icon")
 
+      v-flex(xs12 md3)
+        solidity(class="icon")
+
     v-layout(align-center justify-center row fill-heigh)
       v-flex(xs12 md10)
-        .about(v-html="$md.render($t('aboutTechInfo'))")
-        bookAday
 </template>
 <script>
 import python from '~/components/logos/python.vue'
@@ -41,6 +41,7 @@ import html5 from '~/components/logos/html5.vue'
 import css3 from '~/components/logos/css3.vue'
 import redis from '~/components/logos/redis.vue'
 import vuejs from '~/components/logos/vuejs.vue'
+import solidity from '~/components/logos/solidity.vue'
 import withEnteredViewport from '~/components/withEnteredViewport'
 import bookAday from '~/components/bookAday'
 export default {
@@ -53,7 +54,8 @@ export default {
     html5,
     css3,
     redis,
-    vuejs
+    vuejs,
+    solidity
   }
 }
 </script>

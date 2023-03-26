@@ -66,7 +66,7 @@ function sitemapUrls(urls) {
 }
 
 module.exports = {
-  mode: 'universal',
+  mode: 'static',
 
   /*
   ** Headers of the page
@@ -127,7 +127,7 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa',
+    // '@nuxtjs/pwa',
     '@nuxtjs/markdownit',
     '@nuxtjs/google-analytics',
     '@nuxtjs/sitemap'
